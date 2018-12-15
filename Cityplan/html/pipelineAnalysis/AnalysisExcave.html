@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>开挖分析</title>
+    <link rel="stylesheet" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/analysis.css" />
+</head>
+
+<body id="container" class="easyui-layout">
+    <div region="north" id="northDiv">
+        <div class="cardTitle">参数设置</div>
+
+        <div class="paramSetInner">
+            <table class="paramTable paramNoMagTop">
+                <tr>
+                    <td>
+                        <span>缓冲半径:</span>
+                    </td>
+
+                    <td>
+                        <input class='validation fourBefOneAfterInput' maxlength="5" type="text" id="txtBufferDist" value="5" />
+
+                        <span class="afterInText">米</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>开挖深度:</span>
+                    </td>
+
+                    <td>
+                        <input class='validation fourBefOneAfterInput' maxlength="5" type="text" id="txtDepth" value="3" />
+
+                        <span class="afterInText">米</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" class="colTdRight">
+                        <input type="checkbox" name="checkExcave" id="checkExcave" />
+
+                        <label for="checkExcave">开挖地面模型</label>
+
+                        <input type="checkbox" name="checkInfo" id="checkInfo" checked/>
+
+                        <label for="checkInfo">生成辅助模型</label>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="buttonTd">
+                <button id="roadClip">沿路开挖&nbsp;</button>
+                <button id="customClip">自定义开挖</button>
+                <button id="analysis" disabled>分析</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="tablediv" region="center" border="false">
+        <div class="cardTitle">分析结果</div>
+
+        <div id="dgDiv">
+            <table id="tabhead" class="threeAve">
+                <thead>
+                    <th class="col">编号</th>
+                    <th class="col">类型</th>
+                    <th class="col">图层</th>
+                </thead>
+            </table>
+
+            <div id="resultDiv">
+                <table id="tblResult" class="threeAve">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div region="south" id="southDiv" class="twoChcOneBtn" border="false">
+        <input type="checkbox" id="showResult" name="showResult" disabled />显示结果
+
+        <input type="checkbox" id="detailData" name="detailData" disabled />详细信息
+
+        <button id="importExcelBtn" disabled>导出</button>
+    </div>
+
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/json.js"></script>
+
+    <script type="text/javascript" src="../../js/stamplib/FileValueStringMap.js"></script>
+
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+
+    <script type="text/javascript" src="../../js/stamplib/statistics.js"></script>
+
+    <script type="text/javascript" src="../../js/pipelineAnalysis/terrainExcavate.js"></script>
+
+    <script type="text/javascript" src="../../js/pipelineAnalysis/analysisExcave.js"></script>
+</body>
+
+</html>

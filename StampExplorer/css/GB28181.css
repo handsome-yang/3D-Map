@@ -1,0 +1,162 @@
+/**
+ * 作       者：StampGIS Team
+ * 创建日期：2017年 11月 14日
+ * 描       述：视频监控相关功能
+ * 注意事项：
+ * 遗留 Bug：0
+ * 修改日期：2017年 11月 17日
+ ******************************************/
+
+body {
+	font-family: "Microsoft Yahei";
+	background-color: #eaedf2;
+	height: 100%;
+	width: 100%;
+}
+
+#divTreeParent {
+	height: 200px;
+	border: lightgrey 2px solid;
+	margin-top: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#state {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#state table {
+	margin-top: 10px;
+	height: 20px;
+	width: 100%;
+}
+
+#state table td:nth-child(1) {
+	width: 40px;
+}
+
+#state table td:nth-child(2),
+#state table td:nth-child(4) {
+	width: 10px !important;
+}
+
+#state table td:nth-child(3),
+#state table td:nth-child(5) {
+	width: 20px !important;
+	text-align: left;
+}
+
+#state .tdimg {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#controlDiv {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: white;
+}
+
+#controlDiv table tr td {
+	width: 100%;
+	/*text-align: center;*/
+	padding-left: 10px;
+}
+
+#controlIMG {
+	position: relative;
+	margin: 0 auto;
+	height: 220px;
+	width: 215px;
+	background-repeat: no-repeat;
+	background-image: url(../images/GB28181/control9_grey.png);
+	background-size: 100% 100%;
+}
+
+#tdUp,
+#tdDown,
+#tdLeft,
+#tdRight,
+#tdStop,
+#zoomAdd,
+#zoomDown,
+#play,
+#stopPlay {
+	height: 25px !important;
+	width: 25px !important;
+	position: absolute !important;
+}
+
+#tdUp {
+	top: 18px;
+	left: 96px;
+}
+
+#tdDown {
+	top: 124px;
+	left: 96px;
+}
+
+#tdLeft {
+	top: 70px;
+	left: 42px;
+}
+
+#tdRight {
+	top: 70px;
+	right: 42px;
+}
+
+#tdStop {
+	top: 72px;
+	right: 94px;
+}
+
+#zoomAdd {
+	bottom: 36px;
+	right: 8px;
+}
+
+#zoomDown {
+	bottom: 36px;
+	left: 8px;
+}
+
+#play {
+	bottom: 6px;
+	left: 66px;
+}
+
+#stopPlay {
+	bottom: 6px;
+	right: 66px;
+}
+
+.param {
+	text-align: center;
+}
+
+.daibiao {
+	text-align: center;
+	line-height: 28px;
+	display:block;
+	color: #999999;
+}
+
+.daibiao2 {
+	text-align: center;
+	line-height: 28px;
+	display:block;
+	color: #999999;
+}
+
+#btnConfirm {
+	margin-top: 14px;
+	margin-left: 80px;
+}
+
+#modelDiv {
+	margin-left: 12px;
+}

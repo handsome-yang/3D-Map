@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>导入SHP</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+</head>
+
+<body>
+    <table class="paramTable">
+        <tr>
+            <td>
+                <span>选择文件:</span>
+            </td>
+            <td>
+                <input id="selectPath" name="startHeight" class="inputText" type="text" onkeyup="showValue(this.value)" value="" />
+                <button class="afterInText" onclick="selectVect()">选取文件</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>投影文件:</span>
+            </td>
+            <td>
+                <input id="referenceInput" name="startHeight" type="text" class="inputText" value="" />
+                <button class="afterInText"  onclick="addSpatialReference()">选取投影</button>
+            </td>
+        </tr>
+    </table>
+    <div class="buttonTd">
+        <button id="btnImport" onClick="importVect()">导入</button>
+        <button id="btnCancel" onClick="window.close()">取消</button>
+    </div>
+    <object id="dataProcess" classid="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></object>
+
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../js/stamplib/export.js"></script>
+    <script type="text/javascript" src="../../js/stamplib/analysis.js"></script>
+    <script type="text/javascript">
+    var obj = window.dialogArguments;
+    var earth = obj.earth;
+    var KeyVal = {};
+    var locat;
+
+    //选择导入文件
+    function selectVect() {
+        var filePath = earth.UserDocument.OpenFileDialog(earth.RootPath, "shape文件(*.shp)|*.shp|dxf文件(*.dxf)|*.dxf|dwg文件(*.dwg)|*.dwg");
+        if (filePath == "") {
+            return;
+        }
+        $("#selectPath").attr("value", filePath);
+    }
+
+    //选择投影文件
+    function addSpatialReference() {
+        var filePath = earth.UserDocument.OpenFileDialog(earth.RootPath, "spatial文件(*.spatial)|*.spatial");
+        if (filePath == "") {
+            return;
+        }
+        $("#referenceInput").attr("value", filePath);
+    }
+
+    //导入按钮触发函数
+    function importVect() {
+        //var userdata = STAMP.Userdata();
+        var path = $("#selectPath").val();
+        var reference = $("#referenceInput").val();
+        if (check(path, reference)) {
+            if (path && reference) {
+                //获取图层类型 如shape, dxf, dwg
+                var pathStr = path.split(".");
+                var type = pathStr[pathStr.length - 1];
+                var exp = STAMP.ExportSHP(earth);
+                var polygon = exp.importFileNotSave(path, reference, type);
+                KeyVal[path] = path;
+                obj.polygon = polygon;
+                locat = exp.getLocationObj();
+            }
+        } else {
+            return;
+        }
+        window.close();
+    }
+
+    //容错判断
+    function check(path, reference) {
+
+        var pathStr = path.split(".");
+        var type = pathStr[pathStr.length - 1];
+        if (type != "dwg" && type != "dxf" && type != "shp") {
+            alert("矢量文件格式不正确,请重新选择文件!");
+            return false;
+        }
+
+        var referenceStr = reference.split(".");
+        var referencetype = referenceStr[referenceStr.length - 1];
+        if (referencetype != "spatial") {
+            alert("空间参考文件格式不正确,请重新选择文件!");
+            return false;
+        }
+
+        if (path === "" || path === undefined || reference === "" || reference === undefined) {
+            alert("请选择文件与投影文件!");
+            return false;
+        }
+
+        if (KeyVal[path]) {
+            alert("您已经导入过了!");
+            if (locat && locat.lon && locat.lat) {
+                earth.GlobeObserver.GotoLookat(locat.lon, locat.lat, 50, 0, 60, 0, 200);
+            }
+            return false;
+        }
+
+        return true;
+    }
+
+    function showValue(obj) {
+        //KeyVal[obj] = obj;
+    }
+    </script>
+</body>
+
+</html>

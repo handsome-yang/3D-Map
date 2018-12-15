@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>地形平整</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+	</head>
+
+	<body>
+		<div id="standDiv">
+			<table class="paramTable">
+				<tr>
+					<td>基准高程:</td>
+					<td>
+						<input type="text" id="elevationValue" value="0" style="width:66px;" onpropertychange="checkNum(this)" />
+						<span class="afterInText">米</span>
+						<button id="getElevation" class="afterInText">取高程</button>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+		<div id="terrainDiv" class="buttonTd">
+			<button id="excavationFill">地形平整</button>
+			<button id="hideTerrain" disabled>隐藏地形</button>
+			<button id="clear">取消</button>
+		</div>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/common/common.js"></script>
+		<!-- 地形挖掘 -->
+		<script src="../../js/stamplib/terrainExcavate.js"></script>
+		<script src="../../js/stamplib/analysis.js"></script>
+		<script>
+			var earth = "";
+
+			function getEarth(earthObj) {
+				earth = earthObj;
+				var analysis = STAMP.Analysis(earth);
+				TerrainExcavate.initTerrain(null, $("#hideTerrain"));
+
+				/**
+				 * 获取高程
+				 * @return {[type]} [description]
+				 */
+				$("#getElevation").click(function() {
+					getAltitude();
+				});
+
+				$("#excavationFill").click(function() {
+					if(check()) {
+						var depth = $("#elevationValue").val();
+						$("#elevationValue").attr("disabled", true);
+						$("#getElevation").attr("disabled", true);
+						$("#excavationFill").attr("disabled", true);
+						$("#hideTerrain").attr("disabled", true);
+						$("#clear").attr("disabled", true);
+						TerrainExcavate.customClip(depth, 12);
+					}
+				});
+
+				var getAltitude = function() {
+					earth.Event.OnCreateGeometry = function(pval) {
+						currentElevation = pval.Altitude.toFixed(3);
+						$("#elevationValue").val(earth.Measure.MeasureTerrainAltitude(pval.Longitude, pval.latitude).toFixed(2));
+						earth.Event.OnCreateGeometry = function() {};
+						earth.ShapeCreator.Clear();
+					};
+					earth.ShapeCreator.CreatePoint();
+				};
+
+				$("#hideTerrain").click(function() {
+					if($("#hideTerrain").text() === "隐藏地形") {
+						$("#hideTerrain").text("显示地形");
+						TerrainExcavate.setClipTerrainVis(false);
+					} else {
+						$("#hideTerrain").text("隐藏地形");
+						TerrainExcavate.setClipTerrainVis(true);
+					}
+				});
+				$("#deleteTerrain").click(function() {
+					TerrainExcavate.deleteTempTerrain();
+				});
+				$("#clear").click(function() {
+					analysis.clearHtmlBallon(earth.htmlBallon);
+				});
+				window.onunload = function() {
+					TerrainExcavate.deleteTempTerrain();
+				};
+			}
+
+			function check() {
+				var elevationValue = document.getElementById("elevationValue").value;
+				if("" == elevationValue) {
+					alert("请输入基准高程！");
+					document.getElementById("elevationValue").focus()
+					return false;
+				}
+				if(isNaN(elevationValue)) {
+					alert("基准高程必须是数字！");
+					document.getElementById("elevationValue").focus()
+					return false;
+				}
+				return true;
+			}
+		</script>
+	</body>
+
+</html>

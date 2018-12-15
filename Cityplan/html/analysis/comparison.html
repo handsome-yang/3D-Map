@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>方案比选</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/ztree_v3/zTreeStyle/zTreeStyle.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+</head>
+
+<body id="container" class="easyui-layout">
+    <!-- 左侧面板上半部分 Start -->
+    <div region="north" id="northDiv" border="false">
+        <div class="cardTitle">参数设置</div>
+        
+        <!-- 左侧面板上半部分内容 Start -->
+        <div id="paramSetInner">
+            <div class="buttonDiv">
+                <button class="largeBtn" id="btnCompare" disabled>多屏对比</button>
+
+                <button class="largeBtn" id="btnIndexCompare" disabled>指标对比</button>
+            </div>
+
+            <div class="buttonDiv14">
+                <button class="largeBtn" id="btnSync" disabled>多屏联动</button>
+
+                <button class="largeBtn" id="btnFullScreen">全屏显示</button>
+            </div>
+
+            <div class="buttonDiv14">
+                <label>
+                    <input type="radio" id="doubleScreen" checked />两屏
+                </label>
+
+                <label>
+                    <input type="radio" id="threeScreen" />三屏
+                </label>
+            </div>
+
+            <div class="buttonDiv14">
+                <span style="color:#CCCCCC;">(*按ESC退出全屏状态)</span>
+            </div>
+        </div>
+        <!-- 左侧面板上半部分内容 End -->
+
+    </div>
+    <!-- 左侧面板上半部分 End -->
+
+    <div region="center" id="centerDiv">
+        <div class="cardTitle">方案详情</div>
+
+        <div id="dgDiv">
+            <ul id="planTree" class="ztree"></ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../js/plugins/jquery.ztree.all.min.js"></script>
+    <script type="text/javascript" src="../../js/analysis/comparison.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>视点管理</title>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=8" />
+
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				outline: none;
+			}
+
+			body {
+				outline: none;
+				overflow: hidden;
+			}
+
+			img {
+				border: 0;
+			}
+
+			#device {
+				width: 100%;
+				height: 135px;
+				position: relative;
+				background-color: #fff;
+				padding: 12px 0;
+			}
+
+			.arrowButton {
+				display: inline-block;
+				position: absolute;
+				top: 50%;
+				margin-top: -28px;
+				width: 26px;
+				height: 56px;
+				cursor: pointer;
+			}
+
+			#imgDiv {
+				height: 112px;
+				margin: 0 90px 0 10px;
+				position: relative;
+			}
+
+			#leftButton {
+				left: 0px;
+				z-index: 10;
+			}
+
+			#rightButton {
+				right: 2%;
+				z-index: 10;
+			}
+
+			#expAndImp {
+				position: absolute;
+				width: 90px;
+				top: 0;
+				right: 0;
+			}
+
+			#expAndImp img {
+				cursor: pointer;
+			}
+
+			.impExp {
+				display: block;
+				margin: 15px auto;
+			}
+
+			#close_iframe {
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+
+			#sliderDiv {
+				position: relative;
+			}
+
+			.slideClass {
+				height: 112px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="device">
+			<div id="imgDiv">
+				<div id="sliderDiv" style="width: 100%;height:100%;overflow:hidden;">
+					<div id="slide_1" class="slideClass"></div>
+				</div>
+				<span class="arrowButton" id="leftButton"><img src="../../images/ViewPoint/previous.png"/> </span>
+				<span class="arrowButton" id="rightButton"><img src="../../images/ViewPoint/next.png"/></span>
+			</div>
+			<div id="expAndImp">
+				<img src="../../images/ViewPoint/addBtn.png" title="添加视点" id="addView" class="impExp" alt="添加" />
+				<img src="../../images/ViewPoint/import.png" title="导入视点" id="import" class="impExp" alt="导入" />
+				<img src="../../images/ViewPoint/export.png" title="导出视点" id="export" class="impExp" alt="导出" />
+			</div>
+			<img src="../../images/ViewPoint/closebtn.png" id="close_iframe" alt="" style="cursor:pointer;" title="关闭视点管理">
+		</div>
+
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../js/view/viewpointManagement.js"></script>
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;width:0;height:0;"></OBJECT>
+	</body>
+
+</html>

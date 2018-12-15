@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>数据导入</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	</head>
+	<style type="text/css">
+		body {
+			margin: 0px;
+		}
+
+		.setting input {
+			line-height: 20px !important;
+			width: 200px;
+		}
+
+		#importOutdiv {
+			width: 500px;
+			height: 75px;
+			margin: 20px;
+		}
+
+		#importOutdiv .setting:nth-child(2) {
+			margin-top: 14px;
+		}
+
+		#normalBtn {
+			text-align: center;
+			border-top: 1px solid silver;
+			padding-top: 14px;
+		}
+	</style>
+
+	<body>
+		<div id="importOutdiv">
+			<div class="setting">
+				<span>数据文件:</span>
+				<input type="text" id="dataFile" readonly="true" />
+				<button id="selectFile2">选择</button>
+			</div>
+			<div class="setting">
+				<span>配置文件:</span>
+				<input type="text" id="settingFile" readonly="true" />
+				<button id="selectFile1">选择</button>
+			</div>
+		</div>
+		<div id="normalBtn">
+			<button id="confirm">确定</button>
+			<button id="cancel">取消</button>
+		</div>
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+		<script src="../../js/plugins/jquery1.9.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+		<script src="../../js/common/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/view/gb28181Import.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>二维对象</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css">
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css">
+	</head>
+
+	<body>
+		<table class="paramTable">
+			<tr id="name">
+				<td>
+					<span>缓冲方式:</span>
+				</td>
+
+				<td>
+					<select id="bufferStyle" class="selectM">
+
+						<option value="pingtou">平头</option>
+
+						<option value="yuantou">圆头</option>
+
+					</select>
+				</td>
+			</tr>
+
+			<tr id="radius">
+				<td>
+					<span>缓冲半径:</span>
+				</td>
+
+				<td>
+					<input id="leftRadiusValue" class="inputText" type="text" value="1" onkeyup="checkNum(this, true, 2, 10000)" />
+					<span class="afterInText">米</span>
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+
+			<button onClick="bufferSubmit()">确定</button>
+
+			<button onClick="closeWindow()">取消</button>
+
+		</div>
+		<script src="../../js/common/common.js"></script>
+		<!-- 线缓冲 -->
+		<script src="../../js/userdata/lineBuffer.js"></script>
+	</body>
+
+</html>

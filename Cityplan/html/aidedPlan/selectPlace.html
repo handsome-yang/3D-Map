@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>选址分析</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+
+</head>
+
+<body id="container" class="easyui-layout">
+    <!-- 左侧面板上半部分 Start -->
+    <div region="north" id="northDiv" border="false">
+        <div class="cardTitle">参数设置</div>
+
+        <!-- 左侧面板上半部分内容 Start -->
+        <div class="paramSetInner">
+            <table id="fiieldTable" class="paramTable paramNoMagTop">
+                <tr>
+                    <td>
+                        <span>图层:</span>
+                    </td>
+
+                    <td>
+                        <select name="parcelLayer" id="parcelLayer" class="fourBefSelect" ></select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>用地类型:</span>
+                    </td>
+
+                    <td>
+                        <select name="parcelType" id="parcelType" class="fourBefSelect"></select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>用地面积:</span>
+                    </td>
+
+                    <td>
+                        <select name="areaSelect" id="areaSelect" class="notationSelect">>
+                            <option value="0">>=</option>
+                            
+                            <option value="1"><</option>
+                        </select>
+
+                        <input type="text" onkeyup="checkNum(this, true, 2, null, null)" name="parcelArea" id="parcelArea" class="fourBefBtnAfterInput">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>建筑密度:</span>
+                    </td>
+
+                    <td>
+                        <select name="densitySelect" id="densitySelect" class="notationSelect">
+                            <option value="0">>=</option>
+
+                            <option value="1"><=</option>
+                        </select>
+
+                        <input type="text" onkeyup="checkNum(this, true, 2, null, null)" name="buildingDensity" id="buildingDensity" class="fourBefBtnAfterInput">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>容积率:</span>
+                    </td>
+
+                    <td>
+                        <select name="volumeSelect" id="volumeSelect" class="notationSelect">>
+                            <option value="0">>=</option>
+
+                            <option value="1"><=</option>
+                        </select>
+                        <input type="text" onkeyup="checkNum(this, true, 2, null, null)" name="volumeRatio" id="volumeRatio" class="fourBefBtnAfterInput">
+                    </td>
+                </tr>
+            </table>
+
+            <div class="buttonTd">
+                <button id="btnQuery" class="largeBtn">查询</button>
+            </div>
+        </div>
+        <!-- 左侧面板上半部分内容 End -->
+
+    </div>
+    <!-- 左侧面板上半部分 End -->
+
+    <div id="centerDiv" class="enter" region="center">
+        <div class="cardTitle">查询结果</div>
+
+        <div id="dgDiv">
+            <table id="dg">
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../js/plugins/jquery.js"></script>
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+    <script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+    <script src="../../js/stamplib/searchAnalysis.js"></script>
+    <script type="text/javascript" src="../../js/aidedPlan/selectPlace.js"></script>
+
+</body>
+
+</html>

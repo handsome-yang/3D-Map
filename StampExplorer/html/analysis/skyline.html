@@ -1,0 +1,107 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+		<title>天际线分析</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+
+	</head>
+
+	<body>
+		<table class="paramTable">
+			<tr>
+
+				<td>
+					<span>分析高度:</span>
+				</td>
+
+				<td>
+					<input id="height" class="inputText" type="text" value="0" onpropertychange="checkNum(this, true, 2, 10000)" />
+				</td>
+
+				<td>
+					<span class="afterInText">米</span>
+					<button class="hugeButton" id="mHeight">测量高度</button>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>分析距离:</span>
+				</td>
+
+				<td>
+					<input id="length" class="inputText" type="text" value="600" onpropertychange="checkNum(this, true, 2, 10000)" />
+				</td>
+
+				<td>
+					<span class="afterInText">米</span>
+					<span>（对地形无效）</span>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>地下深度:</span>
+				</td>
+
+				<td>
+					<input id="deep" class="inputText" type="text" value="10" onpropertychange="checkNum(this, true, 2, 10000)" />
+				</td>
+
+				<td>
+					<span class="afterInText">米</span>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>存储路径:</span>
+				</td>
+
+				<td>
+					<input id="savepath" class="inputText" type="text" disabled />
+				</td>
+
+				<td>
+					<button class="afterInText" id="addSavepath">选择路径</button>
+				</td>
+
+			</tr>
+
+			<tr>
+				<td></td>
+				<td></td>
+				<td class="colTdLeft">
+
+					<input id="chkDem" name="type" type="checkbox" />
+
+					<label for="chkDem">地形</label>
+
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+
+			<button class="hugeButton" id="btnStart">开始分析</button>
+
+			<button class="hugeButton" id="prinOut" disabled>导出图片</button>
+
+		</div>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/stamplib/analysis.js"></script>
+		<!-- 天际线分析 -->
+		<script src="../../js/analysis/skyline.js"></script>
+		<script src="../../js/common/common.js"></script>
+
+	</body>
+
+</html>

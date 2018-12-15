@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>标绘</title>
+		<link rel="stylesheet" href="../../css/common.css" type="text/css" />
+		<link rel="stylesheet" href="../../css/analysis.css" />
+	</head>
+
+	<body onLoad="attributeUserdata()" onunload="unloadMilitaryWindow()">
+		<table class="paramTable">
+			<tr>
+				<td>
+					<span>名称:</span>
+				</td>
+
+				<td>
+					<input type="text" id="lineRingName" class="inputText" maxlength="20" value="polygon" />
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>线颜色:</span>
+				</td>
+
+				<td>
+					<input type="text" id="lineColor" value="#ffffff" class="inputText" readonly/>
+
+					<input type="button" id="lineColorSel" style="background-color: #ffffff" class="afterInText colorBtn" value="" onClick="fillColorDlg('lineColorSel')" />
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>线透明度:</span>
+				</td>
+
+				<td>
+					<input type="text" id="lineTransparency" class="inputText" value="204" maxlength="3" onkeyup="checkNum(this, true, 0, 255)" />
+					<span class="afterInText">(0 ~ 255)</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>线宽:</span>
+				</td>
+
+				<td>
+					<input type="text" id="lineWidth" value="1" class="inputText" maxlength="20" onkeyup="checkNum(this, true, 0, 10000)" />
+					<span class="afterInText">像素</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>填充色:</span>
+				</td>
+
+				<td>
+					<input type="text" id="fillColor" class="inputText" maxlength="7" onkeyup="checkStr(this, null, true)" value="#ff0000" disabled />
+
+					<input type="button" id="fillColorSel" class="afterInText colorBtn" style="background-color:#ff0000" value="" onClick="fillColorDlg('fillColorSel')" />
+
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>透明度:</span>
+				</td>
+
+				<td>
+					<input type="text" id="transparency" class="inputText" value="204" onkeyup="checkNum(this, true, 0, 255)" />
+					<span class="afterInText">(0~255)</span>
+				</td>
+			</tr>
+
+			<tr id="shadowType">
+				<td>
+					<span>渲染模式:</span>
+				</td>
+
+				<td>
+					<select name="shadow" id="shadow" class="selectM">
+
+						<option value="1">贴地</option>
+
+						<option value="0">正常</option>
+
+						<option value="5">贴模型</option>
+
+					</select>
+				</td>
+			</tr>
+
+			<!--渲染顺序-->
+			<tr id="drawOrderRow">
+				<td>
+					<span>渲染顺序:</span>
+				</td>
+
+				<td>
+					<input id="drawOrder" class="inputText" type="text" value="0" onkeyup="checkNum(this, true, 0, 10000)" />
+				</td>
+			</tr>
+
+			<!--可选择性-->
+			<tr id="selectableRow">
+				<td>
+					<span>可选择性:</span>
+				</td>
+
+				<td>
+					<select name="selectable" id="selectable" onChange="editablesel()" class="selectM" value="false">
+
+						<option value="true">是</option>
+
+						<option value="false">否</option>
+
+					</select>
+				</td>
+			</tr>
+
+			<!--可编辑-->
+			<tr id="editableRow">
+				<td>
+					<span>可编辑性:</span>
+				</td>
+
+				<td>
+					<select name="editable" id="editable" class="selectM" value="false">
+
+						<option value="true">是</option>
+
+						<option value="false">否</option>
+
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>描述:</span>
+				</td>
+
+				<td>
+					<textarea id="description" class="textA" cols="30" rows="5"></textarea>
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+
+			<button onClick="polygon_submit()">确定</button>
+
+			<button onClick="closeWindow()">取消</button>
+
+		</div>
+		<OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"></OBJECT>
+		<script src="../../js/common/common.js"></script>
+		<script src="../../js/userdata/MilitaryTagData.js"></script>
+	</body>
+
+</html>

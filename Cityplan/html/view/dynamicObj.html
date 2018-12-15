@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>漫游</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/icon.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/plugins/zTreeStyle/zTreeStyle.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <style>
+    body {
+        font-family: "Microsoft Yahei";
+        background-color: #eaedf2;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    #divThree table {
+        line-height: 30px;
+    }
+
+    .tdLeft {
+        width: 60px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+    }
+
+    .tdRight {
+        width: 50px;
+    }
+
+    #paramSetInner .normalSelect {
+        width: 165px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="easyui-layout" data-options="fit:true" style="height: 100%;">
+        <div id="northDiv" region="north">
+            <div class="cardTitle">设置</div>
+
+            <div id="paramSetInner">
+                <div style="text-align: left;width:100%;padding: 0px 0px 7px 0px;">
+                    <label>运动对象:
+                        <select id="selDynamicObj" class="normalSelect"></select>
+                    </label>
+                </div>
+
+                <!-- IE11 以下按Enter键会触发第一个可点击button -->
+                <div style="display:block; width:0; height:0; overflow:hidden;">
+                    <button>禁止input回车触发的button</button>
+                </div>
+
+                <div style="width: 100%;text-align: center;  padding:7px 0px;">
+                    <button class="normalBtn" id="btnEnterInner" tag="enterInner">室内</button>
+
+                    <button class="normalBtn" id="btnEnterOuter" tag="enterOuter">室外</button>
+
+                    <button class="normalBtn" id="btnStop" tag="enter" disabled>退出</button>
+                </div>
+
+                <div id="divRoleDynObj" style="width: 100%;text-align: center;padding:7px 0px 2px;" disabled>
+                    <label style="margin-right:20px;">
+                        <input type="radio" value="1" />第一人称
+                    </label>
+
+                    <label>
+                        <input type="radio" id="three" value="2" />第三人称
+                    </label>
+                </div>
+
+                <div style="width: 100%;padding-bottom:7px;text-align: center;">
+                    <span style="display:inline-block;width:229px;height: 1px;background-color: #AEAFB1;margin:0 auto;">
+                    </span>
+                </div>
+
+                <div style="text-align: center;padding: 7px auto;">
+                    <strong>朝向</strong>
+                </div>
+
+                <div id="divThree" style="padding:7px auto 0px auto;text-align: left;" disabled>
+                    <table style="width:70%;margin-left: 15%;">
+                        <tr>
+                            <td>
+                                <label>
+                                    <input type="radio" id="head" value="left" />前方
+                                </label>
+                            </td>
+
+                            <td>
+                                <label>
+                                    <input type="radio" id="low" value="low" />后方
+                                </label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label>
+                                    <input type="radio" id="left" value="left" />左方
+                                </label>
+                            </td>
+
+                            <td>
+                                <label>
+                                    <input type="radio" id="right" value="right" />右方
+                                </label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label>
+                                    <input type="radio" id="free" value="free" />自定义朝向
+                                </label>
+                            </td>
+
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="width: 100%;padding: 0px 25%;">
+                    <div id="freez0Div" style="width:180px;" disabled> 朝向:
+                        <input type="text" id="freez0" onkeyup="checkNum(this,false,2,360)" value="180" style="width: 32px;height:18px;line-height:18px;margin-top:0px;" disabled />
+
+                        <span class="afterInText">度(0°~360°)</span>
+                    </div>
+
+                    <div id="freez1Div" style="width:180px;" disabled>俯仰:
+                        <input type="text" onkeyup="checkNum(this,false,2,90)" id="freez1" value="15" style="width: 32px;height:18px;line-height:18px;margin-top:8px;" disabled />
+
+                        <span class="afterInText">度(-90°~90°)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div region="center" id="tip" style="width:100%;padding-top: 10px;">
+            <div class="cardTitle">操作提示</div>
+
+            <div id="dgDiv">
+                <table style="text-align:left;margin:0 auto;">
+                    <tbody>
+                        <tr>
+                            <td class="tdLeft">w :</td>
+                            <td class="tdRight">前进</td>
+                            <td class="tdLeft">s :</td>
+                            <td class="tdRight">后退</td>
+                        </tr>
+
+                        <tr>
+                            <td class="tdLeft">a :</td>
+                            <td class="tdRight">左转</td>
+                            <td class="tdLeft">d :</td>
+                            <td class="tdRight">右转</td>
+                        </tr>
+
+                        <tr>
+                            <td class="tdLeft">shift+w :</td>
+                            <td class="tdRight">向前跑</td>
+                            <td class="tdLeft">空格 :</td>
+                            <td class="tdRight">跳跃</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/zTreeStyle/jquery.ztree.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+
+    <script type="text/javascript" src="../../js/view/trackBase.js"></script>
+
+    <script type="text/javascript" src="../../js/view/dynamicObj.js"></script>
+</body>
+
+</html>

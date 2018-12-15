@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>坐标获取</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/analysis.css">
+</head>
+
+<body>
+    <table class="paramTable">
+        <tr>
+            <td>
+                <span>X坐标:</span>
+            </td>
+
+            <td>
+                <input id="height" type="text" class="inputText" value="" readonly/>
+
+                <span>米</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span>Y坐标:</span>
+            </td>
+
+            <td>
+                <input id="length" class="inputText" type="text" value="" readonly/>
+
+                <span>米</span>
+            </td>
+        </tr>
+    </table>
+    
+    <div class="buttonTd">
+        <button id="select" class="largeBtn">坐标查询</button>
+        <button id="clear" class="largeBtn">退出</button>
+    </div>
+    <script src="../../js/plugins/jquery1.9.0.min.js"></script>
+    <script src="../../js/config/config.js"></script>
+    <script src="../../js/commonTools/getCoord.js"></script>
+</body>
+
+</html>

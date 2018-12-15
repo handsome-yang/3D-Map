@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>虚拟摄像头</title>
+		<link rel="stylesheet" href="../../css/easyui/gray/easyui.css" />
+		<link rel="stylesheet" href="../../css/easyui/icon.css" />
+		<link rel="stylesheet" type="text/css" href="../../js/plugins/zTreeStyle/zTreeStyle.css" />
+		<link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<style>
+			button {
+				width: 55px;
+				margin: 5px;
+			}
+		</style>
+	</head>
+
+	<body oncontextmenu="return false;" class="easyui-layout">
+		<div region="north" id="northDiv" border="true">
+			<div class="cardTitle">参数设置</div>
+			<div id="paramSetInner" style="text-align:center;">
+				<div class="buttonDiv">
+					<button id="btnNew">新建</button>
+					<button id="chkRTSP" disabled>连接</button>
+					<button id="chkImage" disabled>反投</button>
+				</div>
+				<table class="panelTable8">
+					<tr>
+						<td>连接方式:</td>
+						<td>
+							<select id="connectType" style="width:166px;" disabled>
+								<option value="false">UDP</option>
+								<option value="true">TCP</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>视场角度:</td>
+						<td>
+							<button id="btnIncreaseFov" class="normalBtn" disabled>增大</button>
+							<button id="btnDecreaseFov" class="normalBtn" disabled>减小</button>
+						</td>
+					</tr>
+					<tr>
+						<td>宽高比例:</td>
+						<td>
+							<button id="btnIncreaseAspect" class="normalBtn" disabled>增大</button>
+							<button id="btnDecreaseAspect" class="normalBtn" disabled>减小</button>
+						</td>
+					</tr>
+				</table>
+				<div class="rightDiv14">
+					<input type="checkbox" id="chkShowFrustum" disabled/>&nbsp;显示视景体
+				</div>
+			</div>
+		</div>
+		<div region="center" id="tablediv" border="false">
+			<div class="cardTitle">摄像头</div>
+			<div id="dgDiv">
+				<ul id="mTree" class="ztree"></ul>
+			</div>
+		</div>
+		<div id="contextMenuUserdata" class="easyui-menu" style="width:100px;">
+			<div id="divUpdate">属性</div>
+			<div id="divDeletedata">删除</div>
+		</div>
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/zTreeStyle/jquery.ztree.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+		<script type="text/javascript" src="../../js/config/config.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../js/view/camera.js"></script>
+	</body>
+
+</html>

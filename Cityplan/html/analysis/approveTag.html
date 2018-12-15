@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- 隐藏【网页对话框】文字 -->
+    <title>审批纪要&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+    <style type="text/css">
+    input {
+        width: 400px;
+    }
+
+    #plan {
+        width: 406px;
+    }
+
+    #date {
+        width: 408px;
+    }
+
+    .tarea {
+        width: 400px;
+        height: 80px;
+    }
+
+    #dateTd .combo-text {
+        margin-left: 0px;
+        width: 392px;
+        border: none;
+    }
+
+    .combo.datebox {
+        margin-left: 8px;
+        height: 28px;
+        line-height: 28px;
+        border-radius: 3px;
+        border: 1px solid #b6b6b6;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 弹框内容 Start -->
+    <table class="paramTable">
+        <tr>
+            <td>项目名称:</td>
+
+            <td>
+                <input type="text" id="name" readonly/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>通过方案:</td>
+
+            <td>
+                <select type="text" id="plan">
+                    <option>请选择通过的方案</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>会议时间:</td>
+
+            <td id="dateTd">
+                <input id="date" class="easyui-datebox" data-options="required:true" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>参会人员:</td>
+
+            <td>
+                <textarea class="tarea" type="" id="person"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+           	<td>会议记录:</td>
+            <td>
+                <textarea class="tarea" type="text" id="written"></textarea>
+            </td>
+        </tr>
+    </table>
+    <!-- 弹框内容 End -->
+
+    <div class="buttonTd">
+        <button id="confirm" class="largeBtn">确定</button>
+        
+        <button id="close" class="largeBtn">取消</button>
+    </div>
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../js/plugins/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../js/analysis/approveTag.js"></script>
+</body>
+
+</html>

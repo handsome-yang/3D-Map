@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8" >
+    <title>控高分析</title>
+    <link rel="stylesheet" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/analysis.css" />
+</head>
+
+<body id="container" class="easyui-layout" oncontextmenu="return false;">
+    
+    <!-- 左侧面板上半部分 Start -->
+    <div id="northDiv" region="north" border="false" split="false">
+        <div class="cardTitle">参数设置</div>
+
+        <!-- 左侧面板上半部分内容 Start -->
+        <div id="paramSetInner">
+            <table class="panelTable">
+                <tr>
+                    <td>
+                        控高面高度:
+                    </td>
+
+                    <td>
+                        <input type="text" id="txtHeight" class="afterInput5" value="60" onpropertychange="checkNum(this, true, 2, null, null)" />
+                        <span class="afterInText">米</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        控高面颜色:
+                    </td>
+
+                    <td>
+                        <input type="text" maxlength="7" id="boxColor" value="#c0c0c0" class="afterInput5" />
+                        <input type="button" id="boxColorSel" style="background-color:#c0c0c0" class="colorBtn afterInText" value="" onClick="boxColorDlg()" />
+                    </td>
+                </tr>
+            </table>
+
+            <div class="buttonDiv14">
+                <button id="btnAnalysis" disabled>开始分析</button>
+            </div>
+
+            <div id="btnFocus"></div>
+        </div>
+        <!-- 左侧面板上半部分内容 End -->
+
+    </div>
+    <!-- 左侧面板上半部分 End -->
+
+    <div id="centerDiv" region="center" border="false" split="true">
+        <div class="cardTitle">查询结果</div>
+
+        <div id="dgDiv">
+            <table id="dg" fit="true" border="false" data-options="
+                singleSelect:true,
+                pagination:false,
+                rowStyler: rStyler">
+            </table>
+        </div>
+    </div>
+    
+    <OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"></OBJECT>
+    <script type="text/javascript" src="../../js/plugins/jquery.js"></script>
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+    <script type="text/javascript" src="../../js/analysis/heightControl.js"></script>
+</body>
+
+</html>

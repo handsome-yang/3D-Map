@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		<title>搜 索</title>
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/icon.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common.css">
+		<style type="text/css">
+			.layerDiv {
+				margin-bottom: 14px;
+				display: block;
+			}
+			
+			tr {
+				height: 27px;
+				line-height: 27px;
+			}
+			
+			#searchData {
+				text-align: center;
+				overflow: hidden;
+			}
+			
+			#layerSelect {
+				width: 84px;
+			}
+			
+			tr {
+				height: 27px;
+				line-height: 27px;
+			}
+			
+			#northDiv,
+			#tablediv {
+				padding-bottom: 5px;
+			}
+			
+			.pagination table {
+				margin-left: 21px;
+			}
+			
+			#paramSetInner {
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body id="container" class="easyui-layout" oncontextmenu="return false;">
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+		<div id="northDiv" class="north" region="north">
+			<div class="cardTitle">参数设置</div>
+			<div id="paramSetInner">
+				<div class="layerDiv">
+					<span>图层选择:</span>
+					<span id="layerSelect"></span>
+				</div>
+			</div>
+		</div>
+		<div id="tablediv" class="enter" region="center">
+			<div class="cardTitle">搜索结果</div>
+			<div id="dgDiv">
+				<div id="srcollDiv">
+					<div id="searchData"></div>
+				</div>
+				<div id="pageDiv">
+					<div id="page"></div>
+				</div>
+			</div>
+		</div>
+		<div id="southDiv" region="south">
+			<input id="search_info" type="checkbox" />
+			<label for="search_info">详细信息</label>
+		</div>
+	</body>
+	<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+	<script src="../../js/plugins/jquery.easyui.min.js"></script>
+	<script src="../../js/plugins/jquery.xml2json.js"></script>
+	<script src="../../js/stamplib/search.js"></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/search/searchResult.js"></script>
+
+</html>

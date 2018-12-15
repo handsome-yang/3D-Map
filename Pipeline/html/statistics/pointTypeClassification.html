@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>特征分类</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/icon.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+</head>
+<body id="container" class="easyui-layout" oncontextmenu="return false;">
+<div id="northDiv" class="north" region="north">
+    <div class="cardTitle">参数设置</div>
+    <div id="paramSetInner">
+        <div>图层:</div>
+        <div id="scrollDiv" class="scrollDiv">
+            <div id="pipeListDiv"></div>
+        </div>
+        <div class="buttonDiv14">
+            <button id="allAreaBtn" disabled>全部</button>
+            <button id="btnCircleSelect" disabled>圆域</button>
+            <button id="cusAreaBtn" disabled>多边形</button>
+        </div>
+    </div>
+</div>
+<div id="tablediv" class="enter" region="center">
+    <div class="cardTitle statisticsTwoTitle">统计结果</div>
+    <div id="dgDiv">
+        <ul class="titleBlue3" id="tabhead">
+            <li>图层</li>
+            <li>点性质</li>
+            <li class="none">点数</li>
+        </ul>
+        <div id="resultDivScroll">
+            <div id="resultDiv"></div>
+        </div>
+    </div>
+</div>
+<div region="south" id="southDiv" class="textCenter" border="false">
+    <button class="largeBtn" id="importExcelBtn" style="margin-right:20px;" disabled>导出</button>
+    <button class="largeBtn" id="sBtn" disabled>统计</button>
+</div>
+
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="../../js/stamplib/statistics.js"></script>
+<script type="text/javascript" src="../../js/common/common.js"></script>
+<script type="text/javascript" src="../../js/plugins/json.js"></script>
+<script type="text/javascript" src="../../js/common/exportExcel.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../js/statistics/pointTypeClassification.js"></script>
+</body>
+</html>

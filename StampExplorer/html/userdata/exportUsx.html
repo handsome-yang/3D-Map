@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>导出USX</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+	</head>
+
+	<body>
+		<table class="paramTable">
+			<tr>
+				<td colspan="2" class="topCheckBoxDiv">
+					<input id="chkModel" name="chkModel" type="checkbox" checked/>
+					<label for="chkModel">建筑物</label>
+
+					<input id="chkDem" name="chkDem" type="checkbox" />
+					<label for="chkDem">地形</label>
+				</td>
+			</tr>
+
+			<tr>
+				<td>存储路径:</td>
+
+				<td>
+					<input id="path" name="startHeight" type="text" value="" disabled/>
+					<button class="afterInText" id="addLink">选择路径</button>
+				</td>
+			</tr>
+
+			<tr>
+				<td>投影文件:</td>
+
+				<td>
+					<input id="spatialFile" name="spatialFile" type="text" value="" disabled/>
+					<button class="afterInText" id="openspatialLink">选择路径</button>
+				</td>
+			</tr>
+
+		</table>
+		<div class="buttonTd">
+
+			<button id="btnStart" disabled>选择范围</button>
+
+			<button id="export" disabled>导出</button>
+
+			<button id="clear">退出</button>
+
+		</div>
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/plugins/jquery.easyui.min.js"></script>
+		<script src="../../js/stamplib/analysis.js"></script>
+		<!-- 导出Usx -->
+		<script src="../../js/userdata/exportUsx.js"></script>
+	</body>
+
+</html>

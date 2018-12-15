@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>飞行点设置&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css"/>
+    <script type="text/javascript">
+        function validate() {
+            if (routeName.value == "") {
+                alert("请输入名称");
+                routeName.focus();
+                return false;
+            }
+            if (heading.value == "") {
+                alert("请输入朝向");
+                heading.focus();
+                return false;
+            }
+            var headingNum = Number(heading.value);
+            if (isNaN(headingNum) == true) {
+                alert("无效的朝向值");
+                heading.select();
+                heading.focus();
+                return false;
+            }
+            if (headingNum < 0 || headingNum > 360) {
+                alert("朝向值超出范围");
+                heading.select();
+                heading.focus();
+                return false;
+            }
+            if (tilt.value == "") {
+                alert("请输入俯仰角");
+                tilt.focus();
+                return false;
+            }
+            var tiltNum = Number(tilt.value);
+            if (isNaN(tiltNum) == true) {
+                alert("无效的俯仰角值");
+                tilt.select();
+                tilt.focus();
+                return false;
+            }
+            if (tiltNum < -90 || tiltNum > 90) {
+                alert("俯仰角超出范围");
+                tilt.select();
+                tilt.focus();
+                return false;
+            }
+            if (flyHeight.value == "") {
+                alert("请输入高度");
+                flyHeight.focus();
+                return false;
+            }
+            var flyHeightNum = Number(flyHeight.value);
+            if (isNaN(flyHeightNum) == true) {
+                alert("无效的高度值");
+                flyHeight.select();
+                flyHeight.focus();
+                return false;
+            }
+            if (flyHeightNum < 0) {
+                alert("无效的高度值");
+                flyHeight.select();
+                flyHeight.focus();
+                return false;
+            }
+            if (speed.value == "") {
+                alert("请输入速度");
+                speed.focus();
+                return false;
+            }
+            var speedNum = Number(speed.value);
+            if (isNaN(speedNum) == true) {
+                alert("无效的速度值");
+                speed.select();
+                speed.focus();
+                return false;
+            }
+            if (speedNum < 0) {
+                alert("无效的速度值");
+                speed.select();
+                speed.focus();
+                return false;
+            }
+            return true;
+        }
+
+        function confirm() {
+            if (validate()) {
+                window.returnValue = {
+                    Longitude: longitude.value,
+                    Latitude: latitude.value,
+                    Altitude: altitude.value,
+                    name: routeName.value,
+                    Heading: heading.value,
+                    Tilt: tilt.value,
+                    FlyHeight: flyHeight.value,
+                    Speed: speed.value
+                };
+                window.close();
+            }
+        }
+
+        function init() {
+            var elementData = window.dialogArguments;
+            if (elementData) {
+                routeName.value = elementData.name || '飞行路径';
+                longitude.value = elementData.Longitude || '-';
+                latitude.value = elementData.Latitude || '-';
+                altitude.value = elementData.Altitude || '-';
+                heading.value = elementData.Heading || 0;
+                tilt.value = Math.round(elementData.Tilt) || 0;
+                flyHeight.value = 50;
+                if (elementData.FlyHeight != undefined) {
+                    flyHeight.value = elementData.FlyHeight;
+                }
+                speed.value = 10;
+                if (elementData.Speed != undefined) {
+                    speed.value = elementData.Speed;
+                }
+            }
+            if (elementData.passSelected) {
+                document.getElementById("lon").style.display = "none";
+                document.getElementById("lat").style.display = "none";
+                document.getElementById("alt").style.display = "none";
+                document.getElementById("cx").style.display = "";
+                document.getElementById("fy").style.display = "";
+                document.getElementById("sd").style.display = "";
+            } else {
+                document.getElementById("lon").style.display = "";
+                document.getElementById("lat").style.display = "";
+                document.getElementById("alt").style.display = "";
+                document.getElementById("cx").style.display = "none";
+                document.getElementById("fy").style.display = "none";
+                document.getElementById("sd").style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<table class="paramTable">
+    <tr>
+        <td>名称:</td>
+        <td><input type="text" id="routeName" onkeyup="checkStr(this)" value="pass"/></td>
+    </tr>
+    <tr id="lon">
+        <td>经度:</td>
+        <td class="col2"><input type="text" id="longitude" value="" disabled/><span
+                class="afterInText">(-180°~180°)</span></td>
+    </tr>
+    <tr id="lat">
+        <td>纬度:</td>
+        <td><input type="text" id="latitude" disabled/><span class="afterInText">(-90°~90°)</span></td>
+    </tr>
+    <tr id="alt">
+        <td>高程:</td>
+        <td><input type="text" id="altitude" value="" disabled/><span class="afterInText">米</span></td>
+    </tr>
+    <tr id="cx">
+        <td>朝向:</td>
+        <td><input type="text" id="heading" onkeyup="checkNum(this, true, 2, 360)" value="0"/><span class="afterInText">(0°~360°)</span>
+        </td>
+    </tr>
+    <tr id="fy">
+        <td>俯仰:</td>
+        <td><input type="text" id="tilt" onkeyup="checkNum(this, false, 2, 90)" value="0"/><span class="afterInText">(-90°~90°)</span>
+        </td>
+    </tr>
+    <tr>
+        <td>高度:</td>
+        <td><input type="text" id="flyHeight" onkeyup="checkNum(this, true, 2, 10000)" value="10"/><span
+                class="afterInText">米</span></td>
+    </tr>
+    <tr id="sd">
+        <td>速度:</td>
+        <td><input type="text" id="speed" onkeyup="checkNum(this, true, 2)" value="10"/><span
+                class="afterInText">米/秒</span></td>
+    </tr>
+</table>
+<div class="buttonTd">
+    <button onclick="confirm();">确定</button>
+    <button onclick="window.close();">取消</button>
+</div>
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+<script type="text/javascript" src="../../js/common/common.js"></script>
+</body>
+</html>

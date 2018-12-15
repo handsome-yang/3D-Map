@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>环绕点设置&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</title>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/analysis.css"/>
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+    <script type="text/javascript" src="../../js/view/surroundSetting.js"></script>
+
+</head>
+<body onload="init()">
+<table class="paramTable">
+    <tr>
+        <td>名称：</td>
+        <td>
+            <input type="text" onkeyup="checkStr(this)" id="surrName" class="inputText" value="surround"/>
+        </td>
+    </tr>
+    <tr>
+        <td>经度：</td>
+        <td>
+            <input type="text" id="longitude" value="" class="inputText" disabled/>
+            <span class="afterInText">(-180°~180°)</span>
+        </td>
+    </tr>
+    <tr>
+        <td>纬度：</td>
+        <td>
+            <input type="text" id="latitude" value="" class="inputText" disabled/>
+            <span class="afterInText">(-90°~90°)</span></td>
+    </tr>
+    <tr>
+        <td>高程：</td>
+        <td>
+            <input type="text" id="altitude" class="inputText" value="" disabled/>
+            <span class="afterInText">米</span>
+        </td>
+    </tr>
+    <tr>
+        <td>高度：</td>
+        <td>
+            <input type="text" id="flyHeight" class="inputText" onkeyup="checkNum(this, true, 2, 10000)" value="100"/>
+            <span class="afterInText">米</span>
+        </td>
+    </tr>
+    <tr>
+        <td>半径：</td>
+        <td>
+            <input type="text" id="radius" class="inputText" onkeyup="checkNum(this, true, 2, 10000)" value="200"/>
+            <span class="afterInText">米</span>
+        </td>
+    </tr>
+    <tr>
+        <td>圈数：</td>
+        <td>
+            <input type="text" id="count" class="inputText" onkeyup="checkNum(this, true, 0)" value="1"/>
+            <span class="afterInText">圈</span>
+        </td>
+    </tr>
+    <tr>
+        <td>速度：</td>
+        <td>
+            <input type="text" class="inputText" onkeyup="checkNum(this, true, 2)" id="speed" value="10"/>
+            <span class="afterInText">米/秒</span>
+        </td>
+    </tr>
+</table>
+<div class="buttonTd">
+    <button onclick="confirm();">确定</button>
+    <button onclick="window.close();">取消</button>
+</div>
+
+</body>
+</html>

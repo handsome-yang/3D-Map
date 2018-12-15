@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>三级菜单面板</title>
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css">
+		<!--用到easyui的右键菜单图标样式-->
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/icon.css">
+		<link rel="stylesheet" type="text/css" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css">
+		<link rel="stylesheet" type="text/css" href="../../js/plugins/zTreeStyle/zTreeStyle.css" type="text/css">
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+
+		<style type="text/css">
+			body {
+				background-color: #eaedf2;
+				font-family: 'Microsoft YaHei';
+				font-size: 14px;
+			}
+
+			#div_submenu {
+				width: 100%;
+				height: 100%;
+				font-size: 12px;
+			}
+
+			.menu_line {
+				width: 235px;
+				margin: 0px;
+				text-align: center;
+				float: left;
+			}
+
+			.menu_item_first {
+				width: 71px;
+				float: left;
+			}
+
+			.menu_item {
+				width: 71px;
+				margin-left: 11px;
+				float: left;
+			}
+
+			.menu_line img {
+				width: 51px;
+				height: 51px;
+				margin: 5px 10px;
+				cursor: pointer;
+			}
+
+			.menu_line img:hover {
+				background: url(../../images/panelMenu/threeMenu-bg.png);
+			}
+
+			#userDataTree {
+				display: none;
+				margin-top: 10px;
+				margin-left: 10px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="cardTitle">功能菜单</div>
+		<div id="paramSetInner" style="width:234px;">
+			<div id="div_submenu">
+			</div>
+			&nbsp;
+		</div>
+		<div id="scrollDiv" style="width:234px;border: none;">
+			<ul class="ztree" id="userDataTree">
+			</ul>
+		</div>
+
+		<!-- 树右键菜单(只针对根节点)-->
+		<div id="contextMenuRoot" class="easyui-menu" style="width:100px;">
+			<div id="deleteRootFolder" iconCls="icon-no">删除</div>
+		</div>
+
+		<!-- 树右键菜单,只针对子节点 -->
+		<div id="contextMenuUserdata" class="easyui-menu" style="width:100px;">
+			<div id="divEditUserdata" iconCls="icon-edit">编辑</div>
+			<div class="menu-sep"></div>
+			<div id="divDeleteUserdata" iconCls="icon-no">删除</div>
+		</div>
+
+		<!-- 树右键菜单,只针对子节点 -->
+		<div id="contextMenuExplosion" class="easyui-menu" style="width:100px;">
+			<div id="divBeginExplosion" iconCls="icon-reload">开始</div>
+			<div class="menu-sep"></div>
+			<div id="divEditExplosion" iconCls="icon-edit">编辑</div>
+			<div class="menu-sep"></div>
+			<div id="divDeleteExplosion" iconCls="icon-no">删除</div>
+		</div>
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+		<!-- ztree脚本 -->
+		<script type="text/javascript" src="../../js/plugins/zTreeStyle/jquery.ztree.js"></script>
+		<!-- easyui脚本 -->
+		<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../js/menu/three_menu_item.js"></script>
+	</body>
+
+</html>

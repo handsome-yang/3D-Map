@@ -1,0 +1,128 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>简单建筑&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css">
+</head>
+
+<body onload="attributeUserdata()" onunload="unloadBuildingWindow()">
+    <table class="paramTable">
+        <tr>
+            <td>名称:</td>
+
+            <td>
+                <INPUT type="text" id="buildingName" maxlength="20" value="简单建筑" onpropertychange="checkStr(this)" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>楼层数量:</td>
+
+            <td>
+                <INPUT type="text" id="floorCount" maxlength="20" value="" onpropertychange="checkNum(this, true, 0, 1000)" />
+                <span class="afterInText">层</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>楼层高度:</td>
+
+            <td>
+                <input type="text" id="floorHeight" maxlength="20" value="2.8" onpropertychange="checkNum(this, true, 2, null, null)" />
+
+                <span class="afterInText">米</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>楼层颜色:</td>
+
+            <td>
+                <input type="text" maxlength="7" id="floorColor" value="#ffffff" />
+
+                <input type="button" id="floorColorSel" style="background-color:#ffffff" class="colorBtn afterInText" value="" onClick="fillColorDlg('floorColor')" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>楼层颜色透明度:</td>
+
+            <td>
+                <input type="text" id="floorColorTran" maxlength="3" value="204" onpropertychange="checkNum(this, true, 0, 255)" />
+
+                <span class="afterInText">(0 ~ 255)</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>楼层材质:</td>
+
+            <td>
+                <input type="text" id="floorTexture" value="" />
+
+                <button class="afterInText" onClick="addLink('floorTexture')">选取文件</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>屋顶类型:</td>
+
+            <td>
+                <select id="roofType" name="roofType" class="selectM">
+                    <option value="2" selected>凸顶</option>
+                    <option value="1">平顶</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>屋顶颜色:</td>
+
+            <td>
+                <input type="text" id="roofColor" maxlength="7" value="#ffffff" />
+
+                <input type="button" id="roofColorSel" style="background-color:#ffffff" class="colorBtn afterInText" value="" onClick="fillColorDlg('roofColor')" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>屋顶颜色透明度:</td>
+
+            <td>
+                <input type="text" id="roofColorTran" maxlength="3" value="204" onpropertychange="checkNum(this, true, 0, 255)" />
+                <span class="afterInText">(0 ~ 255)</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td align="right">屋顶材质:</td>
+
+            <td>
+                <input type="text" id="roofTexture" value="" />
+                <button class="afterInText" onClick="addLink('roofTexture')">选取文件</button>
+            </td>
+        </tr>
+    </table>
+
+    <div class="buttonTd">
+        <button onClick="building_submit()">确定</button>
+        <button onClick="closeWindow()">取消</button>
+    </div>
+
+    <OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"></OBJECT>
+
+    <OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+
+    <script type="text/javascript" src="../../js/config/config.js"></script>
+
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+    
+    <script type="text/javascript" src="../../js/project/simpleBuilding.js"></script>
+</body>
+
+</html>

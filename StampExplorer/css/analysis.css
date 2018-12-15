@@ -1,0 +1,273 @@
+ /**
+  * 作       者：StampGIS Team
+  * 创建日期：2017年8月23日
+  * 描        述：分析模块公用css
+  * 注意事项：
+  * 遗留bug：0
+  * 修改日期：2017年11月8日
+  ******************************************/
+
+ * {
+ 	margin: 0;
+ 	padding: 0;
+ 	font: 12px 'Microsoft Yahei';
+ }
+
+ body {
+ 	overflow: hidden;
+ }
+
+ input[type="text"] .inputText {
+ 	margin-left: 8px;
+ 	width: 116px;
+ }
+
+ .selectM {
+ 	margin-left: 8px;
+ 	width: 135px;
+ }
+
+ .textA {
+ 	width: 130px;
+ 	margin: 7px 0 0 8px;
+ }
+ /*分析表格总样式*/
+
+ .paramTable {
+ 	margin: 13px auto 7px;
+ }
+ /*分析表格中公用样式*/
+
+ .paramTable td {
+ 	height: 42px;
+ 	line-height: 42px;
+ 	text-align: left;
+ }
+
+ .paramTable button {
+ 	margin: 0 0 0 8px;
+ }
+ /*合并居中td*/
+
+ .paramTable .colTd {
+ 	text-align: center;
+ 	height: 30px;
+ 	line-height: 30px;
+ }
+ /*合并居中td*/
+
+ .paramTable .colTdLeft {
+ 	text-align: left;
+ 	height: 30px;
+ 	line-height: 30px;
+ }
+ /*合并居右td*/
+
+ .paramTable .colTdRight {
+ 	text-align: right;
+ 	height: 30px;
+ 	line-height: 30px;
+ }
+
+ .paramTable lable {
+ 	margin-right: 5px;
+ }
+
+ .paramTable .lastLabel {
+ 	margin-right: 0;
+ }
+
+ .paramTable .firstRadio {
+ 	margin-left: 0;
+ }
+
+ .buttonTd {
+ 	text-align: center;
+ }
+
+ .buttonTd14 {
+ 	text-align: center;
+ 	margin-top: 14px;
+ }
+
+ .colorBtn {
+ 	width: 16px;
+ 	height: 16px;
+ 	outline: none;
+ }
+
+ .paramTable #scrollParamDiv {
+ 	width: 130px;
+ 	margin: 7px 0 7px 8px;
+ }
+ /*
+ * 顶部checkbox的div样式
+ */
+
+ .paramTable td.topCheckBoxDiv {
+ 	height: 28px;
+ 	line-height: 28px;
+ 	text-align: center;
+ }
+ /*------------------整体END-------------------*/
+ /*----------------------权值选色tableStart------------------*/
+
+ #slopeTable {
+ 	margin: 7px auto 14px auto;
+ }
+
+ #slopeTable0 {
+ 	margin: 7px auto 0px auto;
+ 	/*下面边距为0*/
+ }
+
+ #slopeTable td {
+ 	height: 34px;
+ 	line-height: 34px;
+ 	border: 1px solid #b6b6b6;
+ 	text-align: center;
+ 	/*width: 100px;*/
+ }
+
+ #slopeTable0 td {
+ 	height: 34px;
+ 	line-height: 34px;
+ 	border: 1px solid #b6b6b6;
+ 	text-align: center;
+ }
+
+ #slopeTable thead {
+ 	background-color: #2a80c9;
+ 	color: #fff;
+ }
+
+ #slopeTable0 thead {
+ 	background-color: #2a80c9;
+ 	color: #fff;
+ }
+
+ #slopeTable thead td {
+ 	border: 1px solid #2a80c9;
+ 	height: 30px;
+ 	line-height: 30px;
+ }
+
+ #slopeTable0 thead td {
+ 	border: 1px solid #2a80c9;
+ 	height: 30px;
+ 	line-height: 30px;
+ }
+
+ .tdGrade {
+ 	width: 100px;
+ }
+
+ .tdColor {
+ 	width: 154px;
+ }
+
+ #slopeTable .colorBtn {
+ 	margin-left: 5px;
+ }
+
+ #slopeTable .colorInput {
+ 	width: 57px;
+ 	margin: 0;
+ }
+ /*-----------------面板条件设置模块样式---------------*/
+ /*paramtable里面各种input和Select的样式*/
+
+ .paramTable .twoBefBtnAfterInput {
+ 	width: 108px;
+ }
+
+ .paramTable .twoBefSelect {
+ 	width: 190px;
+ }
+
+ .paramTable .twoBefInput {
+ 	width: 186px;
+ }
+
+ .paramTable .twoBefOneAferSelect {
+ 	width: 164px;
+ }
+
+ .paramTable .twoBefTwoAftSelect {
+ 	width: 152px;
+ }
+
+ .paramTable .twoBefTwoAftInput {
+ 	width: 148px;
+ }
+
+ .paramTable .twoBefOneAferInpput {
+ 	width: 160px;
+ }
+
+ .paramTable .twoBefBtnAfterSelect {
+ 	width: 112px;
+ }
+
+ .paramTable .twoBefOneAndBtnAfterInput {
+ 	width: 86px;
+ }
+
+ .paramTable .threeBefBtnAftSelect {
+ 	width: 98px;
+ }
+
+ .paramTble .fourBefInput {
+ 	width: 140px;
+ }
+
+ .paramTable .fourBefSelect {
+ 	width: 145px;
+ }
+
+ .paramTable .fourBefBtnAfterInput {
+ 	width: 84px;
+ }
+
+ .paramTable .fourBefOneAfterInput {
+ 	width: 124px;
+ }
+
+ .fourSelect {
+ 	margin-left: 0;
+ 	width: 100px;
+ 	height: 74px;
+ 	border: 1px solid silver;
+ }
+
+ .twoChcOneBtn button {
+ 	margin: 0 0 0 8px;
+ }
+
+ .twoChcOneBtn input[type="checkbox"] {
+ 	margin-left: 5px;
+ }
+
+ .twoChcOneBtn .firstRadio {
+ 	margin: 0 0 0 10px;
+ }
+
+ .oneChcOneBtn button {
+ 	margin-top: 14px;
+ 	float: right;
+ }
+ /*paramtable里面各种图层或者字段属性的可滑动div样式*/
+
+ .paramTable .threeScrollDiv {
+ 	margin: 7px 0;
+ 	height: 70px;
+ }
+
+ .paramTable .spaticialScroll {
+ 	margin: 7px 0;
+ 	height: 120px;
+ }
+
+ #otherLayersList {
+ 	overflow-x: hidden;
+ }

@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>GB28181</title>
+		<link rel="stylesheet" type="text/css" href="../../js/plugins/zTreeStyle/zTreeStyle.css" />
+		<link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/GB28181.css" />
+	</head>
+
+	<body>
+		<div style="height: 100%;">
+			<div class="cardTitle">参数设置</div>
+			<div id="paramSetInner">
+				<div style="width: 100%; text-align: center;  padding:7px 0px;">
+					<button class="normalBtn" id="btnImport">数据导入</button>
+					<button class="normalBtn" id="btnLinkOrBroke">链接</button>
+					<button class="normalBtn" id="btnSetting" disabled="disabled">链路设置</button>
+				</div>
+				<div id="divTreeParent">
+					<ul id="sipRootTree" class="ztree"></ul>
+				</div>
+				<div id="state">
+					<table>
+						<tr>
+							<td>摄像头状态：</td>
+							<td class="tdimg">
+								<img src="../../images/GB28181/枪机摄像头blue.png" />
+							</td>
+							<td>
+								<span>在线</span>
+							</td>
+							<td class="tdimg">
+								<img src="../../images/GB28181/枪机摄像头grey.png" />
+							</td>
+							<td>
+								<span>离线</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div id="tip" style="width:100%;">
+				<div class="cardTitle">当前摄像头云台控制</div>
+				<div id="controlDiv">
+					<table>
+						<tr id="second">
+							<td>
+								<div id="paramDiv">
+									<div class="param">
+										<span>左右旋转:</span>
+										<input type="text" id="horizonRotate" value="+0" />
+										<span>度</span><br />
+									</div>
+									<span class="daibiao">(-代表左,+代表右)</span>
+									<div class="param">
+										<span>上下旋转:</span>
+										<input type="text" id="verRotate" value="+0" />
+										<span>度</span><br />
+									</div>
+									<span class="daibiao">(-代表下,+代表上)</span>
+									<div class="param" style="margin-top:5px;">
+										<span>&nbsp;&nbsp;左右速度:</span>
+										<input type="text" id="leftRightSpeed" value="57" />
+										<span>度/s</span>
+									</div>
+									<div class="param" style="margin-top:10px;">
+										<span>&nbsp;&nbsp;上下速度:</span>
+										<input type="text" id="updownSpeed" value="30" />
+										<span>度/s</span>
+									</div>
+									<button id="btnConfirm" disabled>确定</button>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/zTreeStyle/jquery.ztree.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script type="text/javascript" src="../../js/config/config.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script src="../../js/view/gb28181.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

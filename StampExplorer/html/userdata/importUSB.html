@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>导入模型</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+	</head>
+
+	<body>
+		<table class="paramTable">
+			<tr>
+				<td>
+					选择文件:
+				</td>
+
+				<td>
+					<input id="filepath" name="filepath" type="text" value="" disabled/>
+
+					<button class="afterInText" id="btnAdd">选择路径</button>
+				</td>
+
+			</tr>
+
+			<tr>
+				<td>
+					投影文件:
+				</td>
+
+				<td>
+					<input id="referenceInput" name="referenceInput" type="text" value="" disabled/>
+
+					<button class="afterInText" id="addSpatialReference">选择路径</button>
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+
+			<button id="btnImport" disabled>导入</button>
+
+			<button id="clear">退出</button>
+
+		</div>
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/plugins/jquery.easyui.min.js"></script>
+		<script src="../../js/stamplib/analysis.js"></script>
+		<script src="../../js/common/common.js"></script>
+		<script src="../../js/stamplib/userdata.js"></script>
+		<!-- 模型 -->
+		<script src="../../js/userdata/importUSB.js"></script>
+	</body>
+
+</html>

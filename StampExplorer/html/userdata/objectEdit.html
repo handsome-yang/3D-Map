@@ -1,0 +1,191 @@
+﻿<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>对象编辑</title>
+		<link rel="stylesheet" href="../../css/common.css" type="text/css" />
+		<link rel="stylesheet" href="../../css/analysis.css" type="text/css" />
+	</head>
+
+	<body>
+		<table class="paramTable">
+			<tr>
+				<td>
+					<label id="lblX" for="txtXValue"></label>
+				</td>
+
+				<td>
+					<input type="text" id="txtXValue" value="0" onpropertychange="checkNum(this, false, 2, 10000)" />
+					<label id="dwX" for="txtXValue" class="afterInText"></label>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label id="lblY" for="txtYValue"></label>
+				</td>
+
+				<td>
+					<input type="text" id="txtYValue" value="0" onpropertychange="checkNum(this, false, 2, 10000)" />
+					<label id="dwY" for="txtXValue" class="afterInText"></label>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label id="lblZ" for="txtZValue"></label>
+				</td>
+
+				<td>
+					<input type="text" id="txtZValue" value="0" onpropertychange="checkNum(this, false, 2, 10000)" />
+					<label id="dwZ" for="txtXValue" class="afterInText"></label>
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+
+			<button id="submit">确定</button >
+
+    <button id="clear" >退出</button>
+
+		</div>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/common/common.js"></script>
+		<script src="../../js/stamplib/userdata.js"></script>
+		<script src="../../js/stamplib/analysis.js"></script>
+		<script>
+			var params = location.href.split("?");
+			var param;
+			var labels = {
+				"move": "移动",
+				"rotate": "旋转",
+				"scale": "缩放"
+			};
+			var dw = {
+				"move": "米",
+				"rotate": "度",
+				"scale": ""
+			};
+			// 判断操作类型，做出相应动作
+			function altitudetype(type) {
+				if(params.length == 2) {
+					param = params[1];
+					action = param.split("=")[1];
+					if(action == "rotate") {
+						if(!type) {
+							$("#txtXValue").attr("disabled", true);
+							$("#txtZValue").attr("disabled", true);
+						} else {
+							$("#txtXValue").attr("disabled", false);
+							$("#txtZValue").attr("disabled", false);
+						}
+					} else if(action == "scale") {
+						$("#txtXValue").val("1");
+						$("#txtYValue").val("1");
+						$("#txtZValue").val("1");
+						if(!type) {
+							$("#txtYValue").attr("disabled", true);
+						} else {
+							$("#txtYValue").attr("disabled", false);
+						}
+					} else {
+						if(!type) {
+							$("#txtYValue").attr("disabled", true);
+						} else {
+							$("#txtYValue").attr("disabled", false);
+						}
+					}
+				}
+			}
+
+			function setTranScroll(earthObj) {
+				var earth = earthObj;
+				var editTool = STAMP.Userdata(earth);
+				var analysis = STAMP.Analysis(earth);
+				var action = "";
+				var isEdit = false;
+
+				function init() {
+					if(params.length == 2) {
+						param = params[1];
+						action = param.split("=")[1];
+						if(action == "scale") {
+							$("#txtXValue").val("1");
+							$("#txtYValue").val("1");
+							$("#txtZValue").val("1");
+						}
+						$("#lblX").text(labels[action] + "(X轴):");
+						$("#lblY").text(labels[action] + "(Y轴):");
+						$("#lblZ").text(labels[action] + "(Z轴):");
+						$("#dwX").text(dw[action]);
+						$("#dwY").text(dw[action]);
+						$("#dwZ").text(dw[action]);
+					}
+				}
+				init();
+
+				// 对x、y、z轴 value值进行限制
+				function xyz(that) {
+					var action = "";
+					if(params.length == 2) {
+						param = params[1];
+						action = param.split("=")[1];
+						if(action == "scale") {
+							if($(that).val() > 0) {
+								$("#submit").removeAttr("disabled");
+							} else {
+								alert("缩放比例必须大于0！");
+								$("#submit").attr("disabled", "disabled");
+							}
+						} else {
+							if(!isNaN($(that).val())) {
+								$("#submit").removeAttr("disabled");
+							} else {
+								alert("输入内容必须为数字！");
+								$("#submit").attr("disabled", "disabled");
+							}
+						}
+					}
+				}
+				$("#txtXValue").change(function() {
+					xyz(this);
+				}).trigger("change");
+				$("#txtYValue").change(function() {
+					xyz(this);
+				}).trigger("change");
+				$("#txtZValue").change(function() {
+					xyz(this);
+				}).trigger("change");
+
+				$("#submit").click(function() {
+					doAction();
+				});
+				// 提交后x、y、z value值变为0
+				function doAction() {
+					var valueX = $("#txtXValue").val();
+					var valueY = $("#txtYValue").val();
+					var valueZ = $("#txtZValue").val();
+					var actions = {
+						"move": editTool.moveByValue,
+						"rotate": editTool.rotateByValue,
+						"scale": editTool.scaleByValue
+					};
+					if(actions[action]) {
+						actions[action](valueX, valueY, valueZ);
+					}
+					$("#txtXValue").val(0);
+					$("#txtYValue").val(0);
+					$("#txtZValue").val(0);
+				}
+				// 退出按钮
+				$("#clear").click(function() {
+					analysis.clearHtmlBallon(earth.htmlBallon);
+					earth.ToolManager.SphericalObjectEditTool.Browse();
+				});
+			}
+		</script>
+
+	</body>
+
+</html>

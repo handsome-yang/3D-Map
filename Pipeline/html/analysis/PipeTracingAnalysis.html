@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>追踪分析</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/analysis.css"/>
+    <link rel="stylesheet" href="../../css/easyui/default/easyui.css"/>
+    <link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css"/>
+</head>
+<body id="container" class="easyui-layout">
+
+<div region="north" id="northDiv">
+    <div class="cardTitle">参数设置</div>
+    <div class="paramSetInner">
+        <table class="paramTable paramNoMagTop">
+            <tr>
+                <td>
+                    <span>管段:</span>
+                </td>
+                <td>
+                    <input class="twoBefBtnAfterInput" type="text" id="txtObjId" disabled/>
+                    <button class="afterInText" id="btnSelectPipe">选取管段</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="secfont">半径:</span>
+                </td>
+                <td>
+                    <input class="twoBefBtnAfterInput" type="text" id="txtDist" value="100"/>
+                    <span class="afterInText">米</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="colTd">
+                    <input type="radio" name="direction" id="forward" value="0"/>
+                    <label for="forward">正向</label>
+                    <input type="radio" name="direction" id="reverse" value="1"/>
+                    <label for="reverse">逆向</label>
+                    <input type="radio" name="direction" id="twoWay" value="2" checked="checked"/>
+                    <label for="twoWay">双向</label>
+                </td>
+            </tr>
+        </table>
+        <div class="buttonTd">
+            <button id="btnAnalyze" disabled>分析</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="tablediv" region="center" border="false">
+    <div class="cardTitle">分析结果</div>
+    <div id="dgDiv">
+        <table id="tabhead" class="twoFl">
+            <thead>
+            <th class="col1">编号</th>
+            <th class="col2">类型</th>
+            </thead>
+        </table>
+        <div id="resultDiv">
+            <table id="tblResult" class="twoFl">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div id="southDiv" region="south" class="twoChcOneBtn" border="false">
+    <input type="checkbox" id="showResult" name="showResult" disabled>
+    <label for="showResult">显示结果</label>
+    <input type="checkbox" id="detailData" name="detailData" disabled>
+    <label for="detailData">详细信息</label>
+    <button class="largeBtn" id="importExcelBtn" disabled>导出</button>
+</div>
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+<script type="text/javascript" src="../../js/common/myBlockUI.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="../../js/stamplib/PipelineStandard.js"></script>
+<script type="text/javascript" src="../../js/common/common.js"></script>
+<script type="text/javascript" src="../../js/stamplib/statistics.js"></script>
+<script type="text/javascript" src="../../js/stamplib/pageHelper.js"></script>
+<script type="text/javascript" src="../../js/stamplib/analysis.js"></script>
+<script type="text/javascript" src="../../js/analysis/PipeTracingAnalysis.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 挤走 网页对话框 几个字 -->
+    <title>输入坐标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</title>
+    <meta name="Generator" content="EditPlus">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../css/common.css" />
+</head>
+<style type="text/css">
+#textDiv {
+    width: 100%;
+    height: 275px;
+    overflow: auto;
+    border: 1px double #cecece;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+table {
+    width: 100%;
+    height: 20px;
+    overflow: auto;
+    border: 1px double #ACA899;
+    border-collapse: collapse;
+}
+
+tr {
+    border: 1px double #cdcab8;
+    height: 20px;
+}
+
+td {
+    border-bottom: 1px double #cdcab8;
+    border-right: 1px double #cdcab8;
+    text-align: center;
+    background: #fff;
+    width: 33.3%;
+    height: 10px;
+    color: black;
+}
+
+#tr1 {
+    background: #2A80C9;
+    color: #fff;
+    height: 28px;
+    line-height: 28px;
+}
+
+#tr1 td {
+    border: 1px solid #2a80c9;
+}
+
+.buttonTd {
+    text-align: center;
+    margin-top: 10px;
+}
+</style>
+
+<body>
+    <div id="textDiv">
+        <table>
+            <thead id="tr1">
+                <th id="num">序号</th>
+                <th id="x">经度</th>
+                <th id="y">纬度</th>
+            </thead>
+        </table>
+    </div>
+    
+    <div class="buttonTd">
+        <button class="largeBtn" id="serchL" disabled>坐标查询</button>
+        <button class="largeBtn" id="add">添加</button>
+        <button class="largeBtn" id="delete" disabled>删除</button>
+        <button class="largeBtn" id="confirm">确定</button>
+        <button class="largeBtn" id="giveup">取消</button>
+    </div>
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+    <script type="text/javascript" src="../../js/aidedPlan/edit_table.js"></script>
+</body>
+
+</html>

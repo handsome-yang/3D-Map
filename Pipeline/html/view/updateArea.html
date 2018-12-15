@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>管线更新</title>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/analysis.css"/>
+    <link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css"/>
+    <style type="text/css">
+        .hideImg {
+            display: none;
+        }
+
+        .showImg {
+            display: inline-block;
+        }
+
+        #loadingImg {
+            height: 20px;
+            width: 20px;
+        }
+
+        #divPipeLineTypeList {
+            overflow-x: hidden;
+            overflow-y: auto;
+            width: 100%;
+        }
+
+        #divPipeLineTypeList div {
+            display: inline-block;
+            width: 100%;
+        }
+
+        #scrollPipelineDiv {
+            border: 1px solid silver;
+            border-radius: 4px;
+            word-break: break-all;
+            width: 131px;
+            height: 110px;
+            margin-left: 8px;
+            margin-top: 7px;
+        }
+    </style>
+</head>
+<body>
+<table class="paramTable">
+    <tr>
+        <td>
+            <label for="selArea">文件:</label>
+        </td>
+        <td>
+            <input id="selArea" type="text" disabled/>
+            <button id="selectImg" class="afterInText">选择路径</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>版本号:</label>
+        </td>
+        <td>
+            <input type="text" onpropertychange="checkStr(this)" name="version" id="version">
+            <span id="loadingDiv" class="afterInText">
+                    <img id="loadingImg" class="hideImg" src="../../images/dialog/loading.gif" alt="加载中">
+                </span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>图层:</label>
+        </td>
+        <td>
+            <div id="scrollPipelineDiv">
+                <div id="divPipeLineTypeList">
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+<div class="buttonTd14">
+    <button id="btnUpdate" disabled>确定</button>
+    <button id="btnCancel">取消</button>
+</div>
+<object id="dataProcess" classid="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></object>
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="../../js/common/common.js"></script>
+<script type="text/javascript" src="../../js/stamplib/StampLayers.js"></script>
+
+<script type="text/javascript" src="../../js/stamplib/statistics.js"></script>
+<script type="text/javascript" src="../../js/view/updateArea.js"></script>
+
+
+</body>
+</html>

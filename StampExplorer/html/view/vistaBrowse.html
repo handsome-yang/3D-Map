@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html style="height: 100%">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>街景</title>
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/icon.css" />
+		<link rel="stylesheet" type="text/css" href="../../js/plugins/zTreeStyle/zTreeStyle.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		
+	</head>
+
+	<body style="height: 100%">
+		<div id="cardBox" class="" data-options="fit:true" style="height: 100%">
+			<div id="northDiv">
+				<div class="cardTitle">街景设置</div>
+				<div id="paramSetInner" style="text-align: center;padding-bottom: 10px;">
+					<table id="tableSet" class="panelTable">
+						<tr>
+							<td><span>图像投影:</span></td>
+							<td>
+								<select id="earthType">
+									<option value="0">球面全景图像</option>
+									<option value="1">立方体全景图像</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><span>服务地址:</span></td>
+							<td>
+								<input id="url" type="text" value="" />
+							</td>
+						</tr>
+						<tr>
+							<td><span>距地高度:</span></td>
+							<td>
+								<input id="floorheight" type="text" value="3" />
+							</td>
+						</tr>
+						<tr>
+							<td><span>空间坐标:</span></td>
+							<td>
+								<select id="spaceType">
+									<option value="jwdzb">经纬度坐标</option>
+									<option value="pmzb">平面坐标</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><span>空间参考:</span></td>
+							<td>
+								<input id="path" type="text" value="" disabled/>
+								<button id="select" class="afterInText" style="width: 56px;">选择路径</button>
+							</td>
+						</tr>
+						<tr>
+							<td><span>LOD分级:</span></td>
+							<td>
+								<select id="lodlevel">
+									<option value="0">空</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</td>
+						</tr>
+					</table>
+					<div style="width:228px;height:80px;margin:10px auto 0px;border:1px solid #ccc;">
+						<table id="visaset" class="easyui-datagrid" fit="true">
+							<thead>
+								<tr>
+									<th data-options="field:'level',width:70">分级</th>
+									<th data-options="field:'rownum',editor:'text',width:70">行数</th>
+									<th data-options="field:'colnum',editor:'text',width:70">列数</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="buttonDiv5">
+						<button id="SaveVisaset">保存</button>
+					</div>
+				</div>
+				<!--paramSetInner-->
+			</div>
+			<div style="overflow:hidden;">
+				<div class="cardTitle">漫游设置</div>
+				<div id="trackDiv" style="height: 90px;overflow: auto;">
+					<ul id="trackTree" class="ztree"></ul>
+				</div>
+				<div id="divControl" class="buttonDiv14">
+					<label><input type="radio" value="1" checked/>交互控制</label>
+					<label><input type="radio" value="2" />路径控制</label>
+				</div>
+				<div class="buttonDiv14">
+					<button id="vistaBrowse">街景浏览</button>
+					<button id="vistaLinkage" disabled="true">联动</button>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/zTreeStyle/jquery.ztree.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script type="text/javascript" src="../../js/stamplib/StampQuery.js"></script>
+		<script type="text/javascript" src="../../js/stamplib/analysis.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../js/config/config.js"></script>
+		<script type="text/javascript" src="../../js/view/track.js"></script>
+		<script type="text/javascript" src="../../js/view/vistaBrowse.js"></script>
+	</body>
+
+</html>

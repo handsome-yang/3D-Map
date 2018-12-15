@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>坡度分析</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+	</head>
+
+	<body>
+		<table class="paramTable">
+			<tr>
+
+				<td>
+					<span>分析半径:</span>
+				</td>
+
+				<td>
+					<input type="text" id="radius" class="inputText" onpropertychange="checkNum(this, true, 0, 10000)" value="30">
+					<span class="afterInText">米</span>
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+
+			<button id="ok">开始分析</button>
+
+			<button id="cancel">退出</button>
+
+		</div>
+
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/common/common.js"></script>
+		<script>
+			/**
+			 * [getEarth 坡度分析]
+			 * @param  {[object]} earth [三维球对象]
+			 * @return {[type]}       [无]
+			 */
+			function getEarth(earth) {
+				$(function() {
+					$('#ok').on('click', function(e) {
+						var radius = $('#radius').val();
+						if(!Number(radius)) {
+							alert('请输入大于0的分析半径');
+							return;
+						}
+						earth.analysisObj.clear();
+						earth.Measure.MeasureSlope(parseInt('0xff0000'), radius);
+					});
+
+					$('#cancel').on('click', function(e) {
+						earth.htmlBallon.DestroyObject();
+					});
+					window.onunload = function() {
+						earth.analysisObj.clear();
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

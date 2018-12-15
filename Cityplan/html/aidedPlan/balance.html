@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>用地平衡</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        font: 14px 'Microsoft Yahei';
+    }
+
+    html,body {
+        width: 100%;
+        height: 100%;
+    }
+
+    .tdIndex {
+        width: 5%;
+    }
+
+    .type {
+        width: 15%
+    }
+
+    #dgDiv {
+        width: 96%;
+        margin: 10px auto;
+        height: 90%;
+        overflow: auto;
+    }
+
+    #dg {
+        width: 100%;
+        border: 1px solid #ccc;
+    }
+
+    #dg td {
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+    }
+    </style>
+    <script src="../../js/plugins/jquery.js"></script>
+    <script src="../../js/plugins/jquery.easyui.min.js"></script>
+    <script src="../../js/plugins/jquery.xml2json.js"></script>
+    <script src="../../js/common/common.js"></script>
+</head>
+
+<body>
+    <div style="text-align: left;margin-top:5px;margin-left:20px;">
+        <label for="selLayers">选择图层:</label>
+        <select id="selLayers" style="width:150px;border:1px solid silver;"></select>
+        <button class="largeBtn" id="statistics">统计</button>
+        <button class="largeBtn" id="export">导出</button>
+    </div>
+
+    <div id="dgDiv">
+        <table id="dg" border="1" cellspacing="0" cellpadding="0">
+
+            <thead>
+                <td class="tdIndex">序号</td>
+                <td class="type">用地代号大类</td>
+                <td class="type">用地代号中类</td>
+                <td class="type">用地代号小类</td>
+                <td class="parcelType">用地类型</td>
+                <td class="parcelArea">用地面积</td>
+                <td class="percent">比例(%)</td>
+            </thead>
+
+            <tbody>
+                <!-- 用于【用地平衡】分析结果显示 -->
+            </tbody>
+
+        </table>
+    </div>
+
+    <script src="../../js/config/config.js"></script>
+    <script src="../../js/common/exportExcel.js"></script>
+    <script src="../../js/aidedPlan/balance.js"></script>
+</body>
+
+</html>

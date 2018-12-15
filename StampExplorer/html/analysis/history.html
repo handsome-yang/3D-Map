@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>历史查看</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+		<link rel="stylesheet" href="../../css/easyui/default/easyui.css" />
+	</head>
+
+	<body>
+		<table class="paramTable">
+
+			<tr>
+
+				<td>文件:</td>
+
+				<td>
+					<input id="date" name="date" class="inputText" type="text" value="2014-07-21 10:54" />
+				</td>
+
+			</tr>
+
+		</table>
+
+		<div class="buttonTd">
+
+			<td colspan="2" class="buttonTd">
+
+				<button id="btnStart">确定</button>
+
+				<button id="clear">退出</button>
+
+			</td>
+
+		</div>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<!-- 历史管理 -->
+		<script src="../../js/stamplib/historyNoSlider.js"></script>
+		<script>
+			var earth = "";
+			var analysis;
+			var COLOR_16_REGEXP = /^0x[0-9a-fA-F]{8}$/;
+			/**
+			 * [getEarth 历史查看]
+			 * @param  {[type]} earthObj [当前三维球对象]
+			 * @return {[type]}          [无]
+			 */
+			function getEarth(earthObj) {
+				earth = earthObj;
+				analysis = earth.analysisObj;
+				balloon = earth.htmlBallon;
+				tools = earth.Tools;
+
+				var historyMgr = new STAMP.HistoryNoSlider(earth);
+				$(function() {
+					$("#btnStart").click(function() {
+						var txt = $('#date').val();
+						historyMgr.load(txt, earth);
+					});
+					$("#clear").click(function() {
+						balloon.DestroyObject();
+					});
+				});
+
+				window.onunload = function() {
+					tools.singleStyleCancel("historyNoSlider");
+					historyMgr.restore();
+					analysis.clear();
+				};
+			}
+		</script>
+	</body>
+
+</html>

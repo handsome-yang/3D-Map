@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>三维基础平台应用系统</title>
+
+		<!--加载中样式-->
+		<link rel="stylesheet" type="text/css" href="css/loading.css" />
+
+		<!--用到easyui的dialog对话框-->
+		<link rel="stylesheet" type="text/css" href="css/easyui/default/easyui.css">
+
+		<!--用到easyui的右键菜单图标样式-->
+		<link rel="stylesheet" type="text/css" href="css/easyui/icon.css">
+
+		<!--ztree图层管理树样式-->
+		<link rel="stylesheet" type="text/css" href="js/plugins/zTreeStyle/zTreeStyle.css" type="text/css">
+
+		<!--主界面基本样式-->
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+
+		<!--滚动条样式-->
+		<link rel="stylesheet" href="css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+	</head>
+
+	<body onunload="unloadEarth()">
+
+		<!-- 加载中提示 START -->
+		<div id="loading-mask"></div>
+		<div id="loading">
+			<div class="loading-indicator" style="width:300px;">
+				<img src="images/login/hc.gif" class="loadingImg" />
+				<div style="display:inline-block;">
+					<span style="display:block">三维基础平台应用系统</span>
+					<span id="loading-msg">Loading styles and images...</span>
+				</div>
+			</div>
+		</div>
+		<!-- 加载中提示 END -->
+
+		<!-- 标题栏 START -->
+		<div id="headerDiv">
+			<div class="header">
+
+				<!-- logo -->
+				<img class="logoImg" src="" alt="logo">
+
+				<!-- 标题图片 -->
+				<img class="titleImg" src="" alt="标题">
+
+				<!-- 标题文字：没有设置标题图片时会起作用 -->
+				<span class="titleText"></span>
+
+				<!-- 右侧一级菜单 START -->
+				<div class="main-nav" id="DB_navi">
+					<ul class="DB_main" id="DB_ul">
+					</ul>
+				</div>
+				<!-- 右侧一级菜单 END -->
+
+			</div>
+		</div>
+		<!-- 标题栏 END -->
+
+		<!-- 主框架（包括左侧leftpanel、右侧上菜单栏tools、右侧中earth、右侧下视点页面） START -->
+		<div id="mainDiv">
+			<!--菜单栏下一页按钮 START-->
+			<div class="btnPreNext">
+				<div id="nextMenu" class="toolIcon nextDbIcon " title="下一页"></div>
+				<!-- <div id="preMenu" class="toolIcon preDbIcon " title="上一页"></div> -->
+			</div>
+			<div class="btnPrePre">
+				<div id="preMenu" class="toolIcon_preMenu preDbIcon " title="上一页"></div>
+			</div>
+			<!--菜单栏下一页按钮 END-->
+
+			<!-- 左侧面板（常驻面板-图层管理  和  切换面板-功能面板）START -->
+			<div id="leftPanel" style="width:335px;height:100%;float:left;">
+
+				<!-- 切换面板-功能面板 START -->
+				<div id="id_left_operator" style="height:99%;display:none;overflow:hidden;background-color:#eaedf2;">
+					<iframe name="operator" id="operator" frameborder="0" scrolling="no"></iframe>
+				</div>
+				<!-- 切换面板-功能面板 END -->
+
+				<!-- 常驻面板-图层管理 START -->
+				<div id="id_left_layerTree" style="height: 100%;width:100%;">
+					<!-- 图层管理-header START -->
+					<div class="layerHeader" id="layerHeader">
+						<div class="layerHeaderInnerDiv">
+							<!-- <img class="layerHeaderInnerImg" src="images/tools/图层管理.png"> -->
+							<span class="layerHeaderInnerText">图层管理</span>
+						</div>
+						<img class="closeLayerImg" id="closeLayer" src="images/toolsIcon/closeBtn.svg">
+					</div>
+					<!-- 图层管理-header END -->
+
+					<!-- 图层管理树-tree START -->
+					<div border="false" id="id_tree_body">
+						<div id="layerTreeDiv">
+							<ul id="layerTree" class="ztree" style="border:0px;">
+								<!-- 基础图层 -->
+							</ul>
+						</div>
+					</div>
+					<!-- 图层管理树-tree END -->
+
+				</div>
+				<!-- 常驻面板-图层管理 END -->
+
+			</div>
+			<!-- 左侧面板（常驻面板-图层管理  和  切换面板-功能面板）END -->
+
+			<!-- 右下侧面板（二级菜单栏、三维球、视点功能页面）：START -->
+			<div id="mainEarth" style="height:100%;margin-left:335px;background-color: rgba(10, 9, 112, 1);">
+
+				<!-- 上（二级菜单栏）：START -->
+				<div id="toolDiv">
+					<div class="right_cont" id="div_toolBar">
+						<div id="toolBar_ios">
+						</div>
+					</div>
+				</div>
+				<!-- 上（二级菜单栏）：END -->
+
+				<!-- 中（三维球）：START -->
+				<div id="MapTwo" style="height:100%;">
+					<div id="map3dv" style="height:100%;width:100%;float:left;border:0;">
+						<div id="earthDiv" class="whole"></div>
+						<div id="earthDiv1" class="hide"></div>
+					</div>
+				</div>
+				<!-- 中（三维球）：END -->
+
+				<!-- 下（视点页面）：START -->
+				<div id="viewpointMain" style="display:none;width:100%;">
+					<iframe src="html/view/viewpointManagement.html" id="ResultMain" name="ResultMain" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto" style="width:100%;height:100%;"></iframe>
+					<div id="profileChart" style="display:none;">
+						<img id="closeChart" src="images/tools/系统设置.png" alt="关闭">
+					</div>
+				</div>
+				<!-- 下（视点页面）：END -->
+
+			</div>
+			<!-- 右下侧面板（二级菜单栏、三维球、视点功能页面）：END -->
+		</div>
+
+		<!-- 空间参考中用到 -->
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+
+		<!-- jquery脚本1.9.0 -->
+		<script type="text/javascript" src="js/plugins/jquery1.9.0.min.js"></script>
+
+		<!-- easyui脚本 -->
+		<script type="text/javascript" src="js/plugins/jquery.easyui.min.js"></script>
+
+		<!-- ztree脚本 -->
+		<script type="text/javascript" src="js/plugins/zTreeStyle/jquery.ztree.js"></script>
+
+		<!-- xml转json -->
+		<script type="text/javascript" src="js/plugins/jquery.xml2json.js"></script>
+
+		<!-- 画图控件 -->
+		<script type="text/javascript" src="js/plugins/highcharts.js"></script>
+
+		<!-- 滚动条js -->
+		<script type="text/javascript" src="js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+
+		<!-- 配置文件 -->
+		<script type="text/javascript" src="js/config/config.js"></script>
+
+		<!-- 图层脚本 -->
+		<script type="text/javascript" src="js/stamplib/layer.js"></script>
+
+		<!-- 公共脚本 -->
+		<script type="text/javascript" src="js/common/common.js"></script>
+
+		<!-- 菜单配置文件 -->
+		<script type="text/javascript" src="js/config/menuconfig.js"></script>
+
+		<!-- 菜单管理 -->
+		<script type="text/javascript" src="js/menu.js"></script>
+
+		<!-- 二级菜单栏脚本 -->
+		<script type="text/javascript" src="js/tools.js"></script>
+
+		<!-- 菜单响应方法 -->
+		<script type="text/javascript" src="js/nav-tools.js"></script>
+
+		<!-- 左侧面板 -->
+		<script type="text/javascript" src="js/leftPanel.js"></script>
+
+		<!-- 管线功能接口 -->
+		<script type="text/javascript" src="js/stamplib/StampTools.js"></script>
+
+		<!-- 图层操作相关 -->
+		<script type="text/javascript" src="js/stamplib/StampLayers.js"></script>
+
+		<!-- 查询 -->
+		<script type="text/javascript" src="js/stamplib/StampQuery.js"></script>
+
+		<!-- 滑动条：地下透明、雨、雪、雾 -->
+		<script type="text/javascript" src="js/stamplib/sliderMgr.js"></script>
+
+		<!-- 滑动条：历史图层 -->
+		<script type="text/javascript" src="js/stamplib/historySliderMgr.js"></script>
+
+		<!-- 分析 -->
+		<script type="text/javascript" src="js/stamplib/analysis.js"></script>
+
+		<!-- 查询 -->
+		<script type="text/javascript" src="js/stamplib/search.js"></script>
+
+		<!-- 主页面脚本 -->
+		<script type="text/javascript" src="js/index.js"></script>
+
+		<!-- 三维球：*重要* -->
+		<script type="text/javascript" src="js/stamplib/StampBasemap.js"></script>
+
+		<!-- 用户数据 -->
+		<script type="text/javascript" src="js/stamplib/userdata.js"></script>
+
+	</body>
+
+</html>

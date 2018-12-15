@@ -1,0 +1,46 @@
+﻿ /**
+  * 作       者：StampGIS Team
+  * 创建日期：2017年7月22日
+  * 描        述：样式：页面初始化加载中
+  * 注意事项：
+  * 遗留bug：0
+  * 修改日期：2017年11月8日
+  ******************************************/
+
+ @CHARSET "utf-8";
+ #loading-mask {
+ 	background-color: white;
+ 	height: 100%;
+ 	position: absolute;
+ 	left: 0;
+ 	top: 0;
+ 	width: 100%;
+ 	z-index: 20000;
+ }
+
+ #loading {
+ 	height: auto;
+ 	position: absolute;
+ 	left: 45%;
+ 	top: 40%;
+ 	padding: 2px;
+ 	z-index: 20001;
+ }
+
+ #loading a {
+ 	color: #225588;
+ }
+
+ #loading .loading-indicator {
+ 	background: white;
+ 	color: #444;
+ 	font: bold 13px Helvetica, Arial, sans-serif;
+ 	height: auto;
+ 	margin: 0;
+ 	padding: 10px;
+ }
+
+ #loading-msg {
+ 	font-size: 12px;
+ 	font-weight: normal;
+ }

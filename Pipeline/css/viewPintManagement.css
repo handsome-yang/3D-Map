@@ -1,0 +1,86 @@
+/**
+ * 作    者：StampGIS Team
+ * 创建日期：2017年9月20日
+ * 描    述：视点管理样式文件
+ * 遗留bug ：无
+ * 修改日期：2017年9月20日
+ **************************************************/
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+body {
+    outline: none;
+    overflow: hidden;
+}
+
+img {
+    border: 0;
+}
+
+#device {
+    width: 100%;
+    height: 135px;
+    position: relative;
+    background-color: #fff;
+    padding: 12px 0;
+}
+
+.arrowButton {  
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    margin-top: -28px;
+    width: 26px;
+    height: 56px;
+    cursor: pointer;
+}
+
+#imgDiv {
+    height: 112px;
+    margin: 0 90px 0 10px;
+
+    position: relative;
+}
+
+#leftButton {
+    left: 0px;
+    z-index: 10;
+}
+
+#rightButton {
+    right: 2%;
+    z-index: 10;
+}
+
+#expAndImp {
+    position: absolute;
+    width: 90px;
+    top: 0;
+    right: 0;
+}
+
+#expAndImp img {
+    cursor: pointer;
+}
+
+.impExp {
+    display: block;
+    margin: 15px auto;
+}
+
+#close_iframe {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#sliderDiv {
+    position: relative;
+}
+
+.slideClass {
+    height: 112px;
+}

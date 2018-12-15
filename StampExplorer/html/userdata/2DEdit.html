@@ -1,0 +1,313 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>二维对象</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/analysis.css" type="text/css" />
+	</head>
+
+	<body onLoad="attributeUserdata()" onunload="unloadWindow()" style="overflow-y: auto">
+		<table class="paramTable">
+
+			<tr id="name">
+
+				<td>名称:</td>
+
+				<td>
+					<input type="text" id="lineRingName" class="inputText" onkeyup="checkStr(this)" maxlength="20" value="element" />
+				</td>
+
+			</tr>
+
+			<!--半径-->
+			<tr id="radius">
+
+				<td>
+					<span>半径:</span>
+				</td>
+
+				<td>
+					<input id="radiusValue" class="inputText" onkeyup="checkNum(this, true, 2, 10000)" type="text" />
+				</td>
+
+			</tr>
+
+			<!--长轴半径-->
+			<tr id="longAxis">
+
+				<td>
+					<span>轴一半径: </span>
+				</td>
+
+				<td>
+					<input id="longAxisValue" class="inputText" onkeyup="checkNum(this, true, 2, 10000)" type="text" />
+				</td>
+
+			</tr>
+
+			<!--短轴半径-->
+			<tr id="shortAxis">
+
+				<td>
+					<span>轴二半径:</span>
+				</td>
+
+				<td>
+					<input id="shortAxisValue" class="inputText" onkeyup="checkNum(this, true, 2, 10000)" type="text" />
+				</td>
+
+			</tr>
+
+			<!--扇形夹角-->
+			<tr id="sectorAngle">
+
+				<td align="right">
+					<span>扇形夹角: </span>
+				</td>
+
+				<td>
+					<input id="sectorAngleValue" class="inputText" onkeyup="checkNum(this, true, 2, 360)" type="text" />
+				</td>
+
+			</tr>
+
+			<tr id="lineColor">
+
+				<td align="right">线颜色:</td>
+
+				<td>
+
+					<input type="text" id="lineColorInput" onkeyup="checkStr(this, null, true)" value="#ffff00" class="inputText" maxlength="7" disabled />
+
+					<input type="button" id="lineColorSel" style="background-color:#ffff00" class="colorBtn afterInText" value="" onClick="fillColorDlg('lineColorSel')" />
+				</td>
+
+			</tr>
+
+			<!--线透明度-->
+			<tr>
+
+				<td>
+					<span>线透明度:</span>
+				</td>
+
+				<td>
+
+					<input id="lineAlphaValue" class="inputText" type="text" value="204" onkeyup="checkNum(this, true, 0, 255)" maxlength="3" />&nbsp;
+
+					<span class="afterInText">(0-255)</span>
+
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>线宽:</span>
+				</td>
+
+				<td>
+					<input type="text" id="lineWidth" value="1" class="inputText" onkeyup="checkNum(this, true, 0, 10000)" maxlength="20" />&nbsp;
+
+					<span class="afterInText">像素</span>
+				</td>
+
+			</tr>
+
+			<tr id="arrow" style="display:none">
+
+				<td>显示箭头:</td>
+
+				<td>
+					<select name="unit" id="unit" class="selectM" value="0">
+
+						<option value="0">无箭头</option>
+
+						<option value="1">三角形箭头</option>
+
+						<option value="2">伞状箭头</option>
+
+					</select>
+				</td>
+
+			</tr>
+
+			<tr>
+				<td>渲染模式:</td>
+
+				<td>
+					<select name="shadow" id="shadow" class="selectM">
+
+						<option value="1">贴地</option>
+
+						<option value="0">正常</option>
+
+						<option value="5">贴模型</option>
+
+					</select>
+				</td>
+
+			</tr>
+
+			<tr id="fill">
+
+				<td>填充色:</td>
+
+				<td>
+					<input type="text" id="fillColor" value="#00ff00" onkeyup="checkStr(this, null, true)" maxlength="7" class="inputText" disabled />
+
+					<input type="button" id="fillColorSel" style="background-color:#00ff00" class="colorBtn afterInText" value="" onClick="fillColorDlg('fillColorSel')" />
+				</td>
+
+			</tr>
+
+			<tr id="fillAlpha">
+
+				<td>透明度:</td>
+
+				<td>
+					<input type="text" id="transparency" class="inputText" onkeyup="checkNum(this, true, 0, 255)" maxlength="3" value="50" />
+
+					<span class="afterInText">(0-255)</span>
+				</td>
+
+			</tr>
+
+			<!--渲染顺序-->
+			<tr id="drawOrderRow">
+
+				<td>
+					<span>渲染顺序:</span>
+				</td>
+
+				<td>
+					<input id="drawOrder" class="inputText" type="text" onkeyup="checkNum(this, true, 0, 10000)" value="0" />
+				</td>
+
+			</tr>
+
+			<!--可选择性-->
+			<tr id="selectableRow">
+
+				<td>
+					<span>可选择性:</span>
+				</td>
+
+				<td>
+					<select name="selectable" id="selectable" onChange="editablesel()" class="selectM" value="false">
+
+						<option value="true">是</option>
+
+						<option value="false">否</option>
+
+					</select>
+				</td>
+
+			</tr>
+
+			<!--可编辑-->
+			<tr id="editableRow">
+
+				<td>
+					<span>可编辑性:</span>
+				</td>
+
+				<td>
+					<select name="editable" id="editable" class="selectM" value="false">
+
+						<option value="true">是</option>
+
+						<option value="false">否</option>
+
+					</select>
+				</td>
+
+			</tr>
+
+			<!--线长度(只读)-->
+			<tr id="lineLength">
+
+				<td>
+					<span>线长度:</span>
+				</td>
+
+				<td>
+					<input id="lineLengthValue" class="inputText" type="text" readonly="readonly" value="0" />
+
+					<span class="afterInText">米</span>
+				</td>
+
+			</tr>
+
+			<!--周长(只读)-->
+			<tr id="perimeter">
+
+				<td>
+					<span>周长:</span>
+				</td>
+
+				<td>
+					<input id="perimeterValue" class="inputText" type="text" readonly value="0" />&nbsp;
+
+					<span class="afterInText">米</span>
+				</td>
+
+			</tr>
+
+			<!--面积(只读)-->
+			<tr id="area">
+
+				<td align="right">
+					<span>水平面积:</span>
+				</td>
+
+				<td>
+					<input id="areaValue" class="inputText" type="text" readonly value="0" />&nbsp;
+
+					<span class="afterInText">平方米</span>
+				</td>
+
+			</tr>
+
+			<tr id="spaceArea">
+
+				<td align="right">
+					<span>空间面积:</span>
+				</td>
+
+				<td>
+					<input id="areaValue1" class="inputText" type="text" readonly="readonly" value="0" />
+
+					<span class="afterInText">平方米</span>
+				</td>
+
+			</tr>
+			<tr>
+				<td>描述:</td>
+
+				<td>
+					<textarea id="description" cols="30" rows="5" class="textA"></textarea>
+				</td>
+			</tr>
+
+		</table>
+		<div class="buttonTd">
+
+			<button onClick="polygon_submit()">确定</button>
+
+			<button onClick="closeWindow()">取消</button>
+
+		</div>
+		<OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0" height="0"></OBJECT>
+		<script src="../../js/config/config.js"></script>
+		<!-- 二维对象 -->
+		<script src="../../js/userdata/2DEdit.js"></script>
+		<script src="../../js/common/common.js"></script>
+	</body>
+
+</html>

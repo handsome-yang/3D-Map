@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>视点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css">
+    <style>
+    textarea {
+        margin-left: 8px;
+    }
+    </style>
+</head>
+
+<body onload="init()">
+    <table class="paramTable">
+        <tr>
+            <td>名称:</td>
+
+            <td>
+                <input class="inputText" maxlength="10" type="text" id="pointName" name="pointName" value="未命名视点" onkeyup="checkStr(this)" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>描述:</td>
+
+            <td>
+                <textarea rows="20" id="description" name="description"></textarea>
+            </td>
+        </tr>
+    </table>
+
+    <div class="buttonTd">
+        <button onClick="confirmData()">确定</button>
+        <button onClick="cancelClick()">取消</button>
+    </div>
+
+    <script src="../../js/plugins/jquery1.9.0.min.js"></script>
+    
+    <script src="../../js/common/common.js"></script>
+
+    <script type="text/javascript">
+        var params = window.dialogArguments;
+        var titleText = params.titleText;
+        var earth = params.earth;
+
+        function init() {
+            var data = params.data;
+            if (data != null) {
+                var name = data.getAttribute("name");
+                var desp = data.selectSingleNode("Description").text;
+                pointName.value = name;
+                description.value = desp;
+            }
+        }
+
+        function cancelClick() {
+            window.close();
+        }
+
+        function confirmData() {
+            if (pointName.value == "") {
+                alert("名称不能为空！");
+                pointName.focus();
+                return;
+            }
+            if (pointName.value.length > 10) {
+                alert("名称字数不能超过10个！");
+                pointName.focus();
+                return;
+            }
+            if (containSpecial(pointName.value)) {
+                alert("名称不能有特殊字符！");
+                pointName.focus();
+                return;
+            }
+            if (description.value.length > 50) {
+                alert("描述信息不要超过50个字符");
+                description.focus();
+                return;
+            }
+            var data = {
+                pointName: pointName.value,
+                description: description.value
+            };
+            window.returnValue = data;
+            window.close();
+        }
+
+        function containSpecial(s) {
+            var containSpecial = RegExp(/[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/)(\<)(\>)(\?)(\)]+/);
+            return (containSpecial.test(s));
+        }
+    </script>
+</body>
+</html>

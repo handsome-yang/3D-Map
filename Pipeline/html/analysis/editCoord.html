@@ -1,0 +1,234 @@
+﻿<html>
+<head>
+    <title>输入坐标</title>
+    <meta name="Generator" content="EditPlus">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+</head>
+<style type="text/css">
+    #textDiv {
+        width: 99%;
+        height: 285px;
+        overflow: auto;
+        border: 1px double #ACA899;
+    }
+
+    table {
+        width: 100%;
+        height: 20px;
+        overflow: auto;
+        border: 1px double #ACA899;
+        border-collapse: collapse;
+    }
+
+    tr {
+        border: 1px double #cdcab8;
+        height: 20px;;
+    }
+
+    td {
+        border-bottom: 1px double #cdcab8;
+        border-right: 1px double #cdcab8;
+        text-align: center;
+        width: 33.3%;
+        height: 10px;
+    }
+
+    button {
+        width: 75px;
+        height: 30px;;
+    }
+</style>
+<body>
+<div id="textDiv" contentEditable onmouseup="if(event.srcElement==this.document.getElementById('num')){this.blur();};
+  if(event.srcElement==this.document.getElementById('x')){this.blur();};if(event.srcElement==this.document.getElementById('y')){this.blur();};">
+    <table>
+        <tr>
+            <td id="x">经度</td>
+            <td id="y">纬度</td>
+            <td id="z">地面高程</td>
+        </tr>
+    </table>
+</div>
+<div style="text-align: center;">
+    <button id="change">平面坐标</button>
+    <button id="add">添加</button>
+    <button id="delete" disabled>删除</button>
+    <button id="confirm">确定</button>
+    <button id="giveup">取消</button>
+</div>
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+</script>
+<
+script >
+var obj = window.dialogArguments;
+var pipeDatum = obj.pipeDatum;
+var IsXYZ = false;
+if (IsXYZ) {
+    $("#x").html("X坐标");
+    $("#y").html("Y坐标");
+    $("#z").html("Z坐标");
+} else {
+    $("#x").html("经度");
+    $("#y").html("纬度");
+    $("#z").html("地面高程");
+}
+//经纬度、平面坐标的切换
+$("#change").click(function () {
+    if ($(this).text() === "经纬度坐标") {
+        $(this).text("平面坐标");
+        $("#x").html("经度（度）");
+        $("#y").html("纬度（度）");
+        $("#z").html("地面高程（米）");
+        IsXYZ = false;
+    } else {
+        $(this).text("经纬度坐标");
+        $("#x").html("X坐标（米）");
+        $("#y").html("Y坐标（米）");
+        $("#z").html("Z坐标（米）");
+        IsXYZ = true;
+    }
+});
+//增加一行
+$("#add").click(function () {
+    var tableObj = $("#textDiv table")[0];
+    var num = tableObj.rows.length - 1;
+    if (num == 2) {
+        alert("不能再添加了");
+        return;
+    }
+    var trHtml = getTrHtml(num);
+    $("#textDiv table").append(trHtml);
+});
+//删除一行
+$("#delete").click(function () {
+    var tableObj = $("#textDiv table")[0];
+    var selectIndex = tableObj.selectIndex;
+    if (tableObj.rows.length === 1) {
+        return;
+    }
+    tableObj.deleteRow(selectIndex);
+    for (var i = selectIndex; i < tableObj.rows.length; i++) {
+        tableObj.rows[i].cells[0].innerHTML = i - 1;
+    }
+    $("#delete").attr("disabled", true);
+});
+//确定点击事件
+$("#confirm").click(function () {
+    var xyArr = [];
+    var tableObj = $("#textDiv table")[0];
+    // alert(tableObj.rows.length) ;
+    if (tableObj.rows.length - 1 != 2) {
+        alert("必须等于两个点");
+        return;
+    }
+    for (var i = 1; i < tableObj.rows.length; i++) {
+        if (tableObj.rows[i].cells[0].innerHTML === "" || tableObj.rows[i].cells[0].innerHTML === undefined) {
+            if (IsXYZ) {
+                alert("X坐标不能为空！");
+            } else {
+                alert("经度值不能为空！");
+            }
+            //tableObj.rows[i].cells[1].style.backgroundColor = "red";
+            return;
+        } else if (tableObj.rows[i].cells[1].innerHTML === "" || tableObj.rows[i].cells[1].innerHTML === undefined) {
+            if (IsXYZ) {
+                alert("Y坐标不能为空！");
+            } else {
+                alert("纬度值不能为空！");
+            }
+            tableObj.rows[i].focus();
+            return;
+        }
+        else if (tableObj.rows[i].cells[2].innerHTML === "" || tableObj.rows[i].cells[2].innerHTML === undefined) {
+            if (IsXYZ) {
+                alert("Z坐标不能为空！");
+            } else {
+                alert("地面高程不能为空！");
+            }
+            tableObj.rows[i].focus();
+            return;
+        }
+        if (isNaN(tableObj.rows[i].cells[0].innerHTML) || isNaN(tableObj.rows[i].cells[1].innerHTML) || isNaN(tableObj.rows[i].cells[2].innerHTML)) {
+            alert("值必须是数字！");
+            tableObj.rows[i].cells[2].focus();
+            return;
+        }
+
+        var params = {
+            Longitude: parseFloat(tableObj.rows[i].cells[0].innerHTML),
+            Latitude: parseFloat(tableObj.rows[i].cells[1].innerHTML),
+            Altitude: parseFloat(tableObj.rows[i].cells[2].innerHTML)
+        };
+        xyArr.push(params);
+    }
+    if (IsXYZ) {
+        xyArr = TranslateCoord(xyArr);//zhangd-2014-12-04-------调用坐标转换方法
+    }
+
+    window.returnValue = xyArr;
+    window.close();
+});
+
+function TranslateCoord(arrCoord) {
+    var arr = [];
+    for (var i = 0; i < arrCoord.length; i++) {
+        var rawPoint = pipeDatum.src_xy_to_des_BLH(arrCoord[i].Longitude, arrCoord[i].Latitude, arrCoord[i].Altitude);
+        var params = {
+            Longitude: rawPoint.X,
+            Latitude: rawPoint.Y,
+            Altitude: rawPoint.Z
+        };
+        arr.push(params);
+    }
+    return arr;
+}
+//取消事件
+$("#giveup").click(function () {
+    window.close();
+});
+/**
+ * 参数：num - 编号
+ * 返回：tr标签
+ */
+var getTrHtml = function (num) {
+    var htmlStr = '<tr style="border: 1px double #cdcab8;"   >';
+    htmlStr = htmlStr + '<td  onclick="editTd(this)"></td>';
+    htmlStr = htmlStr + '<td ondblclick="editTd(this)"></td>';
+    htmlStr = htmlStr + '<td ondblclick="editTd(this)"></td>';
+    htmlStr = htmlStr + '</tr>';
+    return htmlStr;
+};
+/**
+ * 功能：单行选择表中的某一行
+ * 参数：obj - 选择的表单元格对象
+ * 返回：无
+ */
+var selectSingleRow = function (trObj) {
+    trObj = trObj.parentNode;
+    trObj.blur();
+    var tableObj = trObj.parentNode;
+    for (var i = 0; i < tableObj.rows.length; i++) {
+        tableObj.rows[i].style.color = "#000000";
+        tableObj.rows[i].style.backgroundColor = "transparent";
+    }
+    trObj.style.color = "#ffffff";
+    trObj.style.backgroundColor = "#316ac5";
+    tableObj.parentNode.selectIndex = trObj.rowIndex;
+    $("#delete").removeAttr("disabled");
+};
+/**
+ * 功能：单行选择表中的某一td
+ * 参数：obj - 选择的表td对象
+ * 返回：无
+ */
+var editTd = function (tdObj) {
+    tdObj.focus();
+    tdObj.parentNode.style.color = "";
+    tdObj.parentNode.style.backgroundColor = "";
+
+};
+</script>
+</body>
+</html>

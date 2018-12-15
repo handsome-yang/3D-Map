@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>标注名称</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+</head>
+
+<body onload="init()">
+    <div style="text-align: center;padding-top: 15px">
+        <span>名称:</span>
+
+        <input type="text" name="markedName" id="markedName" value="" />
+    </div>
+
+    <div style="text-align: center;padding-top: 15px">
+        <button class="normalBtn" onClick="setMarkedName()">确定</button>&nbsp;&nbsp;
+        <button class="normalBtn" onClick="window.close();">取消</button>
+    </div>
+</body>
+
+<script type="text/javascript">
+var params = window.dialogArguments;
+
+function setMarkedName() {
+    if (markedName.value == "") {
+        alert("名称不能为空！");
+        markedName.focus();
+        return;
+    }
+    window.returnValue = markedName.value;
+    window.close();
+}
+
+function init() {
+    var oldMarkedName = params.markedName;
+    if (oldMarkedName != null) {
+        markedName.value = oldMarkedName;
+    }
+}
+</script>
+
+</html>

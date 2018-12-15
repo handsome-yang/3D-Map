@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>楼高调整</title>
+    <link rel="stylesheet" href="../../js/plugins/jqueryui/jquery-ui-1.10.4.custom.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+</head>
+
+<body>
+    <!--楼层信息面板-->
+    <table class="paramTable">
+        <tr>
+            <td>建筑高度:</td>
+
+            <td>
+                <input id="buildingHeight" onpropertychange="checkNum(this,false,2)" type="text" value="9" />
+
+                <span class="afterInText">米</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>建筑楼层:</td>
+
+            <td>
+                <input id="floorCount" onpropertychange="checkNum(this, true, 0, 1000)" type="text" value="3" />
+
+                <span class="afterInText">层</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>楼层高度:</td>
+
+            <td>
+                <input id="floorHeight" onpropertychange="checkNum(this,false,2)" type="text" value="3" />
+
+                <span class="afterInText">米</span>
+            </td>
+        </tr>
+    </table>
+
+    <!--方案指标面板-->
+    <div class="fieldsetDiv" style="margin-top:4px;">
+        <fieldset>
+            <legend>方案指标</legend>
+
+            <table class="paramTable" style="margin-top:5px;">
+                <tr>
+                    <td>容积率:</td>
+
+                    <td>
+                        <input id="RJL" type="text" disabled="true" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>建筑密度:</td>
+
+                    <td>
+                        <input id="JZMD" type="text" disabled="true" />
+
+                        <span class="afterInText">%</span>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </div>
+
+    <!--操作按钮-->
+    <div class="buttonTd14">
+        <button id="btnAction">确定</button>
+        <button id="clear">关闭</button>
+    </div>
+    
+    <script type="text/javascript" src="../../js/plugins/jquery.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jqueryui/jquery-ui-1.10.4.custom.min.js"></script>
+
+    <script type="text/javascript" src="../../js/config/config.js"></script>
+
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+
+    <script type="text/javascript" src="../../js/project/editFloor.js"></script>
+</body>
+
+</html>

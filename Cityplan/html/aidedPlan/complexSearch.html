@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>SQL查询</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+    <style type="text/css">
+    .mathBtn {
+        width: 50px;
+        height: 20px;
+    }
+
+    .leftDiv {
+        float: left;
+    }
+
+    .rightDiv {
+        float: left;
+        position: relative;
+    }
+
+    .twoTitle {
+        text-align: left;
+    }
+
+    .oneTitle {
+        margin: 5px 0;
+        clear: both;
+    }
+
+    #loadImg {
+        margin-left: 10px;
+        position: absolute;
+        display: none;
+        left: 0;
+        top: 0;
+        line-height: 160px;
+        height: 160px;
+        width: 110px;
+        border: 1px solid #ccc
+    }
+
+    .mathTable {
+        height: 102px;
+        width: 100px;
+        text-align: center;
+    }
+
+    .mathBtn {
+        margin: 0 5px 0 0;
+    }
+
+    textarea {
+        width: 225px;
+        margin: 0 0 14px 0;
+    }
+    </style>
+</head>
+
+<body id="container" class="easyui-layout">
+    <div region="north" id="northDiv" border="false">
+        <div class="cardTitle">参数设置</div>
+        <div id="paramSetInner">
+            <div id="selectObjDiv">
+                <label for="selLayers">图层:</label>
+                <select id="selLayers" style="width: 115px;"></select>
+                <!-- 1563 IE8 下兼容问题 -->
+                <button class="afterInText" id="btnGetField" style="margin-left: 0">获取字段</button>
+            </div>
+
+            <div class="twoTitle">
+                <div class="left">字段:</div>
+                <div class="right">值域:</div>
+            </div>
+
+            <!-- SQL查询左侧面板middle部分 Start -->
+            <div class="twoDiv">
+                <!-- SQL查询左侧面板middle-left部分 Start -->
+                <div class="leftDiv">
+
+                    <select id="selFields" size="4" class="fourSelect"></select>
+
+                    <div class="oneTitle">
+                        <span>关系符:</span>
+                    </div>
+
+                    <table class="mathTable">
+                        <tr>
+
+                            <td>
+                                <button class="mathBtn" id="eq">=</button>
+                            </td>
+
+                            <td>
+                                <button class="mathBtn" id="uneq">!=</button>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <button class="mathBtn" id="lt">
+                                    <</button>
+                            </td>
+
+                            <td>
+                                <button class="mathBtn" id="ltOrEq">
+                                    <=</button>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <button class="mathBtn" id="gt">></button>
+                            </td>
+
+                            <td>
+                                <button class="mathBtn" id="gtOrEq">>=</button>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <button class="mathBtn" id="Or">Or</button>
+                            </td>
+
+                            <td>
+                                <button class="mathBtn" id="And" style="font-size:10px">And</button>
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+                <!-- SQL查询左侧面板middle-left部分 End -->
+
+                <div class="rightDiv">
+                    <div>
+                        <select id="lstValueRange" style="height: 162px; width:110px;" size="10"></select>
+                    </div>
+
+                    <div class="rightDiv14">
+                        <button id="btnQueryValue">获取值域</button>
+                    </div>
+
+                    <div id="loadImg">
+                        <img src="../../images/dialog/loading.gif" style="margin-left: 47px;left:-10px;height:20px;width:20px;" alt="加载中">
+                    </div>
+                </div>
+            </div>
+            <!-- SQL查询左侧面板middle部分 End -->
+
+            <div class="oneTitle">
+                <span>SQL语句:</span>
+            </div>
+
+            <div>
+                <textarea id="calculate" rows="3" cols="30"></textarea>
+            </div>
+
+            <div class="buttonTd">
+                <button id="btnQuery">全部</button>
+                <button id="btnCircleSelect">圆域</button>
+                <button id="btnPolygonRegion">多边形</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="centerDiv" class="enter" region="center">
+        <div class="cardTitle">查询结果</div>
+
+        <div id="dgDiv" style="visibility: hidden;">
+            <table id="dg">
+            </table>
+        </div>
+    </div>
+    <script src="../../js/plugins/jquery.js"></script>
+    <script src="../../js/plugins/jquery.easyui.min.js"></script>
+    <script src="../../js/plugins/jquery.xml2json.js"></script>
+    <script src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../js/common/common.js"></script>
+    <script src="../../js/stamplib/searchAnalysis.js"></script>
+    <script src="../../js/stamplib/layerManager.js"></script>
+    <script type="text/javascript" src="../../js/aidedPlan/complexSearch.js"></script>
+</body>
+
+</html>

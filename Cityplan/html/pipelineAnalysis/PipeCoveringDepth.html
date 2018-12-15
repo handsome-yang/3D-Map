@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>覆土分析</title>
+
+    <link rel="stylesheet" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/analysis.css" />
+    <link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+</head>
+
+<body id="container" class="easyui-layout">
+    <!-- 左侧面板上半部分 Start -->
+    <div region="north" id="northDiv" border="false" style="">
+        <div class="cardTitle">参数设置</div>
+        <div class="paramSetInner">
+            <table class="paramTable paramNoMagTop">
+                <tr>
+                    <td>
+                        <span>图层:</span>
+                    </td>
+                    <td>
+                        <select id="selLayers" class="twoBefSelect"></select>
+                    </td>
+                </tr>
+            </table>
+            <div class="buttonTd">
+                <button id="btnAllRegionSelect"> 全部</button>
+                <button id="btnCircle">圆形</button>
+                <button id="btnPolygonRegion">多边形</button>
+            </div>
+        </div>
+    </div>
+    <!-- 左侧面板上半部分 End -->
+
+    <div id="tablediv" class="center" region="center">
+        <div class="cardTitle">分析结果</div>
+        
+        <div id="dgDiv">
+            <table id="dg" border="0" data-options="
+                        rownumbers:false,
+                        singleSelect:true,
+                        pagination:true">
+            </table>
+        </div>
+    </div>
+
+    <div region="south" id="southDiv" class="twoChcOneBtn" border="false">
+        <input type="checkbox" id="showResult" class="firstRadio" name="showResult" disabled />
+
+        <label for="showResult">显示结果</label>
+
+        <input type="checkbox" id="detailData" name="detailData" disabled>
+        <label for="detailData">详细信息</label>
+
+        <button id="importExcelBtn" disabled>导出</button>
+    </div>
+
+    <div style="display: none;">
+        <table id="tblResult">
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+
+    <script type="text/javascript" src="../../js/stamplib/statistics.js"></script>
+
+    <script type="text/javascript" src="../../js/stamplib/PipelineStandard.js"></script>
+
+    <script type="text/javascript" src="../../js/pipelineAnalysis/pipelineAnalysis.js"></script>
+
+    <script type="text/javascript" src="../../js/common/myBlockUI.js"></script>
+
+    <script type="text/javascript" src="../../js/pipelineAnalysis/pipeCoveringDepth.js"></script>
+</body>
+
+</html>

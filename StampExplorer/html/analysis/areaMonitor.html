@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>区域监测</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+		<link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+
+		<style>
+			.selectM {
+				width: 140px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table class="paramTable">
+			<tr>
+				<td>
+					<span>工程名称:</span>
+				</td>
+
+				<td>
+					<select class="selectM" name="project" id="project"></select>
+				</td>
+
+			</tr>
+
+			<tr>
+				<td>
+					<span>监测地形1:</span>
+				</td>
+
+				<td>
+					<select class="selectM" name="beforSlide" id="beforSlide"></select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>监测地形2:</span>
+				</td>
+
+				<td>
+					<select class="selectM" name="afterSlide" id="afterSlide"></select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>对比图:</span>
+				</td>
+
+				<td>
+					<input type="text" class="inputText" id="filePath" disabled />
+					<button id="selectFile">选择路径</button>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>权值分段:</span>
+				</td>
+
+				<td>
+					<input type="text" class="inputText" name="gradeSection" id="gradeSection" onpropertychange="checkNum(this, true, 0, 10);" maxlength="2" value="3" />
+					<button class="afterInText" id="sectionBtn" disabled>分段权值</button>
+				</td>
+			</tr>
+		</table>
+
+		<table cellspacing="0" cellpadding="0" id="slopeTable0">
+			<thead>
+
+				<td class="tdGrade">权值</td>
+
+				<td class="tdColor">颜色</td>
+
+			</thead>
+		</table>
+		<div id="tableLines" style="margin:0px auto 14px auto;padding:0px;height:106px;width:254px; overflow:auto;border:1px solid #b6b6b6;align:center;">
+			<table cellspacing="0" cellpadding="0" id="slopeTable" style="margin-top:0px;margin-bottom: 0px; height:100%;width:100%;">
+				<tr>
+					<td>0</td>
+
+					<td>
+						<input type="text" id="fillColor0" value="#00ff00" class="colorInput" width="57px" readonly/>
+						<input type="button" id="fillColorSel0" class="colorBtn" style="background-color:#00ff00" class="button" value="" onClick='fillColorDlg("fillColorSel0")' />
+					</td>
+
+				</tr>
+
+				<tr>
+					<td>0</td>
+
+					<td>
+						<input type="text" id="fillColor45" value="#ff0000" class="colorInput" readonly/>
+						<input type="button" id="fillColorSel45" class="colorBtn" style="background-color:#ff0000" class="button" value="" onClick='fillColorDlg("fillColorSel45")' />
+					</td>
+
+				</tr>
+
+				<tr>
+					<td>0</td>
+
+					<td>
+
+						<input type="text" id="fillColor90" value="#ffff00" class="colorInput" readonly/>
+						<input type="button" id="fillColorSel90" class="colorBtn" style="background-color:#ffff00" class="button" value="" onClick='fillColorDlg("fillColorSel90")' />
+
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="buttonTd">
+
+			<button id="draw">绘制</button>
+
+			<button id="btnStart" disabled>分析</button>
+
+			<button id="clear">退出</button>
+
+		</div>
+		<OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"></OBJECT>
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script type="text/javascript" src="../../js/config/config.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../js/stamplib/analysis.js"></script>
+		<!-- 初始化工程 -->
+		<script type="text/javascript" src="../../js/stamplib/initProject.js"></script>
+		<!-- 区域监测 -->
+		<script type="text/javascript" src="../../js/analysis/areaMonitor.js"></script>
+	</body>
+
+</html>

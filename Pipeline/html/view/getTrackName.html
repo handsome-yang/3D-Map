@@ -1,0 +1,72 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css"/>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <script type="text/javascript">
+        var param = window.dialogArguments;
+        function setTrackName() {
+            if (check()) {
+                window.returnValue = trackName.value;
+                window.close();
+            }
+        }
+
+        function init() {
+            if (param && param.name) {
+                trackName.value = param.name;
+            }
+        }
+        function check() {
+            if (trackName.value == "") {
+                alert("名称不能为空！");
+                trackName.focus();
+                return false;
+            }
+            if (containSpecial(trackName.value)) {
+                alert("名称不能有特殊字符！");
+                trackName.focus();
+                return false;
+            }
+            for (var i = 0; i < param.length; i++) {
+                if (trackName.value == param[i].NAME) {
+                    alert("名称不能重复！");
+                    trackName.focus();
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function containSpecial(s) {
+            var containSpecial = RegExp(/[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/)(\<)(\>)(\?)(\)]+/);
+            return ( containSpecial.test(s) );
+        }
+    </script>
+</head>
+<body onload="init()">
+<table class="paramTable">
+    <tr>
+        <td>
+            <span>名称:</span>
+        </td>
+        <td>
+            <input type="text" name="trackName" id="trackName" onkeyup="checkStr(this)" class="inputText"/>
+        </td>
+    </tr>
+</table>
+<div class="buttonTd">
+    <button onClick="setTrackName()">确定</button>
+    <button onClick="window.close()">取消</button>
+</div>
+<script src="../../js/common/common.js"></script>
+</body>
+</html>

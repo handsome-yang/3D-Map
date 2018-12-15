@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>文件夹名称</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+	</head>
+
+	<body onload="init()">
+		<table class="paramTable">
+			<tr>
+				<td>
+					名称:
+				</td>
+
+				<td>
+					<input type="text" name="tName" maxlength="20" id="tName" />
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+
+			<button id="butAdd" onClick="setTrackName()">确定</button>
+
+			<button onClick="window.close();">取消</button>
+
+		</div>
+		<script type="text/javascript">
+			var param = window.dialogArguments;
+
+			function setTrackName() {
+				if(check()) {
+					window.returnValue = tName.value;
+					window.close();
+				}
+			}
+
+			//初始化参数
+			function init() {
+				if(param && param.name) {
+					tName.value = param.name;
+				}
+			}
+
+			//检查名称
+			function check() {
+				if(tName.value == "") {
+					alert("名称不能为空！");
+					tName.focus();
+					return false;
+				}
+				if(containSpecial(tName.value)) {
+					alert("名称不能有特殊字符！");
+					tName.focus();
+					return false;
+				}
+				if(param && param.length > 0) {
+					for(var i = 0; i < param.length; i++) {
+						if(tName.value == param[i].NAME) {
+							alert("名称不能重复！");
+							tName.focus();
+							return false;
+						}
+					}
+				}
+
+				return true;
+			}
+			/**
+			 * [containSpecial 检验字符串]
+			 * @param  {[String]} s [字符串]
+			 * @return {[Boolean]}   [true或false]
+			 */
+			function containSpecial(s) {
+				var containSpecial = RegExp(/[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/)(\<)(\>)(\?)(\)]+/);
+				return(containSpecial.test(s));
+			}
+		</script>
+	</body>
+
+</html>

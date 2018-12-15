@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>设施搜索</title>
+    <link rel="stylesheet" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/analysis.css" />
+    <link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+</head>
+
+<body id="container" class="easyui-layout">
+    <!-- 左侧面板上半部分 Start -->
+    <div region="north" id="northDiv">
+        <div class="cardTitle">参数设置</div>
+
+        <!-- 左侧面板上半部分内容 Start -->
+        <div class="paramSetInner">
+            <table class="paramTable paramNoMagTop">
+                <tr>
+                    <td>
+                        <span>图层:</span>
+                    </td>
+
+                    <td>
+                        <select class="twoBefBtnAfterSelect" id="divPipeLineLayersList"></select>
+
+                        <button class="afterInText" id="queryBtn">获取附属物</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" class="colTdLeft">
+                        <span>附属物:</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <div id="scrollParamDiv" class="threeScrollDiv">
+                            <div id="valueRangeResultList">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>半径:</span>
+                    </td>
+
+                    <td>
+                        <input type="text" class="twoBefOneAndBtnAfterInput" onkeyup="checkNum(this, true, 2, null, null)" id="txtBufferDist" value="0" size="18" />
+
+                        <span class="afterInText">米</span>
+
+                        <button class="afterInText" id="selectBtn">绘制范围</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>间隔:</span>
+                    </td>
+
+                    <td>
+                        <input type="text" class="twoBefOneAndBtnAfterInput" onkeyup="checkNum(this, true, 2, null, null)" id="BufferDist" value="10" size="18" />
+
+                        <span class="afterInText">米</span>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="buttonTd">
+                <button id="btnAnalyze" disabled>分析</button>
+            </div>
+        </div>
+        <!-- 左侧面板上半部分内容 End -->
+
+    </div>
+    <!-- 左侧面板上半部分 End -->
+    
+    <div id="tablediv" region="center" border="false">
+        <div class="cardTitle">分析结果</div>
+
+        <div id="dgDiv">
+            <table id="tabhead" class="threeAve">
+                <thead>
+                    <th class="col">编号</th>
+                    <th class="col">类型</th>
+                    <th class="col">距离</th>
+                </thead>
+            </table>
+
+            <div id="resultDiv">
+                <table id="tblResult" class="threeAve">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="southDiv" region="south" class="twoChcOneBtn" border="false">
+        <input type="checkbox" id="showResult" name="showResult" disabled />
+
+        <label for="showResult">显示结果</label>
+
+        <input type="checkbox" id="detailData" name="detailData" disabled />
+
+        <label for="detailData">详细信息</label>
+
+        <button class="largeBtn" id="importExcelBtn" disabled>导出</button>
+    </div>
+
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+
+    <script type="text/javascript" src="../../js/common/myBlockUI.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript" src="../../js/stamplib/PipelineStandard.js"></script>
+
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+
+    <script type="text/javascript" src="../../js/stamplib/statistics.js"></script>
+
+    <script type="text/javascript" src="../../js/pipelineAnalysis/pipelineAnalysis.js"></script>
+
+    <script type="text/javascript" src="../../js/pipelineAnalysis/pipeAttachmentSearch.js"></script>
+</body>
+
+</html>

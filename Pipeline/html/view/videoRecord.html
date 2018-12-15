@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>视频录制&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css"/>
+</head>
+<body onunload="unloadWindow()">
+<table class="paramTable">
+    <tr>
+        <td>分辨率:</td>
+        <td>
+            <select id="selResolution" class="selectM">
+                <option value="0" selected>1080P (1920*1080)</option>
+                <option value="1">720P (1280*720)</option>
+                <option value="2">DVD (768*576)</option>
+                <option value="3">SVGA (800*600)</option>
+                <option value="4">VGA (640*480)</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>帧率:</td>
+        <td>
+            <input id="txtFrame" type="text" value="15" onkeyup="this.value=this.value.replace(/\D/g,'')"/>
+            <span class="afterInText">帧</span>
+        </td>
+    </tr>
+    <tr>
+        <td>路径:</td>
+        <td>
+            <input type="text" disabled id="txtPath"/>
+            <button class="afterInText" id="btnSavePath">选择路径</button>
+        </td>
+    </tr>
+</table>
+<div class="buttonTd">
+    <button tag="start" id="btnRecord" disabled>确定</button>
+    <button tag="cancel" id="btnCancel">取消</button>
+</div>
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+<script type="text/javascript">
+    var obj = window.dialogArguments;
+    var id = obj.id;
+    var earth = obj.earth;
+    var isSubmit = false;
+
+    $("#btnSavePath").click(function () {
+        var path = earth.UserDocument.SaveFileDialog("", "*.264|*.264", "264");
+        if (path) {
+            $("#txtPath").val(path);
+            $("#btnRecord").removeAttr("disabled");
+        }
+    });
+    $("#btnRecord").click(function () {
+        if (!$("#txtPath").val()) {
+            alert("请先设置视频输出路径！");
+            return;
+        }
+        obj.outpath = $("#txtPath").val();
+        obj.rect = $("#selResolution").val();
+        obj.txtFrame = $("#txtFrame").val();
+        isSubmit = true;
+        obj.click = "true";
+        window.close();
+    });
+
+    /**
+     * 点击"取消"按钮
+     * @return {[type]} [description]
+     */
+    $("#btnCancel").click(function () {
+        isSubmit = false;
+        obj.click = "false";
+        window.close();
+    });
+
+    /*
+     *页面卸载
+     */
+    function unloadWindow() {
+        if (!isSubmit) {
+            obj.click = "false";
+        }
+    }
+</script>
+</body>
+</html>

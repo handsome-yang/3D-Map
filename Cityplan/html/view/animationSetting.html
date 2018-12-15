@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>动画设置</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+</head>
+</head>
+
+<body style="width: 250px">
+    <table class="paramTable" style="margin-left: 30px">
+        <tr>
+            <td>
+                <span>名称:</span>
+            </td>
+
+            <td>
+                <input type="text" id="txtName" onkeyup="checkStr(this)" value="动画" />
+            </td>
+        </tr>
+
+        <tr id="divfps">
+            <td>
+                <span>帧率:</span>
+            </td>
+
+            <td>
+                <input type="text" id="txtFps" onkeyup="checkNum(this, true, 0, 30)" value="30" />
+                <span style="color:#646161" class="span">(0~30)</span>
+            </td>
+        </tr>
+    </table>
+
+    <div class="buttonTd">
+        <button id="btnOK">确定</button>
+        <button onClick="window.close();">取消</button>
+    </div>
+
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+
+    <script type="text/javascript">
+    $(function() {
+        var fps = $("#txtFps").val();
+        if (fps > 30) {
+            fps = 30;
+            $("#txtFps").val(fps);
+        }
+        var params = window.dialogArguments;
+        if (params) {
+            if (params.fps > 30) {
+                params.fps = 30;
+            }
+            if (params.xmlNode == "folder") {
+                document.getElementById("divfps").style.display = "none";
+            }
+            $("#txtName").val(params.name || "动画");
+            $("#txtFps").val(params.fps || 25);
+        }
+        $("#btnOK").click(function() {
+            if ($("#txtName").val()) {
+                /****start 1541 解决帧率为0,IE会崩溃****/
+                if ($("#txtFps").val() == 0) {
+                    $("#txtFps").val("");
+                    alert("帧率不能为0，请重新输入")
+                    return;
+                } else if ($("#txtFps").val()) {
+                    params.name = $("#txtName").val();
+                    params.fps = $("#txtFps").val();
+                    window.close();
+                } else {
+                    alert("请输入帧率，不能为空！");
+                    return;
+                }
+                /*****end 1541 *****/
+            } else {
+                alert("请输入动画名，不能为空！");
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>

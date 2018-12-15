@@ -1,0 +1,120 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>日照分析</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+</head>
+
+<body>
+    <table class="paramTable">
+        <tr>
+            <td>
+                <span>分析日期:</span>
+            </td>
+
+            <td>
+                <select id="date" name="date" class="selectM" value="0" onChange="editDate()">
+                    <option value="0">大寒</option>
+                    <option value="1">冬至</option>
+                    <option value="2">自定义</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span>自定义:</span>
+            </td>
+
+            <td>
+                <input id="dqdate" type="text" class="Wdate inputText" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowClear:false,readOnly:true,onpicked:cDayChange})" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span>分析时间:</span>
+            </td>
+
+            <td>
+                <input id="extent" class="inputText" type="text" value="0:00-24:00" readonly="true" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span>分析步长:</span>
+            </td>
+
+            <td>
+                <input id="step" class="inputText" type="text" maxlength="2" value="5" />
+                <span class="afterInText">分</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span>分析方式:</span>
+            </td>
+
+            <td>
+                <select id="type" class="selectM" value="0">
+                    <option value="0">窗台中点分析</option>
+                    <option value="1">满窗日照分析</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span>统计方法:</span>
+            </td>
+
+            <td>
+                <select id="statType" class="selectM" value="0" onChange="editStatType()">
+                    <option value="0">总有效日照（累计）</option>
+                    <option value="2">总有效日照（连续）</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span>累计方法:</span>
+            </td>
+
+            <td>
+                <select id="accType" class="selectM" value="0">
+                    <option value="0">累计所有时间段</option>
+                    <option value="2">累计最长的两个时间段</option>
+                    <option value="3">累计最长的三个时间段</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span>日照时间:</span>
+            </td>
+
+            <td>
+                <input id="lightime" class="inputText" type="text" value="" disabled="true" />
+                <span class="afterInText">分</span>
+            </td>
+        </tr>
+    </table>
+
+    <div class="buttonTd">
+        <button id="btnStartAnalysis">分析</button>
+        <button id="clear">退出</button>
+    </div>
+    <script src="../../js/plugins/jquery1.9.0.min.js"></script>
+    <script src="../../js/plugins/My97DatePicker/WdatePicker.js"></script>
+    <script src="../../js/common/common.js"></script>
+    <script src="../../js/analysis/insolation.js"></script>
+</body>
+
+</html>

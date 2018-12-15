@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>图片</title>
+		<link rel="stylesheet" href="../../css/common.css" type="text/css" />
+		<link rel="stylesheet" href="../../css/analysis.css" type="text/css" />
+
+	</head>
+
+	<body onLoad="attribute()" onunload="unloadPictureWindow()">
+		<table class="paramTable">
+			<tr>
+				<td>名称:</td>
+
+				<td>
+					<input id="billboardName" class="inputText" onkeyup="checkStr(this)" type="text" value="picture" />
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					图片:
+				</td>
+
+				<td>
+					<input id="iconValue" class="inputText" type="text" disabled />
+					<button class="afterInText" onClick="addIcon()">选取文件</button>
+				</td>
+			</tr>
+
+			<tr>
+				<td>宽度:</td>
+
+				<td>
+					<input id="width" type="text" onkeyup="checkNum(this, true, 2, 10000)" class="inputText" value="1" />
+					<span class="afterInText">米</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>高度:</td>
+
+				<td>
+					<input id="height" type="text" onkeyup="checkNum(this, true, 2, 10000)" class="inputText" value="1" />
+					<span class="afterInText">米</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>描述:</td>
+
+				<td>
+					<textarea name="textarea" class="textA" cols="30" rows="5" id="description"></textarea>
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+
+			<button id="buttAdd" onClick="billboard_submit()" disabled>确定</button>
+
+			<button id="clear" onClick="billboard_close()">取消</button>
+
+		</div>
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="width: 0; height: 0;"></OBJECT>
+		<!-- 图片 -->
+		<script type="text/javascript" src="../../js/userdata/pictureData.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+	</body>
+
+</html>

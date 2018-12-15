@@ -1,0 +1,92 @@
+﻿<html xmlns:v="http://www.w3.org/2001/XMLSchema">
+<head>
+    <title>横断面分析</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
+    <style>
+        v\: * {
+            behavior: url(#default#VML);
+            display: inline-block
+        }
+
+        .rectTitle {
+            z-index: 4;
+            width: 40px;
+            height: 105px;
+            top: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        * {
+            font-family: 'Microsoft Yahei';
+        }
+
+        .colClass1 {
+            background: #99FF99; /*#DEF3CA*/
+        }
+
+        .colClass2 {
+            background: #fff;
+        }
+
+        #divHover td {
+            border: 0;
+        }
+
+        #divHover table {
+            border-collapse: collapse;
+            width: 100%;
+            min-height: 180px;
+            border: 0;
+            color: #1C1C1C;
+        }
+
+        #divHover .col1 {
+            width: 130px;
+            word-wrap: break-word;
+        }
+
+        .pipeProfile {
+            margin: 5px;
+            font: 14px 'Microsoft Yahei';
+        }
+    </style>
+</head>
+
+<body style="background: white;margin:0px;" onunload="clearLine()">
+<div id="divHover"
+     style="position:absolute;top:0px;left:0px;z-index:9999;background:#fff; width:310px;min-height:190px;display:none;"></div>
+<div style="position:absolute;top:10px;left:10px;">
+    <img src="../../images/analysis/print.png" title="打印" id="_print" onclick="javascript:window.print();"/>
+    <img src="../../images/analysis/zoom-out.png" title="放大" id="btnZoomBig"/>
+    <img src="../../images/analysis/zoom-in.png" title="缩小" id="btnZoomSmall"/>
+</div>
+&nbsp;&nbsp;
+<table align="center">
+    <tr>
+        <td>
+            <div id="h2" style="text-align: center;"><h2>地下管线横断面图</h2></div>
+        </td>
+    </tr>
+    <tr>
+        <td id="mainTD" style="width: 1000px;height: 600px;">
+            <v:group id="gCanvas" style='position:relative;left:10px;top:0px;width:600px;height:1000px;rotation:270;'
+                     coordsize="600,1000">
+            </v:group>
+        </td>
+    </tr>
+</table>
+<div align="center">
+</div>
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+<script type="text/javascript" src="../../js/analysis/tranSectionResult2.js"></script>
+
+</body>
+</html>

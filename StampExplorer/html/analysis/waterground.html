@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>淹没分析</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/icon.css" />
+		<style>
+			#container>div {
+				margin: 10px 0;
+			}
+
+			input {
+				font-weight: bold;
+				text-align: left;
+			}
+
+			button {
+				width: 65px;
+				height: 30px;
+				margin: 5px 2px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div style="margin:10px;font-size: 12px; text-align: left;">
+
+			<input type="radio" checked value="0" name="analysisw" />
+
+			<span>点源分析</span>
+
+			<input type="radio" value="1" name="analysisw" />
+
+			<span>流域分析</span>
+
+			<input type="radio" value="2" name="analysisw" />
+
+			<span>面域分析</span>
+
+		</div>
+
+		<div style="margin:10px;font-size: 12px; text-align: left;">
+
+			<span>水底高程:</span>
+
+			<input id="underwaterheight" style="width: 132px;" value="0" />米
+
+			<button id="gerwaterheight">取高程</button>
+
+		</div>
+
+		<div style="margin:10px;font-size: 12px; text-align: left;">
+
+			<span>目标水深:</span>
+
+			<input id="goalwaterheight" style="width: 132px;" value="2" />米
+
+		</div>
+
+		<div style="margin:10px;font-size: 12px; text-align: left;">
+
+			<span>分析半径:</span>
+
+			<input id="analysisradius" style="width: 132px;" value="50" />米
+
+		</div>
+
+		<div style="margin:10px;font-size: 12px; text-align: left;">
+
+			<span>淹没面积:</span>
+
+			<input id="drownarea" style="width: 132px;" value="" />米
+
+		</div>
+
+		<div style="margin:10px;font-size: 12px; text-align: left;">
+
+			<span>播放频率:</span>
+
+			<input id="palyrate" style="width: 132px;" value="10" />次/秒
+
+		</div>
+
+		<div style="margin:10px;font-size: 12px; text-align: left;">
+
+			<span>每次升高:</span>
+
+			<input id="onceheight" style="width: 132px;" value="0.1" />米
+
+		</div>
+
+		<div style="margin:5px;font-size:10px; text-align: right;">
+
+			<input id="isaroundarea" type="checkbox" style="height:10px" checked="true" />
+
+			<span>水面边界延伸到地面</span>
+
+		</div>
+
+		<div style="text-align: center;">
+
+			<button id="analysist">开始分析</button>&nbsp;&nbsp;&nbsp;&nbsp;
+
+			<button id="dynamicsimulation">动态模拟</button>&nbsp;&nbsp;&nbsp;&nbsp;
+
+			<button id="out">退出</button>
+
+		</div>
+		<script type="text/javascript">
+			function getEarth(earthObj) {
+				var earth = earthObj;
+				var analysis = earth.analysisObj;
+				var btn = [$("#underwaterheight"), $("#dynamicsimulation")];
+				//获取高程值
+				$("#gerwaterheight").click(function() {
+					document.getElementById("gerwaterheight").style.cursor = "crosshair";
+					analysis.getAltitude(function(val) {
+						underwaterheight.value = val;
+					});
+					earth.Event.OnLBUp = function(p) {
+						document.getElementById("gerwaterheight").style.cursor = "auto";
+						earth.Event.OnLBUp = function() {};
+					};
+				});
+				//开始分析
+				$("#analysist").click(function() {
+					//获取淹没分析的类型
+					var analysisw = $("input[name='analysisw']:checked").val();
+					//点源分析
+					if(analysisw == 0) {
+						var subWater = document.getElementById("underwaterheight").value;
+						var subWater1 = document.getElementById("goalwaterheight").value;
+						var waterHeight = parseInt(subWater) + parseInt(subWater1);
+						analysis.submerge(waterHeight, btn);
+					}
+					//流域分析
+					else if(analysisw == 1) {
+						var subWater = document.getElementById("underwaterheight").value;
+						var subWater1 = document.getElementById("goalwaterheight").value;
+						var waterHeight = parseInt(subWater) + parseInt(subWater1);
+						var radius = document.getElementById("analysisradius").value;
+						analysis.valley(waterHeight, radius, btn);
+					}
+					//面域分析
+					else if(analysisw == 2) {
+						earth.Event.OnCreateGeometry = function(pval, type) {
+							if(pval.Count) {
+								var SubmergingGuid = earth.Factory.CreateGUID();
+								var eleSubmerging = earth.Factory.CreatePolygonSubmerging(SubmergingGuid, "watersurroundSubmerging");
+								eleSubmerging.BeginUpdate();
+								eleSubmerging.SphericalVectors = pval;
+								eleSubmerging.Selectable = true;
+								eleSubmerging.Editable = true;
+								eleSubmerging.EndUpdate();
+								earth.AttachObject(eleSubmerging);
+								eleSubmerging.SetParam(underwaterheight.value, goalwaterheight.value, 5);
+								eleSubmerging.Wave = onceheight.value;
+								eleSubmerging.Start();
+								earth.ShapeCreator.Clear();
+							}
+						};
+						earth.ShapeCreator.CreatePolygon();
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

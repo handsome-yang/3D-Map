@@ -1,0 +1,73 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>位置调整</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+</head>
+<body>
+    <table class="paramTable">
+        <tr>
+            <td id="OperFunction" colspan="2" class="colTd">
+                <label>
+                    <input type="radio" value="1" checked/>鼠标操作
+                </label>
+                <label>
+                    <input type="radio" value="2"/>精准操作
+                </label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label id="lblX" for="txtXValue">移动(X轴):</label>
+            </td>
+
+            <td>
+                <input type="text" id="txtXValue" value="0" onpropertychange="checkNum(this, false, 2)" disabled/>
+
+                <label id="unit0" class="afterInText"></label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label id="lblY" for="txtYValue">移动(Y轴):</label>
+            </td>
+
+            <td>
+                <input type="text" id="txtYValue" value="0" onpropertychange="checkNum(this, false, 2)" disabled/>
+
+                <label id="unit1" class="afterInText"></label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label id="lblZ" for="txtZValue">移动(Z轴):</label>
+            </td>
+
+            <td>
+                <input type="text" id="txtZValue" value="0" onpropertychange="checkNum(this, false, 2)" disabled/>
+
+                <label id="unit2" class="afterInText"></label>
+            </td>
+        </tr>
+    </table>
+
+    <div class="buttonTd">
+        <button id="toUnderground">贴地</button>
+        <button id="btnOk" onclick="doAction()" disabled>确定</button>
+        <button id="clear">关闭</button>
+    </div>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.js"></script>
+
+    <script type="text/javascript" src="../../js/config/config.js"></script>
+
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+    
+    <script type="text/javascript" src="../../js/project/editPosition.js"></script>
+</body>
+</html>

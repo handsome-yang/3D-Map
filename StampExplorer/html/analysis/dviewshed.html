@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>动态视域</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+
+	</head>
+
+	<body>
+
+		<table class="paramTable">
+
+			<tr>
+
+				<td>
+					<span>运动物体:</span>
+				</td>
+
+				<td>
+					<select id="dRole" class="selectM" name="dRole">
+					</select>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>水平视角:</span>
+				</td>
+
+				<td>
+					<input id="angleH" name="angleH" class="inputText" type="text" onpropertychange="checkNum(this, true, 2, 180)" value="120" />
+					<span class="afterInText">度</span>
+					<td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>垂直视角:</span>
+				</td>
+
+				<td>
+					<input id="angleV" name="angleV" class="inputText" type="text" onpropertychange="checkNum(this, true, 2, 180)" value="120" />
+					<span class="afterInText">度</span>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>视域距离:</span>
+				</td>
+
+				<td>
+					<input id="radius" name="radius" class="inputText" type="text" onpropertychange="checkNum(this, true, 2,10000)" value="100" />
+
+					<span class="afterInText">米</span>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>可见区域:</span>
+				</td>
+
+				<td>
+					<input id="noShadowColor" name="noShadowColor" class="inputText" type="text" onpropertychange="checkStr(this, null, true)" value="#00ff00" maxlength="7" />
+
+					<input type="button" id="noShadowColorsel" style="background-color:#00ff00" class="colorBtn afterInText" value="" onClick="fillColorDlg('noShadowColorsel')" />
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>遮挡区域:</span>
+				</td>
+
+				<td>
+					<input id="shadowColor" name="shadowColor" class="inputText" type="text" maxlength="7" onpropertychange="checkStr(this, null, true)" value="#ff0000" />
+
+					<input type="button" id="shadowColorsel" style="background-color:#ff0000" class="colorBtn afterInText" value="" onClick="fillColorDlg('shadowColorsel')" />
+				</td>
+
+			</tr>
+
+			<tr>
+				<td>
+					<span>相对路径:</span>
+				</td>
+
+				<td>
+					<input id="pathheight" name="pathheight" class="inputText" type="text" onpropertychange="checkNum(this, true, 2, 10000)" value="0" />
+					<span class="afterInText">米</span>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>相对模型:</span>
+				</td>
+
+				<td>
+					<input id="height" name="height" class="inputText" type="text" onpropertychange="checkNum(this, true, 2, 10000)" value="1.5" />
+
+					<span class="afterInText">米</span>
+				</td>
+
+			</tr>
+
+			<tr>
+				<td>
+					<span>运动速度:</span>
+				</td>
+
+				<td>
+					<input id="speed" name="speed" class="inputText" type="text" onpropertychange="checkNum(this, true, 2, 10000)" value="1" />
+					<span class="afterInText">米/秒</span>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td colspan="2" class="colTdRight">
+
+					&nbsp;&nbsp;<input id="chkLoop" name="type" type="checkbox" />
+
+					<label for="chkLoop">循环观察</label>&nbsp;&nbsp;
+
+					<input id="chkCone" name="type" type="checkbox" checked="checked" />
+
+					<label for="chkCone" class="lastLabel">显示视锥体</label>
+				</td>
+
+			</tr>
+
+		</table>
+		<div class="buttonTd">
+
+			<button id="btnStart">开始</button>
+
+			<button id="btnPause" disabled="true">暂停</button>
+
+			<button id="clear">清除</button>
+
+		</div>
+		<OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"></OBJECT>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/analysis/dynamic.js"></script>
+		<!-- 动态视域 -->
+		<script src="../../js/analysis/dviewshed.js"></script>
+		<script src="../../js/common/common.js"></script>
+
+	</body>
+
+</html>

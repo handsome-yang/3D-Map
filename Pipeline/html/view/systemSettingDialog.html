@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>系统设置&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</title>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/analysis.css"/>
+</head>
+<body>
+<table class="paramTable">
+    <tr>
+        <td>当前工程:</td>
+        <td>
+            <select class="selectM" id="projectList" name="projectList">
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>剖面高程:</td>
+        <td>
+            <select class="selectM" id="profileAlt" name="profileAlt">
+                <option value="1">按地形高程显示</option>
+                <option value="0">按数据高程显示</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>气泡透明:</td>
+        <td>
+            <input id="chkBalnAlpha" type="checkbox" value="0xcc"/>启用透明气泡
+        </td>
+    </tr>
+    <tr>
+        <td>初始视点:</td>
+        <td>
+            <input id="viewPoint" name="alt" type="text" disabled/>
+            <button id="setViewPoint" class="afterInText">获取视点</button>
+        </td>
+    </tr>
+</table>
+<div class="buttonTd">
+    <button id="confirmBtn">确定</button>
+    <button onclick="window.close();">取消</button>
+</div>
+<OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"></OBJECT>
+<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+<script src="../../js/view/systemSettingDialog.js"></script>
+</body>
+</html>

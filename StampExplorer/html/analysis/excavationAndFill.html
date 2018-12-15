@@ -1,0 +1,131 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+		<title>挖填方分析</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+		<style>
+			body {
+				text-align: center;
+			}
+			
+			.paramTable input[type="radio"] {
+				margin: 0 4px 0 0;
+			}
+			
+			table tr:nth-child(1) td,
+			table tr:nth-child(6) td {
+				text-align: center !important;
+			}
+			
+			tr:nth-child(2) td:first-child,
+			:nth-child(3) td:first-child,
+			:nth-child(4) td:first-child,
+			:nth-child(5) td:first-child {
+				width: 70px;
+				text-align: right;
+			}
+			
+			tr:nth-child(2) td:last-child,
+			:nth-child(3) td:last-child,
+			:nth-child(4) td:last-child,
+			:nth-child(5) td:last-child {
+				width: 75px;
+				text-align: left;
+			}
+			
+			label:first-child {
+				margin-right: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table class="paramTable">
+			<tr>
+				<td colspan="3" class="colTdRight">
+					<label><input name="digType" id="customer" type="radio" value="1" checked="checked" />按深度开挖 </label>
+					<label><input name="digType" type="radio" value="2" />按矢量面开挖 </label>
+				</td>
+			</tr>
+			<tr id="defaultShow">
+				<td>开挖深度:</td>
+				<td>
+					<input id="altitude" type="text" class="inputText" value="5" />
+				</td>
+
+				<td>
+					<span class="afterInText">米</span>
+				</td>
+			</tr>
+			<tr id="defaultHide" style="display: none">
+				<td>开挖矢量面:</td>
+				<td>
+					<input id="shpPath" type="text" class="inputText" value="" disabled="disabled" />
+				</td>
+
+				<td>
+					<button class="afterInText" id="vectorSelect" disabled="disabled">选取文件</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span>挖方结果:</span>
+				</td>
+
+				<td>
+					<input id="wafang" type="text" class="inputText" value="0" disabled/>
+				</td>
+
+				<td>
+					<span class="afterInText">立方米</span>
+				</td>
+
+			</tr>
+			<tr>
+				<td>
+					<span>填方结果:</span>
+				</td>
+
+				<td>
+					<input id="tianfang" type="text" class="inputText" value="0" disabled/>
+				</td>
+
+				<td>
+					<span class="afterInText">立方米</span>
+				</td>
+
+			</tr>
+			<tr>
+				<td colspan="3" class="colTdRight">
+
+					<input id="digDem" name="type" type="checkbox" />
+
+					<label for="digDem">开挖地面模型</label>
+
+					<input id="chkDem" name="type" type="checkbox" checked="checked" />
+
+					<label for="chkDem">生成辅助模型</label>
+
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+
+			<button id="btnStart">开始分析</button>
+
+			<button id="clear">退出</button>
+
+		</div>
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="width:0px;height:0px;"></OBJECT>
+		 <script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/stamplib/analysis.js"></script>
+		<script src="../../js/stamplib/export.js"></script>
+		<script src="../../js/common/common.js"></script>
+		<!-- 挖填方分析 -->
+		<script src="../../js/analysis/excavationAndFill.js"></script> 
+	</body>
+
+</html>

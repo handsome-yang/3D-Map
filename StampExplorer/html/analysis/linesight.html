@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>通视分析</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+	</head>
+
+	<body>
+		<table class="paramTable">
+
+			<tr>
+
+				<td>
+					<span>起点高度:</span>
+				</td>
+
+				<td>
+					<input id="startHeight" name="startHeight" class="inputText" onpropertychange="checkNum(this, true, 2, 10000)" type="text" value="2" />
+
+					<span class="afterInText">米</span>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>目标高度:</span>
+				</td>
+
+				<td>
+					<input id="endHeight" name="endHeight" class="inputText" onpropertychange="checkNum(this, true, 2, 10000)" type="text" value="2" />
+
+					<span class="afterInText">米</span>
+				</td>
+
+			</tr>
+
+		</table>
+		<div class="buttonTd">
+
+			<button id="btnStart">分析</button>
+
+			<button id="showHeight" disabled>显示高度</button>
+
+			<button id="clear">退出</button>
+
+		</div>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/common/common.js"></script>
+		<!-- 通视分析 -->
+		<script src="../../js/analysis/linesight.js"></script>
+		<script>
+		</script>
+	</body>
+
+</html>

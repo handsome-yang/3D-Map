@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>等高线</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+	</head>
+
+	<body>
+
+		<table class="paramTable">
+			<tr>
+
+				<td>
+					<span>线条间距:</span>
+				</td>
+
+				<td>
+					<input id="stride" class="inputText" type="text" onpropertychange="checkNum(this, true, 2, 10000)" value="100" />
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>线条颜色:</span>
+				</td>
+
+				<td>
+
+					<input id="color" class="inputText" type="text" value="#ffff00" onkeyup="checkStr(this, null, true)" />
+
+					<input type="button" id="colorChoose" style="background-color:#ffff00" class="colorBtn afterInText" value="" onClick='fillColorDlg("colorChoose")' />
+
+				</td>
+
+			</tr>
+			<tr>
+
+				<td>
+					<span>文件路径:</span>
+				</td>
+
+				<td>
+					<input id="selectPath" class="inputText" name="startHeight" type="text" value="" disabled/>
+
+					<button id="selectImg">选取路径</button>
+				</td>
+
+			</tr>
+			<tr>
+
+				<td>
+					<span>空间参考:</span>
+				</td>
+
+				<td>
+					<input id="referenceInput" class="inputText" name="startHeight" type="text" value="" disabled/>
+
+					<button id="selectSpat">选取文件</button>
+				</td>
+
+			</tr>
+		</table>
+
+		<div class="buttonTd">
+			<button id="btnSet">分析</button>
+
+			<button id="exportShp" disabled="disabled">导出SHP</button>
+
+			<button id="clear">退出</button>
+		</div>
+
+		<OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"></OBJECT>
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="height:0;width:0;"></OBJECT>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/common/common.js"></script>
+		<script src="../../js/stamplib/analysis.js"></script>
+		<script src="../../js/stamplib/export.js"></script>
+		<!-- 等高线 -->
+		<script src="../../js/analysis/contour.js"></script>
+	</body>
+
+</html>

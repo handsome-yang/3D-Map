@@ -1,0 +1,111 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>添加楼块 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+</head>
+
+<body onLoad="attributeUserdata()" onunload="unload3DWindow()">
+    <table class="paramTable">
+        <tr>
+            <td>名称:</td>
+
+            <td>
+                <INPUT type="text" id="lineRingName" maxlength="20" value="polygon" onpropertychange="checkStr(this)" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>楼块颜色:</td>
+
+            <td>
+                <input type="text" id="fillColor" maxlength="7" onkeyup="checkStr(this,null,true)" value="#ffffff" />
+
+                <input type="button" id="fillColorSel" style="background-color:#ffffff" class="colorBtn afterInText" value="" onClick="fillColorDlg()" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>透明度:</td>
+
+            <td>
+                <input type="text" maxlength="3" id="transparency" value="255" onpropertychange="checkNum(this, true, 0, 255)" />
+                <span class="afterInText">(0 ~ 255)</span>
+            </td>
+        </tr>
+
+        <!--高-->
+        <tr id="floorCountObj">
+            <td>楼层数量:</td>
+
+            <td>
+                <input type="text" id="floorCount" maxlength="20" value="0" onpropertychange="checkNum(this, true, 0, 1000)" />
+
+                <span class="afterInText">层</span>
+            </td>
+        </tr>
+
+        <!--高-->
+        <tr id="floorHeightObj">
+            <td>楼层高度:</td>
+
+            <td>
+                <input type="text" id="floorHeight" maxlength="20" value="2.8" onpropertychange="checkNum(this, true, 2, null, null)" />
+
+                <span class="afterInText">米</span>
+            </td>
+        </tr>
+
+        <tr id="undertexttrue">
+            <td>底部材质:</td>
+
+            <td>
+                <input type="text" id="texture0" value="" readonly/>
+
+                <button class="afterInText" onClick="addLink('texture0','0')">选择文件</button>
+            </td>
+        </tr>
+
+        <tr id="toptextture">
+            <td>顶部材质:</td>
+
+            <td>
+                <input type="text" id="texture1" value="" readonly/>
+
+                <button class="afterInText" onClick="addLink('texture1','1')">选择文件</button>
+            </td>
+        </tr>
+
+        <tr id="textureTR2">
+            <td>侧壁材质:</td>
+
+            <td>
+                <input type="text" id="texture2" value="" readonly/>
+
+                <button class="afterInText" onClick="addLink('texture2','2')">选择文件</button>
+            </td>
+        </tr>
+    </table>
+
+    <div class="buttonTd">
+        <button onClick="polygon_submit()">确定</button>
+        <button onClick="closeWindow()">取消</button>
+    </div>
+
+    <OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"></OBJECT>
+
+    <OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+
+    <script type="text/javascript" src="../../js/config/config.js"></script>
+
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+    
+    <script type="text/javascript" src="../../js/project/shpBuilding.js"></script>
+</body>
+
+</html>

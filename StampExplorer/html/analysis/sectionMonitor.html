@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>断面监测</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+		<link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+	</head>
+
+	<body>
+		<table class="paramTable">
+
+			<tr>
+
+				<td class="inputTd">
+					<span>工程名称:</span>
+				</td>
+
+				<td>
+					<select class="selectM" name="project" id="project"></select>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>采样间距:</span>
+				</td>
+
+				<td>
+
+					<input type="text" name="space" id="space" onpropertychange="checkNum(this, true, 2, 10000)" class="inputText" value="2">
+
+					<span class="afterInText">米</span>
+
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>监测地形:</span>
+				</td>
+
+				<td>
+					<div id="scrollParamDiv">
+
+						<div id="demList">
+
+						</div>
+
+					</div>
+				</td>
+
+			</tr>
+
+		</table>
+		<div class="buttonTd">
+
+			<button id="btnStart">分析</button>
+
+			<button id="clear">退出</button>
+
+		</div>
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+		<!-- 初始化工程 -->
+		<script type="text/javascript" src="../../js/stamplib/initProject.js"></script>
+		<!-- 断面监测 -->
+		<script type="text/javascript" src="../../js/analysis/sectionMonitor.js"></script>
+		<script src="../../js/common/common.js"></script>
+
+	</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>平整开挖</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+</head>
+
+<body id="container" oncontextmenu="return false;">
+    <div id="northDiv">
+        <div class="cardTitle">参数设置</div>
+
+        <div id="paramSetInner">
+            <table class="panelTable">
+                <tr>
+                    <td>开挖深度:</td>
+
+                    <td>
+                        <input type="text" id="digDepth" class="afterInput" onpropertychange="checkNum(this, false, 2, 6000)" value="10" />
+                        <span class="afterInText">米</span>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="buttonDiv14">
+                <button id="btnAction" onclick="btnclick()">确定</button>
+                <button id="clear" onclick="closebt()">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+    
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+    
+    <script type="text/javascript" src="../../js/stamplib/analysis.js"></script>
+
+    <script type="text/javascript" src="../../js/project/beginDig.js"></script>
+</body>
+
+</html>

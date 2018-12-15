@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>环绕点设置</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+
+	</head>
+
+	<body onload="init()">
+		<table class="paramTable">
+			<tr>
+				<td>名称:</td>
+				<td><input type="text" id="surrName" value="surround" /></td>
+			</tr>
+			<tr>
+				<td>经度:</td>
+				<td><input type="text" id="longitude" value="" disabled/><span class="afterInText">(-180°~180°)</span></td>
+			</tr>
+			<tr>
+				<td>纬度:</td>
+				<td><input type="text" id="latitude" value="" disabled/><span class="afterInText">(-90°~90°)</span></td>
+			</tr>
+			<tr>
+				<td>高程:</td>
+				<td><input type="text" id="altitude" value="" disabled/><span class="afterInText">米</span></td>
+			</tr>
+			<tr>
+				<td>高度:</td>
+				<td><input type="text" id="flyHeight" onkeyup="checkNum(this, true, 2, 10000)" value="100" /><span class="afterInText">米</span></td>
+			</tr>
+			<tr>
+				<td>半径:</td>
+				<td><input type="text" id="radius" onkeyup="checkNum(this, true, 2, 10000)" value="200" /><span class="afterInText">米</span></td>
+			</tr>
+			<tr>
+				<td>圈数:</td>
+				<td><input type="text" id="count" onkeyup="checkNum(this, true, 0, 10000)" value="1" /><span class="afterInText">圈</span></td>
+			</tr>
+			<tr>
+				<td>速度:</td>
+				<td><input type="text" id="speed" onkeyup="checkNum(this, true, 2, 10000)" value="10" /><span class="afterInText">米/秒</span></td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+			<button onclick="confirm();">确定</button>
+			<button onclick="window.close();">取消</button>
+		</div>
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 输入项检查
+			 */
+			function validate() {
+				var surrName = document.getElementById("surrName");
+				var speed = document.getElementById("speed");
+				var count = document.getElementById("count");
+				var flyHeight = document.getElementById("flyHeight");
+				var radius = document.getElementById("radius");
+
+				if(surrName.value == "") {
+					alert("请输入名称");
+					surrName.focus();
+					return false;
+				}
+				if(longitude.value == "") {
+					alert("请输入经度");
+					longitude.focus();
+					return false;
+				}
+				var longitudeNum = Number(longitude.value);
+				if(isNaN(longitudeNum) == true) {
+					alert("无效的经度值");
+					longitude.select();
+					longitude.focus();
+					return false;
+				}
+				if(longitudeNum < -180 || longitudeNum > 180) {
+					alert("经度值超出范围");
+					longitude.select();
+					longitude.focus();
+					return false;
+				}
+				if(latitude.value == "") {
+					alert("请输入纬度");
+					latitude.focus();
+					return false;
+				}
+				var latitudeNum = Number(latitude.value);
+				if(isNaN(latitudeNum) == true) {
+					alert("无效的纬度值");
+					latitude.select();
+					latitude.focus();
+					return false;
+				}
+				if(latitudeNum < -90 || latitudeNum > 90) {
+					alert("纬度值超出范围");
+					latitude.select();
+					latitude.focus();
+					return false;
+				}
+				if(altitude.value == "") {
+					alert("请输入高程");
+					altitude.focus();
+					return false;
+				}
+				var altitudeNum = Number(altitude.value);
+				if(isNaN(altitudeNum) == true) {
+					alert("无效的高程值");
+					altitude.select();
+					altitude.focus();
+					return false;
+				}
+				if(flyHeight.value == "") {
+					alert("请输入高度");
+					flyHeight.focus();
+					return false;
+				}
+				var flyHeightNum = Number(flyHeight.value);
+				if(isNaN(flyHeightNum) == true || flyHeightNum < 0) {
+					alert("无效的高度值");
+
+					return false;
+				} else {
+					flyHeight.select();
+					flyHeight.focus();
+				}
+				if(radius.value == "") {
+					alert("请输入半径");
+
+					return false;
+				} else {
+					radius.select();
+					radius.focus();
+				}
+				var radiusNum = Number(radius.value);
+				if(isNaN(radiusNum) == true || radiusNum < 0) {
+					alert("无效的半径值");
+					radius.select();
+					radius.focus();
+					return false;
+				}
+				if(count.value == "") {
+					alert("请输入圈数");
+					count.focus();
+					return false;
+				}
+				var countNum = Number(count.value);
+				if(isNaN(countNum) == true || countNum < 0) {
+					alert("无效的圈数值");
+					return false;
+				} else {
+					count.select();
+					count.focus();
+				}
+				if(speed.value == "") {
+					alert("请输入飞行速度");
+					return false;
+				}
+				var speedNum = Number(speed.value);
+				if(isNaN(speedNum) == true || speedNum < 0) {
+					alert("无效的飞行速度值");
+					return false;
+				} else {
+					speed.select();
+					speed.focus();
+				}
+				return true;
+			}
+
+			/**
+			 * 确认
+			 */
+			function confirm() {
+				if(validate()) {
+					window.returnValue = {
+						name: surrName.value,
+						Longitude: longitude.value,
+						Latitude: latitude.value,
+						Altitude: altitude.value,
+						FlyHeight: flyHeight.value,
+						Radius: radius.value,
+						NumberOfCycle: count.value,
+						Speed: speed.value
+					};
+					window.close();
+				}
+			}
+
+			/**
+			 *  初始化化
+			 */
+			function init() {
+				var data = window.dialogArguments;
+				if(data) {
+					surrName.value = data.name || '环绕点';
+					longitude.value = data.Longitude || 0;
+					latitude.value = data.Latitude || 0;
+					altitude.value = data.Altitude || 0;
+					flyHeight.value = data.FlyHeight == undefined ? 100 : data.FlyHeight;
+					radius.value = data.Radius || 200;
+					count.value = data.NumberOfCycle || 1;
+					speed.value = data.Speed || 10;
+				}
+			}
+		</script>
+	</body>
+
+</html>

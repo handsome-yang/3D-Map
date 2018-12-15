@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>淹没分析</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+	</head>
+
+	<body>
+		<table class="paramTable">
+			<tr>
+				<td class="colTdLeft" colspan="3">
+
+					<input type="radio" name="geoCheck" id="point" class="firstRadio" checked="checked">
+
+					<label for="point">点源淹没</label>
+
+					<input type="radio" name="geoCheck" id="line" />
+
+					<label for="line">流域分析</label>
+
+					<input type="radio" name="geoCheck" id="polygon" />
+
+					<label for="polygon" class="lastLabel">面域分析</label>
+
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>水底高程:</span>
+				</td>
+
+				<td>
+					<input id="subWaterBottom" type="text" onpropertychange="checkNum(this, true, 2, 10000)" value="20" />
+				</td>
+
+				<td>
+					<span class="afterInText">米</span>
+
+					<button id="getAltitude" class="largeBtn">取高程</button>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>目标水深:</span>
+				</td>
+
+				<td>
+					<input id="subWaterHeight" type="text" onpropertychange="checkNum(this, true, 2, 10000)" value="2" />
+				</td>
+
+				<td>
+					<span class="afterInText">米</span>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>淹没半径:</span>
+				</td>
+
+				<td>
+					<input id="subWaterRadius" type="text" onpropertychange="checkNum(this, true, 2, 10000)" value="50" />
+				</td>
+
+				<td>
+					<span class="afterInText">米</span>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>淹没面积:</span>
+				</td>
+
+				<td>
+					<input id="subWaterArea" type="text" disabled/>
+				</td>
+
+				<td>
+					<span class="afterInText">平方米</span>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>播放频率:</span>
+				</td>
+
+				<td>
+					<input id="frequency" type="text" value="10" onpropertychange="checkNum(this, true, 0, 10000)" />
+				</td>
+
+				<td>
+					<span class="afterInText">次/秒</span>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>每次升高:</span>
+				</td>
+
+				<td>
+					<input id="perHeight" type="text" value="0.1" onpropertychange="checkNum(this, true, 2, 10000)" />
+				</td>
+
+				<td>
+					<span class="afterInText">米</span>
+				</td>
+
+			</tr>
+
+			<tr>
+				<td colspan="3" class="colTdRight">
+					<input type="checkbox" name="showSide" id="showSide" checked="checked" />
+
+					<label for="showSide" class="lastLabel">水面边界延伸到地面</label>
+				</td>
+			</tr>
+
+		</table>
+		<div class="buttonTd">
+
+			<button id="btnStart">开始分析</button>
+
+			<button id="btnSimulation" disabled>动态模拟</button>
+
+			<button id="clear">退出</button>
+
+		</div>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/common/common.js"></script>
+		<script src="../../js/stamplib/analysis.js"></script>
+		<!-- 淹没分析 -->
+		<script src="../../js/analysis/submerge.js"></script>
+
+	</body>
+
+</html>

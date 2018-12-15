@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>名称</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+	</head>
+
+	<body onload="init()">
+		<table class="paramTable">
+			<tr>
+				<td>
+					<span>名称:</span>
+				</td>
+				<td>
+					<input type="text" id="trackName" onkeyup="checkStr(this)" value="" />
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+			<button id="butAdd" onClick="setTrackName()">开始</button>
+			<button onClick="window.close();">取消</button>
+		</div>
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript">
+			//接收页面参数
+			var param = window.dialogArguments;
+
+			/**
+			 * 开始
+			 */
+			function setTrackName() {
+				if(check()) {
+					window.returnValue = trackName.value;
+					window.close();
+				}
+			}
+
+			/**
+			 * 初始化
+			 */
+			function init() {
+				if(param && param.name) {
+					trackName.value = param.name;
+				}
+			}
+
+			/**
+			 * 检查输入项
+			 */
+			function check() {
+				if(trackName.value == "") {
+					alert("名称不能为空！");
+					trackName.focus();
+					return false;
+				}
+				if(containSpecial(trackName.value)) {
+					alert("名称不能有特殊字符！");
+					trackName.focus();
+					return false;
+				}
+				for(var i = 0; i < param.length; i++) {
+					if(trackName.value == param[i].NAME) {
+						alert("名称不能重复！");
+						trackName.focus();
+						return false;
+					}
+				}
+				return true;
+			}
+
+			/**是否包含特殊字符
+			 * @param {Object} s 输入字符串
+			 */
+			function containSpecial(s) {
+				var containSpecial = RegExp(/[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/)(\<)(\>)(\?)(\)]+/);
+				return(containSpecial.test(s));
+			}
+		</script>
+	</body>
+
+</html>

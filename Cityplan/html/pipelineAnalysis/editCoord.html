@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="Generator" content="EditPlus">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>输入坐标</title>
+</head>
+
+<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+<style type="text/css">
+    #textDiv {
+        width: 100%;
+        height: 285px;
+        overflow: auto;
+        border: 1px double #ACA899;
+        text-align: center;
+    }
+    table {
+        width: 100%;
+        height: 20px;
+        overflow: auto;
+        border: 1px double #ACA899;
+        border-collapse: collapse;
+    }
+    #tr1 th {
+        background: #2A80C9;
+        color: #fff;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+    }
+    tr {
+        border: 1px double #cdcab8;
+        height: 20px;
+    }
+    td {
+        background: #fff;
+        border-bottom: 1px double #cdcab8;
+        border-right: 1px double #cdcab8;
+        text-align: center;
+        width: 25%;
+        height: 10px;
+        color: black;
+    }
+</style>
+
+<body>
+<div id="textDiv">
+    <table>
+        <thead id="tr1">
+        <th id="num">序号</th>
+        <th id="x">经度（度）</th>
+        <th id="y">纬度（度）</th>
+        <th id="z">地面高程（米）</th>
+        </thead>
+    </table>
+</div>
+<div style="text-align: center;">
+    <button class="largeBtn" id="serchL" disabled>坐标查询</button>
+    <button id="add">添加</button>
+    <button id="delete" disabled>删除</button>
+    <button id="confirm">确定</button>
+    <button id="giveup">取消</button>
+</div>
+
+<script type="text/javascript" src="../../js/plugins/jquery.min.js"></script>
+
+<script type="text/javascript" src="../../js/common/common.js"></script>
+
+<script type="text/javascript" src="../../js/pipelineAnalysis/editCoord.js"></script>
+
+</body>
+
+</html>

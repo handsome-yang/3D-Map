@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>警戒线</title>
+		<link rel="stylesheet" href="../../css/common.css" type="text/css" />
+		<link rel="stylesheet" href="../../css/analysis.css" type="text/css" />
+		<script src="../../js/common/common.js"></script>
+	</head>
+
+	<body>
+
+		<table class="paramTable">
+			<tr>
+				<td>
+					<span>名称:</span>
+				</td>
+
+				<td>
+					<input type="text" id="lineRingName" class="inputText" onkeyup="checkStr(this)" maxlength="20" value="cordon" />
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>圆柱半径:</span>
+				</td>
+
+				<td>
+					<input type="text" id="radius" class="inputText" onkeyup="checkNum(this, true, 2, 10000)" maxlength="20" value="0.5" />
+				</td>
+
+			</tr>
+
+			<tr>
+				<td>
+					<span>圆柱高度:</span>
+				</td>
+
+				<td>
+					<input type="text" id="columHeight" class="inputText" onkeyup="checkNum(this, true, 2, 10000)" maxlength="20" value="1" />
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>横幅高度:</span>
+				</td>
+
+				<td>
+					<input type="text" id="bannerHeight" class="inputText" onkeyup="checkNum(this, true, 2, 10000)" maxlength="20" value="0.5" />
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>横幅宽度:</span>
+				</td>
+
+				<td>
+					<input type="text" id="bannerWidth" class="inputText" onkeyup="checkNum(this, true, 2, 10000)" maxlength="20" value="0.5" />
+				</td>
+			</tr>
+
+			<tr id="undertexttrue">
+				<td>
+					<span>圆柱纹理:</span>
+				</td>
+
+				<td>
+					<input type="text" id="texture0" class="inputText" value="" disabled />
+					<button onClick="addLink('texture0','0')" class="afterInText">选取文件</button>
+				</td>
+			</tr>
+
+			<tr id="undertexttrue2">
+				<td>
+					<span>横幅纹理:</span>
+				</td>
+
+				<td>
+					<input type="text" id="texture02" class="inputText" value="" disabled />
+					<button onClick="addLink('texture02','0')" class="afterInText">选取文件</button>
+				</td>
+			</tr>
+
+			<!--可选择性-->
+			<tr id="selectableRow">
+				<td>
+					<span>可选择性:</span>
+				</td>
+
+				<td>
+					<select name="selectable" id="selectable" onChange="editablesel()" class="selectM" value="true">
+
+						<option value="true">是</option>
+
+						<option value="false">否</option>
+
+					</select>
+				</td>
+			</tr>
+
+			<!--可编辑-->
+			<tr id="editableRow">
+				<td>
+					<span>可编辑性:</span>
+				</td>
+
+				<td>
+					<select name="editable" id="editable" class="selectM" value="true">
+
+						<option value="true">是</option>
+
+						<option value="false">否</option>
+
+					</select>
+				</td>
+			</tr>
+
+		</table>
+		<div class="buttonTd">
+
+			<button onClick="submit()">确定</button>
+
+			<button onClick="closeWindow()">取消</button>
+
+		</div>
+		<OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"></OBJECT>
+
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/config/config.js"></script>
+		<script src="../../js/userdata/cordon.js"></script>
+	</body>
+
+</html>

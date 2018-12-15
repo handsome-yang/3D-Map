@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<style>
+			body {
+				margin: 0px;
+				padding: 0px;
+				overflow: hidden;
+				background: #2a80c9;
+				width: 100%;
+				height: 100%;
+				font-size: 12px;
+				color: #fff;
+			}
+
+			.toolItem {
+				width: 100px;
+				height: 66px;
+				border-bottom: 1px solid #2167A3;
+				cursor: pointer;
+				line-height: 66px;
+				text-align: center;
+			}
+
+			.toolItem img {
+				width: 20px;
+				height: 20px;
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			.toolItem span {
+				
+			}
+
+			.toolItem:hover {
+				background: url('images/earthTools/earthTool-bg.png');
+			}
+
+			#prevBtn,
+			#nextBtn {
+				position: fixed;
+				bottom: 0px;
+				display: none;
+				width: 100%;
+				height: 22px;
+				background: #2a80c9;
+				z-index: 100;
+				cursor: pointer;
+			}
+
+			#prevBtn:hover,
+			#nextBtn:hover {
+				background: url('images/earthTools/earthTool-bg.png');
+			}
+
+			#prevBtn img,
+			#nextBtn img {
+				margin: 4px 24px;
+			}
+
+			#earthTools {
+				height: 100%;
+				width: 100px;
+				margin: 0px;
+				padding: 0px;
+			box-shadow: 0 1px 4px 0 #090755;
+				background-color: rgba(19, 18, 128, 0.7);
+				position: relative;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div id="earthTools">
+			<div id="LayerManager" class="toolItem" title="图层管理">
+				<img src="images/earthTools/active/图层.svg" isChecked="true" />
+				<span style="color:#08f6fc;">图层</span>
+			</div>
+			<div id="ViewTranSetting" title="地形透明" class="toolItem">
+				<img src="images/earthTools/normal/透明.svg" />
+				<span>透明</span>
+			</div>
+			<div id="ViewUndergroundMode" title="地下浏览" class="toolItem">
+				<img src="images/earthTools/normal/地下.svg" />
+				<span>地下</span>
+			</div>
+			<div id="ViewTunnelMode" title="隧道模式" class="toolItem">
+				<img src="images/earthTools/normal/隧道.svg" />
+				<span>隧道</span>
+			</div>
+			<div id="ViewOpenCollision" title="开启碰撞" class="toolItem">
+				<img src="images/earthTools/normal/碰撞.svg" />
+				<span>碰撞</span>
+			</div>
+			<div id="ViewRefersToNorth" title="场景正北" class="toolItem">
+				<img src="images/earthTools/normal/指北.svg" />
+				<span>指北</span>
+			</div>
+			<div id="topView" title="场景俯视" class="toolItem">
+				<img src="images/earthTools/normal/俯视.svg" />
+				<span>俯视</span>
+			</div>
+			<div id="systemSettingNow" title="系统设置" class="toolItem">
+				<img src="images/earthTools/normal/系统.svg" />
+				<span>系统</span>
+			</div>
+			<div id="systemSetting" title="工程设置" class="toolItem">
+				<img src="images/earthTools/normal/工程.svg" />
+				<span>工程</span>
+			</div>
+		</div>
+		<div id="prevBtn">
+			<img src="images/earthTools/prevBtn.png" />
+		</div>
+		<div id="nextBtn">
+			<img src="images/earthTools/nextBtn.png" />
+		</div>
+		<script type="text/javascript" src="js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript">
+			var earthToolHeight = 0;
+			/*
+			 * 外部传参调用
+			 */
+			function setFunc(tparams) {
+				var clickItem = tparams.clickItem;
+				var updateEarthToolsDiv = tparams.updateEarthToolsDiv;
+				earthToolHeight = tparams.earthToolHeight;
+				updateEarthToolsDiv($("#earthTools"));
+				$(".toolItem").click(function() {
+					clickItem($(this).attr("id"), $("#earthTools"));
+				});
+				resizeWindow();
+			}
+
+			/*
+			 *窗口重绘
+			 */
+			function resizeWindow() {
+				if($(window).height() < earthToolHeight) {
+					if($("#prevBtn").is(":hidden")) {
+						$("#nextBtn").show();
+					}
+					$("#earthTools").css("margin-bottom", "22px");
+				} else {
+					$("#nextBtn").hide();
+					$("#prevBtn").hide();
+					$("#earthTools").css("margin-bottom", "0px");
+					document.documentElement.scrollTop = 0;
+				}
+			}
+
+			/*
+			 * 窗口大小调整事件
+			 */
+			window.onresize = function() {
+				resizeWindow();
+			}
+
+			/*
+			 * 下一页
+			 */
+			$("#nextBtn").click(function() {
+				var scrollHeight = $(window).height() - 22;
+				var scrollTopNow = document.documentElement.scrollTop;
+				var scrollTopNext = scrollTopNow + scrollHeight;
+				$("html,body").animate({
+					scrollTop: scrollTopNext + 'px'
+				}, 500);
+				if(scrollTopNext + $(window).height() >= $("#earthTools").height()) {
+					$("#nextBtn").hide();
+					$("#prevBtn").show();
+				}
+			});
+
+			/*
+			 * 上一页
+			 */
+			$("#prevBtn").click(function() {
+				var scrollHeight = $(window).height() - 22;
+				var scrollTopNow = document.documentElement.scrollTop;
+				var scrollTopNext = scrollTopNow - scrollHeight;
+				if(scrollTopNext <= 0) {
+					scrollTopNext = 0;
+					$("#prevBtn").hide();
+					$("#nextBtn").show();
+				}
+				$("html,body").animate({
+					scrollTop: scrollTopNext + 'px'
+				}, 500);
+			});
+
+			
+		</script>
+	</body>
+
+</html>

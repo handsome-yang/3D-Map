@@ -1,0 +1,130 @@
+/**
+ * 作       者：StampGIS Team
+ * 创建日期：2017年 11月 14日
+ * 描       述：视频监控相关功能
+ * 注意事项：
+ * 遗留 Bug：0
+ * 修改日期：2017年 11月 17日
+ ******************************************/
+
+body {
+	font-family: "Microsoft Yahei";
+	background-color: #eaedf2;
+	padding: 20px 0 20px 20px;
+}
+
+#topSetting table tr td:nth-child(2) {
+	text-align: left !important;
+}
+
+#topSetting button {
+	float: right;
+}
+
+#linkNum {
+	margin-left: 0 !important;
+	width: 358px;
+	height: 28px;
+}
+
+#leftSipTree {
+	height: 180px;
+	width: 200px;
+	border: 2px solid lightgrey;
+}
+
+#middleCmd {
+	height: 180px;
+	width: 90px;
+}
+
+#middleCmd button {
+	display: block;
+	margin: 20px auto;
+}
+
+#rightArea {
+	overflow: hidden;
+	height: 180px;
+	width: 200px;
+	border: 2px solid lightgrey;
+}
+
+#text {
+	line-height: 36px;
+}
+
+#textArea {
+	display: inline;
+	float: right;
+	margin-right: 141px;
+	font-size: 14px;
+}
+
+#textArea1 {
+	display: inline;
+	font-size: 14px;
+}
+
+
+/*已选中列表中的项的样式*/
+
+.selectDiv {
+	height: 20px;
+	line-height: 20px;
+	border-bottom: 1px solid lightgrey;
+}
+
+#keyWord {
+	margin-left: 0px;
+	margin-bottom: 14px;
+	margin-right: 4px;
+	width: 198px;
+}
+
+#attrText {
+	line-height: 36px;
+}
+
+#attrDiv {
+	border: 1px solid lightgrey;
+	height: 156px;
+	width: 484px;
+	padding-left: 10px;
+}
+
+#attrLeft {
+	float: left;
+	width: 250px;
+	height: 156px;
+}
+
+#attrLeft table tr {
+	line-height: 30px;
+}
+
+#attrRight {
+	float: right;
+	margin-right: 10px;
+	width: 200px;
+	height: 156px;
+	text-align: right;
+}
+
+.labelText {
+	display: inline-block;
+	width: 150px;
+	height: 20px;
+	text-align: left;
+}
+
+#downAngleDiv,
+#upAngleDiv,
+#rotateAngleDiv {
+	margin-top: 8px;
+}
+
+#btnSave {
+	margin-top: 8px;
+	margin-right: 40px;
+}

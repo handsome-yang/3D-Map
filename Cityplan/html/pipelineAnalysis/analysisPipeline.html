@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>智能排管</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+    <style>
+    .paramTable .smallButton {
+        width: 47px;
+        height: 20px;
+        line-height: 20px;
+        margin: 0 3px;
+    }
+
+    .paramTable .firstBtn {
+        margin: 0 3px 0 0;
+    }
+
+    .paramTable .lastBtn {
+        margin: 0 0 0 3px;
+    }
+    </style>
+</head>
+
+<body id="container" class="easyui-layout">
+    <div id="northDiv" region="north">
+        <div class="cardTitle">参数设置</div>
+
+        <div class="paramSetInner">
+            <table class="paramTable paramNoMagTop">
+                <tr>
+                    <td>
+                        <span>类型:</span>
+                    </td>
+
+                    <td>
+                        <select id="type" class="twoBefOneAferSelect">
+                            <option value="Electricity">电力管线</option>
+                            <option value="Telegraphy">电信管线</option>
+                            <option value="FeedWater">供水管线</option>
+                            <option value="Sewage">排水管线</option>
+                            <option value="Gas">燃气管线</option>
+                            <option value="Energetics">热力管线</option>
+                            <option value="Industry">工业管线</option>
+                            <option value="Television">电视管线</option>
+                            <option value="Rain">雨水管线</option>
+                            <option value="Unknown">未定义管线</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>规格:</span>
+                    </td>
+
+                    <td>
+                        <input type="text" class="twoBefOneAferInpput" id="specification" value="300X200">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" class="colTdBtn">
+                        <button class="smallButton firstBtn" id="btnCreate">创建</button>
+
+                        <button class="smallButton" id="writerCoord">坐标</button>
+
+                        <button id="move" class="smallButton" disabled>平移</button>
+
+                        <button id="rotate" class="smallButton lastBtn" disabled>旋转</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>埋深:</span>
+                    </td>
+
+                    <td>
+                        <input type="text" class="twoBefOneAferInpput" onkeyup="checkNum(this, true, 2, null, null)" id="deep" value="5">
+
+                        <span class="afterInText">米</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>深度:</span>
+                    </td>
+
+                    <td>
+                        <input type="text" class="twoBefOneAferInpput" id="depth" value="3" onkeyup="checkNum(this, true, 2, null, null)">
+                        <span class="afterInText">米</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>半径:</span>
+                    </td>
+
+                    <td>
+                        <input type="text" onkeyup="checkNum(this, true, 2, null, null)" class="twoBefOneAferInpput" id="radius" value="10">
+                        <span class="afterInText">米</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="colTdRight" colspan="2">
+                        <input type="checkbox" name="checkExcave" id="checkExcave" />
+
+                        <label for="checkExcave">开挖地面模型</label>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="buttonTd">
+                <button id="customClip">地形开挖</button>&nbsp;&nbsp;&nbsp;
+                <button id="analysis" disabled>水平净距</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="tablediv" region="center">
+        <div class="cardTitle">查询结果</div>
+
+        <div id="dgDiv">
+            <table id="tabhead" class="fourAve">
+                <thead>
+                    <th class="col">编号</th>
+                    <th class="col">图层</th>
+                    <th class="col">水平净距</th>
+                    <th class="col">标准</th>
+                </thead>
+            </table>
+
+            <div id="resultDiv">
+                <table id="tblResult" class="fourAve">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="southDiv" region="south" class="twoChcOneBtn">
+        <input type="checkbox" id="showResult" name="showResult" disabled>
+        <label for="showResult">显示结果</label>
+
+        <input type="checkbox" id="detailData" name="detailData" disabled>
+        <label for="detailData">详细信息</label>
+
+        <button id="importExcelBtn" disabled>导出</button>
+    </div>
+
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript" src="../../js/stamplib/PipelineStandard.js"></script>
+
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+
+    <script type="text/javascript" src="../../js/stamplib/StampLayers.js"></script>
+
+    <script type="text/javascript" src="../../js/stamplib/statistics.js"></script>
+
+    <script type="text/javascript" src="../../js/pipelineAnalysis/pipelineAnalysis.js"></script>
+
+    <script type="text/javascript" src="../../js/pipelineAnalysis/terrainExcavate.js"></script>
+
+    <script type="text/javascript" src="../../js/stamplib/userDataAnalysis.js"></script>
+    
+    <script type="text/javascript" src="../../js/pipelineAnalysis/analysisPipeline.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>画板</title>
+    <desc>Created with Sketch.</desc>
+    <g id="画板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="双屏浏览器" transform="translate(3.000000, 3.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M8.8,6.8818 L8.8,8 L0,8.6 L0,1.2 L1.2,1.3364 L1.2,0 L10,1 L10,6.8 L8.8,6.8818 Z M1.2,1.879 L0.6,1.8 L0.6,8 L8.2,7.4 L8.2,6.9228 L1.2,7.4 L1.2,1.879 Z M3.4,8.4 L5,8.4 L5,9.2 L8,9.6 L8,10 L2.4,10 L2.4,9.6 L3.4,9.2 L3.4,8.4 Z" id="形状"></path>
+        </g>
+    </g>
+</svg>

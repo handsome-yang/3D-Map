@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		<title>GPS监控</title>
+		<link rel="stylesheet" href="../../css/easyui/default/easyui.css" />
+		<link rel="stylesheet" href="../../css/easyui/icon.css" />
+		<link rel="stylesheet" href="../../js/plugins/zTreeStyle/zTreeStyle.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<style type="text/css">
+			button {
+				margin-right: 0px;
+				margin-left: 8px;
+			}
+		</style>
+	</head>
+
+	<body id="container" oncontextmenu="return false">
+		<div region="north" border="false" id="northDiv">
+			<div class="cardTitle">设置</div>
+			<div id="paramSetInner" style="text-align: center;">
+				<table class="panelTable">
+					<tr>
+						<td>
+							<span>对象名称:</span>
+						</td>
+						<td>
+							<input type="text" class="inputText" id="objName" name="objName" onkeyup="checkStr(this)" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>运动对象:</span>
+						</td>
+						<td>
+							<select name="dynamicObj" class="selectM" id="dynamicObj"></select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>模拟路径:</span>
+						</td>
+						<td>
+							<input type="text" name="trackFile" id="trackFile" class="inputText" disabled>
+							<button id="selectFile" class="operateBtn">选择路径</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>高程类型:</span>
+						</td>
+						<td>
+							<select name="heightType" class="selectM" id="heightType">
+								<option value="0">数据高程</option>
+								<option value="1">地形高程</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>轮询间隔:</span>
+						</td>
+						<td>
+							<input type="text" name="time" id="time" class="inputText" onkeyup="checkNum(this, true, 0, 10000)" value="5">
+							<span class="afterInText">秒</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>属性信息:</span>
+						</td>
+						<td>
+							<textarea name="detailInfo" id="detailInfo"></textarea>
+						</td>
+					</tr>
+				</table>
+				<div id="checkDiv" class="rightDiv14">
+					<input type="checkbox" name="showRoute" class="inputCheck" id="showRoute" checked="checked" />
+					<label for="showRoute">显示轨迹</label>
+					<input type="checkbox" name="showName" class="inputCheck" id="showName" checked="checked">
+					<label for="showName">显示名称</label>
+				</div>
+				<div id="btnDiv" class="buttonDiv14">
+					<button class="largeBtn" id="btnAdd">新建</button>
+					<button class="largeBtn" id="btnStart" disabled>开始</button>
+					<button class="largeBtn" id="btnQuery" disabled>查询</button>
+				</div>
+			</div>
+			<!--paramSetInner-->
+		</div>
+		<div region="center" id="tablediv">
+			<div class="cardTitle">监控列表</div>
+			<div id="dgDiv">
+				<ul id="dynamicTree" class="ztree"></ul>
+			</div>
+		</div>
+		<div id="contextMenu" class="easyui-menu" style="width:100px;">
+			<div id="divDeleteTrack" iconCls="icon-no">删除</div>
+		</div>
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/zTreeStyle/jquery.ztree.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../js/view/GPSTrack.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+	</body>
+
+</html>

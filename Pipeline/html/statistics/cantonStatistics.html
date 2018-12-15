@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8"/>
+    <title>行政区统计</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/icon.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+</head>
+<body id="container" class="easyui-layout">
+<div id="northDiv" class="north" region="north">
+    <div class="cardTitle">参数设置</div>
+    <div id="paramSetInner">
+        <div id="selectObjDiv">
+            <span>名称:</span>
+            <input type="text" id="where" name="where">
+            <button class="afterInText" id="btnWhere">获取区划</button>
+        </div>
+        <div class="twoTitle">
+            <div class="left">区划:</div>
+            <div class="right">图层:</div>
+        </div>
+        <div class="twoBody">
+            <div class="twoScrollForOne"><!--过滤完的行政区-->
+                <div id="scrollDivOne">
+                    <table id="tabList"></table>
+                </div>
+                <div id="divPage" border="false">
+                    <div id="page">
+                    </div>
+                </div>
+            </div>
+            <div class="twoScrollForTwo" id="scrollDivTwo">
+                <div id="divPipeLineLayersList"></div>
+            </div>
+        </div>
+        <div class="selectObjDiv" style="display: none;">
+            <span>半径:</span>
+            <input type="text" id="radius" name="radius" value="0" disabled/>
+            <span class="afterInText">米</span>
+        </div>
+        <div class="buttonDiv14">
+            <button class="normalBtn" id="allAreaBtn" disabled>统计</button>
+        </div>
+    </div>
+</div>
+<div id="tablediv" class="enter" region="center">
+    <div class="cardTitle statisticsTwoTitle">统计结果</div>
+    <div id="dgDiv">
+        <ul class="titleBlue4" id="tabhead">
+            <li>图层</li>
+            <li>类型</li>
+            <li>数量</li>
+            <li class="bigWidth">长度(km)</li>
+        </ul>
+        <div id="resultDivScroll">
+            <div id="resultDiv"></div>
+        </div>
+    </div>
+</div>
+<div region="south" id="southDiv" class="textCenter" border="false">
+    <button id="importExcelBtn" disabled>导出</button>
+    <button id="sBtn" disabled>统计</button>
+</div>
+
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="../../js/stamplib/statistics.js"></script>
+<script type="text/javascript" src="../../js/common/common.js"></script>
+<script type="text/javascript" src="../../js/plugins/json.js"></script>
+<script type="text/javascript" src="../../js/common/exportExcel.js"></script>
+<script type="text/javascript" src="../../js/stamplib/query.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+
+<script type="text/javascript" src="../../js/statistics/cantonStatistics.js"></script>
+</body>
+</html>

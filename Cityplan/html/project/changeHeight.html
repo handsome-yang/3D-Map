@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>高程调整</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+</head>
+
+<body>
+    <table class="paramTable">
+        <tr>
+            <td>高程调整:</td>
+
+            <td>
+                <input type="text" id="heightValue" onpropertychange="checkNum(this, false, 2, 1000)" value="0" />
+
+                <span class="afterInText">米</span>
+            </td>
+        </tr>
+    </table>
+
+    <div class="buttonTd">
+        <button id="btnAction">确定</button>
+        <button id="clear">关闭</button>
+    </div>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+    
+    <script type="text/javascript" src="../../js/project/changeHeight.js"></script>
+</body>
+
+</html>

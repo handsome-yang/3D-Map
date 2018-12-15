@@ -1,0 +1,652 @@
+﻿/**
+ * 作    者：StampGIS Team
+ * 创建日期：2017年08月23日
+ * 描    述：分析模块公用css
+ */
+@CHARSET "utf-8";
+*{
+	font-family: 'Microsoft Yahei';
+	font-size: 12px;
+}
+
+body{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	overflow:hidden;
+}
+table{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+tr{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+td{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+div{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	word-break:break-all;
+}
+ul{
+	list-style: none;
+}
+
+.none{
+	margin: 0 !important;
+	padding: 0 !important;
+	border: none !important;
+}
+
+/*所有表格内容居中换行显示*/
+.datagrid-cell{
+    text-align: center !important;
+    white-space: normal !important;
+    word-break:break-all !important;
+    word-wrap: break-word !important;
+}
+
+/*---------------------------panel div样式START----------------------------*/
+.panelTable{
+	margin: -8px auto;
+}
+
+input[type="text"].normalInput{
+	height:28px;
+	width: 165px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+input[type="text"].afterInput{
+	height:28px;
+	width: 138px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+input[type="text"].afterInput5{
+	height:28px;
+	width: 123px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+input[type="text"].smallInput{
+	height:28px;
+	width: 85px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+select.normalSelect{
+	height:28px;
+	width: 173px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+/*表格中公用样式*/
+.panelTable td{
+	height: 41px;
+	text-align: left;
+}
+
+/*合并居中td*/
+.panelTable .colTd{
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+}
+/*合并居左td*/
+.panelTable .colTdLeft{
+	text-align: left;
+	height: 30px;
+	line-height: 30px;
+}
+/*合并居右td*/
+.panelTable .colTdRight{
+	text-align: right;
+	height: 30px;
+	line-height: 30px;
+}
+
+.panelTable8{
+	margin: 0px auto;
+}
+
+
+.panelTable8 td{
+	height: 41px;
+	text-align: left;
+}
+
+.panelTable8 input[type="text"]{
+	width:90px;
+	height:24px;
+}
+
+.panelTable8 select{
+	width:98px;
+	height:28px;
+}
+
+/* 按钮div样式（距离上面14px */
+.buttonDiv14{
+	text-align: center;
+	margin-top:14px;
+	width: 100%; 
+}
+
+/* 按钮div样式（距离上面0px）*/
+.buttonDiv{
+	text-align: center;
+	margin-top:0px;
+	width: 100%; 
+}
+
+/* 按钮div样式（距离上面5px）*/
+.buttonDiv5{
+	text-align: center;
+	margin-top:5px;
+	width: 100%; 
+}
+
+/* 底部右侧checkbox的div样式（距离上面14px）*/
+.rightDiv14{
+	text-align: right;
+	margin-top:14px;
+}
+
+/* 底部左侧div样式（距离上面0px）*/
+.rightDiv{
+	text-align: right;
+}
+
+/* 分页居中显示 */
+.pagination table{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.fieldsetDiv{
+	width: 96%;
+	margin-top: 14px;
+	margin-left: 2%;
+	text-align: center;
+}
+
+/*---------------------------panel div样式END----------------------------*/
+
+/*---------------------------Button样式START----------------------------*/
+
+/* 默认按钮公共样式 */
+button {
+	margin: 0 5px;
+	width: 63px;
+	height: 23px;
+	background-color: #40aaf6;
+	color: #fff;
+	cursor: pointer;
+	border: 0;
+	outline: none;
+	border-radius: 3px;
+	padding: 0px;
+}
+
+/* 禁用按钮公共样式 */
+button:disabled {
+	background-color: #b6b6b6;
+	color:#fff;
+}
+
+button.smallBtn {
+	background-color: #3595e7; 
+	border-style: none;
+	width: 40px;
+	height: 20px;
+	line-height: 20px;
+	color: #fff;
+	font: 12px 'Microsoft Yahei';
+	border-radius: 1px;
+	cursor: pointer;
+    margin-right: 27px;
+	margin-top:14px;
+}
+input[type="text"] {
+	margin-left: 8px;
+	height: 26px;
+	line-height: 26px;
+	padding-left: 4px;
+	outline: none;
+	border-radius: 3px;
+	border: 1px solid #b6b6b6;
+}
+textarea, input[type="textarea"]{
+	margin-left: 8px;
+	height: 50px;
+	padding: 4px;
+	outline: none;
+	border-radius: 3px;
+	border: 1px solid #b6b6b6;
+}
+
+.afterInText{
+	margin-left: 8px;
+	margin-right: 0;
+}
+
+select {
+	margin-left: 8px;
+	height: 26px;
+	padding-left: 4px;
+	border: 1px solid #c8cccf;
+	outline: none;
+	border-radius: 3px;
+}
+
+input[type="checkbox"] {
+	margin-left: 10px;
+	margin-right: 3px;
+	padding: 0;
+}
+
+input[type="radio"] {
+	margin-left:10px;
+	padding: 0;
+	height: 12px;
+}
+
+button .fileImg{
+	border-style:none;
+	height: 25px;
+	width: 25px;
+	background: url("../images/dialog/file.png") no-repeat;
+}
+
+button:focus{ outline: none; } 
+
+/*---------------------------Button样式END----------------------------*/
+
+body.dialogBG{
+	background-color: #eef5fd;
+	text-align: center;
+	font-size: 12px;
+}
+
+.textFieldNor{
+	width:120px;
+}
+
+.textFieldLong{
+	width:200px;
+}
+
+.buttonPanel{
+	text-align:center;
+	height: 40px;
+}
+
+td.rightMouseImgBg{
+	background-color:#B0C4DE; 
+	width:30px;
+	height:20px;
+}
+
+td.rightMouseTextBg{
+	background-color:#D0D0CE; 
+	width:60px;
+	font-size: 12px;	
+}
+
+.borderSty{	
+	border: 1px double #ACA899;
+}
+
+.seperatorLine{
+	border-right: 1px double #ACA899;
+}
+
+.littleDialogBody{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-size: 13px;
+}
+.largeDialogBody{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-size: 13px;
+}
+.trbg {
+    background-color: cornflowerblue;
+    color: white;
+}
+.trbg2 {
+    background-color: cornflowerblue;
+    color: white;
+}
+/*--------------弹出面板样式start---------------*/
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+#scrollDiv{/*图层div*/
+    height: 120px; 
+    width: 145px;
+    border:1px solid silver; 
+    float: left;
+    margin-left:5px;
+	word-break: break-all; 
+}
+#scrollParamDiv{/*特征材质等div选项*/
+	height: 115px;
+	width: 110px;
+	border:1px solid silver;
+	float:left;
+	word-break: break-all; 
+}
+#scrollSmallDiv{/*图层较小滚动div*/
+	height: 120px; 
+	word-break: break-all; 
+	width:85px;
+	border:1px solid silver; 
+	float:left;
+}
+#northDiv,#tablediv,#southDiv{/*easyui上中下布局div*/
+    background-color:#eaedf2; 
+    overflow:hidden;
+}
+#dg,#paramSetInner,#dgDiv{
+    background-color: #fff;
+    margin:0 auto;
+}
+#paramSetInner{
+	padding: 14px 13px 14px 13px;
+	overflow: hidden;
+}
+#drawDiv{
+	margin-left:128px;
+	margin-top: -35px;
+}
+#searchDiv{
+	margin-left:60px;
+}
+.cardTitle {
+    font: 16px 'Microsoft Yahei';
+    color: #000;
+    height: 36px;
+    line-height: 36px;
+    background-color: #eaedf2;
+    padding: 0 13px;
+    width: 228px;
+}
+#southDiv{
+	border-top: 1px solid #cecece;
+    padding: 0 13px;
+    height: 38px;
+    line-height: 38px;
+}
+.settingDiv{
+	background-color: #fff;
+    margin:0 auto;
+}
+.settingMainDiv{
+	padding: 14px 13px 14px 13px;//上右下左;
+	overflow: hidden;
+}
+.rightDiv14 input[type="checkbox"]{
+	margin-left: 5px;
+}
+
+/*------------------弹出面板样式end----------------*/
+
+/*------------------统计模块start------------------*/
+/*单input单btn start*/
+.oneInputBtn{
+	width: 218px;
+	display: block;
+	overflow: hidden;
+	padding-right:8px;
+}
+.oneInputBtn input{
+	width: 140px;
+	height: 22px;
+	border: 1px solid #7f9db9;
+	border-radius: 2px;
+	line-height: 22px;
+	padding: 0;
+	padding-left: 0px;
+}
+.oneInputBtn button{
+	margin-top: 2px;
+	float: right;
+}
+/*单input单btn end*/
+
+/*带标题及按钮的select start*/
+#selectObjDiv span{
+	line-height: 20px;
+}
+#selectObjDiv button{
+
+}
+/*带标题及按钮的select end*/
+
+/*单个scrollDiv框 start*/
+.oneUl{
+	overflow: hidden;
+}
+.scrollDiv{
+	width: 160px;
+	height: 100px;
+	margin: 0;
+}
+.scrollBtn3{
+	float: right;
+	padding: 0;
+	margin: 0;
+}
+.scrollBtn3 li{
+	margin-bottom: 21px;
+}
+/*单个scrollDiv框 end*/
+
+/*两个scroll start*/
+.twoScrollForOne{
+	width: 117px;
+	height: 120px;
+	border: 1px solid silver;
+	float: left;
+	margin-top: 10px;
+}
+.twoScrollForOne #scrollDivOne{
+	width: 100%;
+	height: 90px;
+	overflow: hidden;
+}
+.twoScrollForOne #divPage{
+	width: 100%;
+	height: 30px;
+	display:none;
+}
+.twoScrollForOne #divPage #page{
+	border-top:1px solid #ddd;
+	height: 22px;
+}
+.twoScrollForTwo{
+	width: 81px;
+	height: 120px;
+	border: 1px solid silver;
+	float: right;
+	margin-top: 10px;
+}
+/*两个scroll end*/
+
+/*--------------中间按钮两边列表框 start---------------*/
+/*标题 start*/
+.twoTitle{
+	width: 208px;
+	height: 24px;
+	margin-top: 5px;
+	line-height: 24px;
+	font-size: 14px;
+	text-align: center;
+}
+.twoTitle .left{
+	width: 65px;
+	float: left;
+}
+.twoTitle .right{
+	width: 75px;
+	float: right;
+}
+/*标题 end*/
+
+/*左右两边两个div框 start*/
+.twoUlLeft,.twoUlRight{	/*class为整个div框*/
+	text-align: center;
+	overflow: auto;
+}
+#twoUlLeft,#twoUlRight{ /*ID为scroll框*/
+	border: 1px solid #7f9db9;
+	float: left;
+}
+#twoUlLeft{
+	width: 63px;
+	height: 110px;
+}
+#twoUlRight{
+	width: 73px;
+	height: 90px;
+}
+.twoUlLeft td{
+	text-align: center !important;
+}
+.twoUlRight .boxTitle{
+	border: 1px solid #7f9db9;
+	border-bottom: none;
+	overflow: hidden;
+}
+.boxTitle div{
+	width: 49.9%; /* ie67 box宽度为奇数，50%宽度会掉下来的bug */
+	height: 19px;
+	float: left;
+}
+/*左右两边两个div框 end*/
+
+/*中间按钮 start*/
+.twoUlButton{
+	width: 68px;
+	height: 110px;
+	float: left;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	overflow: hidden;
+}
+.twoUlButton li{
+	height: 20px;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+.twoUlButton li button{
+	overflow: hidden;
+}
+/*中间按钮 end*/
+
+/*横向排列三个按钮 start*/
+.btn3{
+	width: 208px;
+	height: 25px;
+	margin: 10px 0 0;
+	padding: 0;
+	overflow: hidden;
+}
+.btn3 li{
+	width: 33.3333%;
+	text-align: center;
+	float: left;
+}
+/*横向排列三个按钮 end*/
+
+/*3个栏目的查询结果标题 start*/
+.titleBlue3{
+	width: 100%;
+	height: 28px;
+	color: #fff;
+	background-color: #fff;
+	text-align: center;
+	line-height: 28px;
+	margin: 0;
+	padding: 0;
+}
+.titleBlue3 li{
+	width: 33.333%;
+	float: left;
+}
+/*3个栏目的查询结果标题 end*/
+
+/*4个栏目的查询结果标题 start*/
+.titleBlue4{
+	width: 100%;
+	height: 28px;
+	color: #fff;
+	background-color: #fff;
+	text-align: center;
+	line-height: 28px;
+	margin: 0;
+	padding: 0;
+}
+.titleBlue4 li{
+	width: 23%;
+	float: left;
+}
+.titleBlue4 li.bigWidth{
+	width: 30%;
+}
+/*4个栏目的查询结果标题 end*/
+
+/*带标题输入框 start*/
+.inputLabel{
+	width: 208px;
+	height: 24px;
+	line-height: 24px;
+	margin: 10px 0;
+	display: block;
+	overflow: hidden;
+}
+.inputLabel input{
+	width: 130px;
+	height: 22px;
+	font-size: 14px;
+	line-height: 22px;
+	padding: 0 0 0 5px;
+	border-radius: 2px;
+	float: right;
+	border: 1px solid #7f9db9;
+}
+/*带标题输入框 end*/
+
+/*两个按钮的底部 start*/
+.southUl{
+	width: 140px;
+	height: 25px;
+	margin: 3px auto 0;
+	padding: 0;
+}
+.southUl li{
+	float: left;
+	margin-right: 20px;
+}
+.southUl li button{
+	float: left;
+}
+
+/*两个按钮的底部 end*/
+/*------------------统计模块end-------------------*/

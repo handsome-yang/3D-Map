@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" >
+    <title>隧道分析</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/analysis.css" />
+    <link rel="stylesheet" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" href="../../css/easyui/icon.css" />
+    <link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+</head>
+
+<body id="container" class="easyui-layout">
+    <!-- 左侧面板上半部分 Start -->
+    <div id="northDiv" region="north">
+        <div class="cardTitle">参数设置</div>
+
+        <!-- 左侧面板上半部分内容 Start -->
+        <div class="paramSetInner">
+            <table class="paramTable paramNoMagTop">
+                <tr>
+                    <td class="colTd" colspan="2">
+                        <input type="radio" name="radio" id="rectangle" value="0" class="firstRadio" checked="checked" />
+
+                        <label for="rectangle">矩形</label>
+
+                        <input type="radio" name="radio" id="circle" value="1" />
+
+                        <label for="circle">圆形</label>
+
+                        <input type="radio" name="radio" id="arch" value="2" />
+
+                        <label for="arch">拱形</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>宽度:</span>
+                    </td>
+
+                    <td>
+                        <input type="text" name="width" onkeyup="checkNum(this, true, 2, null, null)" class="twoBefOneAferInpput" id="width" value=5 />
+
+                        <span class="afterInText">米</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>高度:</span>
+                    </td>
+
+                    <td>
+                        <input type="text" name="height" onkeyup="checkNum(this, true, 2, null, null)" id="height" class="twoBefOneAferInpput" value=5 />
+
+                        <span class="afterInText">米</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>半径:</span>
+                    </td>
+
+                    <td>
+                        <input type="text" class="twoBefOneAferInpput" onkeyup="checkNum(this, true, 2, null, null)" name="radius" id="radius" value=5 />
+
+                        <span class="afterInText">米</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span>埋深:</span>
+                    </td>
+
+                    <td>
+                        <input type="text" class="twoBefOneAferInpput" onkeyup="checkNum(this, true, 2, null, null)" name="deep" id="deep" value=5 />
+
+                        <span class="afterInText">米</span>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="buttonTd">
+                <button id="createTYerrain" class="needDis">生成隧道</button>
+
+                <button id="btnAnalyze" class="needDis" disabled>分析</button>
+            </div>
+        </div>
+        <!-- 左侧面板上半部分内容 End -->
+
+    </div>
+    <!-- 左侧面板上半部分 End -->
+    <div id="tablediv" region="center">
+        <div class="cardTitle">查询结果</div>
+        <div id="dgDiv">
+            <table id="tabhead" class="threeAve">
+                <thead>
+                    <th class="col">编号</th>
+                    <th class="col">类型</th>
+                    <th class="col">图层</th>
+                </thead>
+            </table>
+
+            <div id="resultDiv">
+                <table id="tblResult" class="threeAve">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="southDiv" region="south" class="twoChcOneBtn">
+        <input type="checkbox" id="showResult" name="showResult" disabled />
+
+        <label for="showResult">显示结果</label>
+
+        <input type="checkbox" id="detailData" name="detailData" disabled />
+
+        <label for="detailData">详细信息</label>
+        
+        <button id="importExcelBtn" disabled>导出</button>
+    </div>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.js"></script>
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+    <script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+    <script type="text/javascript" src="../../js/stamplib/StampLayers.js"></script>
+    <script type="text/javascript" src="../../js/stamplib/statistics.js"></script>
+    <script type="text/javascript" src="../../js/pipelineAnalysis/pipelineAnalysis.js"></script>
+    <script type="text/javascript" src="../../js/pipelineAnalysis/createTunnel.js"></script>
+    <script type="text/javascript" src="../../js/pipelineAnalysis/terrainAnalysis.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title id='Description'>统计图</title>
+    <link rel="stylesheet" href="../../css/common.css" type="text/css"/>
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+    <script type="text/javascript" src="../../js/plugins/echarts.js"></script>
+    <script type="text/javascript" src="../../js/plugins/json.js"></script>
+    <script type="text/javascript" src="../../js/statistics/chart.js"></script>
+</head>
+
+<body style="background:white;" style="width:100%;height:100%;font-weight:normal;border:none;">
+<div id="headerDiv"
+     style="min-width:380px;padding: 5px 0px;border-bottom:solid 1px #AE85E1;background-color:#EFEFEF;width:100%;">
+    &nbsp;
+    <label for="selLayers" style="font-size:13px">指定图层:</label>
+    <select id="selLayers" style="width: 200px;"></select>
+
+    <label id="selobjslabel" for="selobjs" style="font-size:13px;">指定对象:</label>
+    <select id="selobjs" style="width: 100px;" onchange="selobjsChange()">
+        <option>管线</option>
+        <option>管点</option>
+    </select>
+
+    <label id="seltypelabel" for="selobjs" style="font-size:13px; ">统计类型:</label>
+    <select id="seltype" style="width: 100px;">
+        <option>数量</option>
+        <option>长度</option>
+    </select>
+
+    <button id="btnQuery" class="smallBtn" style="width: 52px;">统计图</button>
+</div>
+<div id='chartContainer'
+     style="min-width:8000px;height:85%; width: 100%; padding: 10px 0px 0px 0px; overflow:hidden;position:absolute;top:30px;left:0px;"></div>
+</body>
+
+</html>

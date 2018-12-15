@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>管线信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</title>
+    <style type="text/css">
+    table,
+    td {
+        border: 1px solid gray;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        height: 90px;
+    }
+
+    .rightTd {
+        text-align: right;
+    }
+    </style>
+</head>
+
+<body style="position:absolute;left:2%;top:2%;text-align:center;width:96%;">
+    <table align="right">
+        <tr>
+            <td class="rightTd">对象类型:</td>
+            <td id="type"></td>
+        </tr>
+
+        <tr>
+            <td class="rightTd">编号:</td>
+            <td id="id"></td>
+        </tr>
+
+        <tr>
+            <td class="rightTd">材质：</td>
+            <td id="mater"></td>
+        </tr>
+
+        <tr>
+            <td class="rightTd">规格：</td>
+            <td id="specification"></td>
+        </tr>
+    </table>
+
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+
+    <script type="text/javascript">
+    /* 屏蔽右键菜单 */
+    document.oncontextmenu = function() {
+        event.returnValue = false;
+    };
+    $(function() {
+        var addstr = document.URL;
+        var num = addstr.indexOf("?");
+        addstr = addstr.substr(num + 1);
+        var arr = addstr.split("&");
+        var type = arr[0].split("=")[1];
+        $("#type").html(type);
+        var id = arr[1].split("=")[1];
+        $("#id").html(id);
+        var mater = arr[2].split("=")[1];
+        $("#mater").html(mater);
+        var specification = arr[3].split("=")[1];
+        $("#specification").html(specification);
+
+    });
+    </script>
+</body>
+
+</html>

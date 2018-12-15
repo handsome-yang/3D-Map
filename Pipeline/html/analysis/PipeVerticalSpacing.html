@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>垂直净距</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../../css/easyui/default/easyui.css"/>
+    <link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/analysis.css"/>
+
+
+</head>
+<body id="container" class="easyui-layout">
+<div region="north" id="northDiv" style="">
+    <div class="cardTitle">参数设置</div>
+    <div class="paramSetInner">
+        <table class="paramTable paramNoMagTop">
+            <tr>
+                <td>
+                    <span>管段:</span>
+                </td>
+                <td>
+                    <input class="twoBefBtnAfterInput" type="text" id="txtObjId" disabled/>
+                    <button class="afterInText" id="btnSelectObject">选取管段</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>半径:</span>
+                </td>
+                <td>
+                    <input class="twoBefBtnAfterInput" type="text" id="txtBufferDist" value="10"/>
+                    <span class="afterInText">米</span>
+                </td>
+            </tr>
+        </table>
+        <div class="buttonTd">
+            <button id="btnAnalyze" onkeyup="checkNum(this)" disabled>分析</button>
+        </div>
+    </div>
+</div>
+
+
+<div region="center" id="tablediv" border="false">
+    <div class="cardTitle">分析结果</div>
+    <div id="dgDiv">
+        <table id="tabhead" class="thirdLong">
+            <thead>
+            <tr>
+                <th class="col1">编号</th>
+                <th class="col2">图层</th>
+                <th class="col3">垂直净距</th>
+                <th class="col4">标准</th>
+            </tr>
+            </thead>
+        </table>
+        <div id="resultDiv">
+            <table id="tblResult" class="thirdLong">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="southDiv" region="south" class="twoChcOneBtn" border="false">
+    <input type="checkbox" id="showResult" name="showResult" disabled>
+    <label for="showResult">显示结果</label>
+    <input type="checkbox" id="detailData" name="detailData" disabled>
+    <label for="detailData">详细信息</label>
+    <button id="importExcelBtn" disabled>导出</button>
+
+</div>
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+<script type="text/javascript" src="../../js/common/myBlockUI.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../../js/stamplib/PipelineStandard.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="../../js/common/common.js"></script>
+<script type="text/javascript" src="../../js/stamplib/statistics.js"></script>
+<script type="text/javascript" src="../../js/stamplib/pageHelper.js"></script>
+<script type="text/javascript" src="../../js/stamplib/analysis.js"></script>
+<script type="text/javascript" src="../../js/analysis/PipeVerticalSpacing.js"></script>
+</body>
+</html>

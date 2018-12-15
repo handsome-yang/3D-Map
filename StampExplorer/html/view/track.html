@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>飞行路径</title>
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/icon.css" />
+		<link rel="stylesheet" type="text/css" href="../../js/plugins/zTreeStyle/zTreeStyle.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+		<style>
+			.hide {
+				display: none;
+			}
+
+			.divBtn {
+				float: left;
+				width: 50px;
+				text-align: center;
+				cursor: pointer;
+			}
+
+			.bottomBtn {
+				margin-top: 14px;
+			}
+
+			#divRoleTrack>div {
+				width: 80px;
+				text-align: left;
+				float: left;
+				padding: 3px 10px;
+			}
+
+			#divChcekControl>div {
+				width: 85px;
+				float: right;
+			}
+
+			.trackIcon {
+				width: 40px;
+				height: 40px;
+				margin: 5px;
+				text-align: center;
+			}
+
+			.btnNew {
+				background: url("../../images/track/filecreatebreak.svg") no-repeat center;
+			}
+			
+			.btnNewDis {
+				background: url("../../images/track/filecreatebreak.svg") no-repeat center;
+			}
+
+			.passDis {
+				background: url("../../images/track/passbreak.svg") no-repeat center;
+			}
+
+			.pass {
+				background: url("../../images/track/passbreak.svg") no-repeat center;
+			}
+
+			.lookatDis {
+				background: url("../../images/track/lookatbreak.svg") no-repeat center;
+			}
+
+			.lookat {
+				background: url("../../images/track/lookatbreak.svg") no-repeat center;
+			}
+
+			.surroundDis {
+				background: url("../../images/track/surroundbreak.svg") no-repeat center;
+			}
+
+			.surround {
+				background: url("../../images/track/surroundbreak.svg") no-repeat center;
+			}
+
+			#upDiv {
+				width: 100%;
+				height: 500px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 999;
+				opacity: 0;
+				filter: alpha(opacity=0);
+				background: #ffff00;
+				display: none;
+			}
+
+			#tableDiv {
+				position: relative;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body oncontextmenu="return false">
+		<div id="divTrackList" class="easyui-layout" data-options="fit:true" style="height: 100%;">
+			<div region="north" id="northDiv" style="overflow:hidden;">
+				<div class="cardTitle">设置</div>
+				<div id="paramSetInner" style="text-align: center;">
+					<div style="text-align: left;width:100%;">
+						<label>运动对象:</label>
+						<select id="selFlyObj" class="normalSelect"></select>
+					</div>
+					<div style="text-align:center;width:200px;margin:7px auto;height:66px;">
+						<div class="divBtn">
+							<div class="trackIcon btnNew" tag="btnNew" title="新建" id="btnNew"></div>
+							<div>新建</div>
+						</div>
+						<div class="divBtn">
+							<div id="btnStationPass" tag="pass" class="passDis trackIcon" disabled></div>
+							<div>飞行点</div>
+						</div>
+						<div class="divBtn">
+							<div id="btnStationLookat" tag="lookat" class="lookatDis trackIcon" disabled></div>
+							<div>观察点</div>
+						</div>
+						<div class="divBtn">
+							<div id="btnStationSurround" tag="surround" class="surroundDis trackIcon" disabled> </div>
+							<div>环绕点</div>
+						</div>
+					</div>
+					<div class="buttonDiv14">
+						<button id="btnStart" disabled>飞行</button>
+						<button id="btnStartAll" disabled>全部飞行</button><br/>
+						<button class="bottomBtn" id="video" disabled>视频</button>
+						<button class="bottomBtn" id="btnStop" disabled>停止</button>
+					</div>
+					<div id="divRoleTrack" class="buttonDiv14">
+						<label><input type="radio" value="1" style="margin-left: 0" disabled/>第一人称</label>
+						<label><input type="radio" value="3" style="margin-left: 5px" disabled checked/>第三人称</label>
+						<label><input type="radio" value="4" style="margin-left: 5px" disabled/>自由跟随</label>
+						<br/>
+					</div>
+					<div id="divChcekControl" class="rightDiv14">
+						<input type="checkbox" id="chkShowRoute" disabled />
+						<label for="chkShowRoute">显示轨迹</label>
+					</div>
+				</div>
+			</div>
+			<!--northDiv-->
+			<div region="center" id="tableDiv">
+				<div class="cardTitle">路径</div>
+				<div id="dgDiv">
+					<ul id="trackTree" class="ztree"></ul>
+				</div>
+				<div id="upDiv">
+				</div>
+			</div>
+		</div>
+		<!--divTrackList-->
+		<div id="divTrackEditor" class="easyui-layout hide" data-options="fit:true" style="height: 100%;">
+			<div region="north" style="height:45px; text-align: left;  padding: 0px; overflow:hidden;">
+				<input type="image" src="../../images/track/return.gif" title="返回" id="btnReturn" />
+			</div>
+			<div region="center" border="false">
+				<ul id="trackStationTree" class="ztree"></ul>
+			</div>
+		</div>
+		<!-- 漫游路径树右键菜单 -->
+		<div id="contextMenuTrack" class="easyui-menu" style="width:100px;">
+			<div id="divRenameTrack" iconCls="icon-edit">属性</div>
+			<div id="divDeleteTrack" iconCls="icon-no">删除</div>
+		</div>
+
+		<div id="rootMenu" class="easyui-menu" style="width:100px;">
+			<div id="importImg" iconCls="icon-edit">导入</div>
+			<div class="menu-sep" id="we"></div>
+			<div id="exportImg" iconCls="icon-no">导出</div>
+		</div>
+		<!-- 漫游路径节点树右键菜单 -->
+		<div id="contextMenuStation" class="easyui-menu" style="width:100px;">
+			<div id="divEditStation" iconCls="icon-edit">属性</div>
+			<div class="menu-sep" id="sep"></div>
+			<div id="divDeleteStation" iconCls="icon-no">删除</div>
+		</div>
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/zTreeStyle/jquery.ztree.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script type="text/javascript" src="../../js/config/config.js"></script>
+		<script type="text/javascript" src="../../js/view/track.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../js/view/trackHtml.js"></script>
+
+	</body>
+
+</html>

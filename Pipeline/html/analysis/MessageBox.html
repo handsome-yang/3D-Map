@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>管线信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</title>
+    <style type="text/css">
+        table, td {
+            border: 1px solid gray;
+
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            height: 180px;
+        }
+
+        .rightTd {
+            text-align: right;
+        }
+
+        .col1 {
+            width: 130px;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+<div region="center" border="true"
+     style="position:absolute;left:2%;top:5px;width:96%;overflow: auto;word-break: break-all;word-wrap: break-word;height: 210px;text-align:center;">
+    <table align="right">
+        <tr>
+            <td class="rightTd">数据类型：</td>
+            <td id="type"></td>
+        </tr>
+        <tr>
+            <td class="rightTd">编号：</td>
+            <td id="id" class="col1"></td>
+        </tr>
+        <tr>
+            <td class="rightTd">规格：</td>
+            <td id="specification"></td>
+        </tr>
+        <tr>
+            <td class="rightTd">材质：</td>
+            <td id="mater"></td>
+        </tr>
+        <tr>
+            <td class="rightTd">横坐标：</td>
+            <td id="coordX"></td>
+        </tr>
+        <tr>
+            <td class="rightTd">纵坐标：</td>
+            <td id="coordY"></td>
+        </tr>
+        <tr>
+            <td class="rightTd">管线高程：</td>
+            <td id="pipeLineAlt"></td>
+        </tr>
+        <tr>
+            <td class="rightTd">地面高程：</td>
+            <td id="groundAlt"></td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+
+<script type="text/javascript">
+    /**
+     * 屏蔽右键菜单
+     */
+    document.oncontextmenu = function () {
+        event.returnValue = false;
+    };
+    $(function () {
+        var addstr = document.URL;
+        var num = addstr.indexOf("?");
+        addstr = addstr.substr(num + 1);
+        var arr = addstr.split("&");
+        var type = arr[0].split("=")[1];
+        $("#type").html(type);
+        var id = arr[1].split("=")[1];
+        $("#id").html(id);
+        var specification = arr[2].split("=")[1];
+        $("#specification").html(specification);
+        var mater = arr[3].split("=")[1];
+        $("#mater").html(mater);
+        var coordX = arr[4].split("=")[1];
+        $("#coordX").html(coordX);
+        var coordY = arr[5].split("=")[1];
+        $("#coordY").html(coordY);
+        var pipeLineAlt = arr[6].split("=")[1];
+        $("#pipeLineAlt").html(pipeLineAlt);
+        var groundAlt = arr[7].split("=")[1];
+        $("#groundAlt").html(groundAlt);
+    });
+</script>
+</body>
+</html>

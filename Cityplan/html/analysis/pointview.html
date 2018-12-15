@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>定点观察</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+</head>
+
+<body>
+    <table class="paramTable">
+        <tr>
+            <td>观察高度: </td>
+
+            <td>
+                <input id="height" name="height" type="text" value="2" onpropertychange="checkNum(this, true, 2, null, null)" />
+
+                <span class="afterInText">米</span>
+            </td>
+        </tr>
+    </table>
+    
+    <div class="buttonTd">
+        <button class="largeBtn" id="btnStart">开始分析</button>
+        <button class="largeBtn" id="clear">退出</button>
+    </div>
+    <script src="../../js/plugins/jquery1.9.0.min.js"></script>
+    <script src="../../js/common/common.js"></script>
+    <script src="../../js/analysis/pointview.js"></script>
+</body>
+
+</html>

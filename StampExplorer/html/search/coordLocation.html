@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Expires" CONTENT="0">
+		<meta http-equiv="Cache-Control" CONTENT="no-cache">
+		<meta http-equiv="Pragma" CONTENT="no-cache">
+		<title>坐标定位</title>
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/icon.css">
+		<link rel="stylesheet" type="text/css" href="../../js/plugins/zTreeStyle/zTreeStyle.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common.css">
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css">
+		<style type="text/css">
+			.shadow {
+				display: none;
+			}
+			/*加固定宽度避免界面位置跳动*/
+
+			.tdWidth {
+				width: 27px;
+				text-align: right !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table class="paramTable">
+			<tr>
+				<td colspan="2" class="topCheckBoxDiv">
+					<input type="radio" id="lbItem" name="coordinate" checked="checked" value="1">经纬坐标
+					<input type="radio" id="xyItem" name="coordinate" value="2">平面坐标
+				</td>
+			</tr>
+			<tr class="geo">
+				<td class="tdWidth">
+					经度:
+				</td>
+				<td>
+					<input type="text" id="longitude" name="longitude" value="0.00" onpropertychange="checkNum(this, false, null, 180)" />
+					<span class="afterInText">度</span>
+				</td>
+			</tr>
+			<tr class="geo">
+				<td class="tdWidth">
+					纬度:
+				</td>
+				<td>
+					<input type="text" id="latitude" name="latitude" value="0.00" onpropertychange="checkNum(this, false, null, 90)" />
+					<span class="afterInText">度</span>
+				</td>
+			</tr>
+			<tr class="shadow">
+				<td class="tdWidth">
+					X:
+				</td>
+				<td>
+					<input type="text" id="coordX" name="coordX" value="0.00" onpropertychange="checkNum(this, false, 2)" />
+					<span class="afterInText">米</span>
+				</td>
+			</tr>
+			<tr class="shadow">
+				<td class="tdWidth">
+					Y:
+				</td>
+				<td>
+					<input type="text" id="coordY" name="coordY" value="0.00" onpropertychange="checkNum(this, false, 2)" />
+					<span class="afterInText">米</span>
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+			<button id="locateBtn">确定</button>
+			<button id="clear">取消</button>
+		</div>
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/plugins/jquery.easyui.min.js"></script>
+		<script src="../../js/plugins/zTreeStyle/jquery.ztree.js"></script>
+		<script src="../../js/plugins/jquery.xml2json.js"></script>
+		<script src="../../js/stamplib/analysis.js"></script>
+		<script src="../../js/common/common.js"></script>
+		<script src="../../js/search/coordLocation.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>模型</title>
+		<link rel="stylesheet" href="../../css/common.css" type="text/css" />
+		<link rel="stylesheet" href="../../css/analysis.css" type="text/css" />
+	</head>
+
+	<body onLoad="attribute()" onunload="unloadWindow()">
+		<table class="paramTable">
+			<tr>
+				<td>
+					<span>名称:</span>
+				</td>
+
+				<td>
+					<input id="modelName" type="text" class="inputText" onkeyup="checkStr(this)" value="model" />
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>连接:</span>
+				</td>
+
+				<td>
+					<input id="link" type="text" class="inputText" />
+					<button id="linkImg" class="afterInText">选取文件</button>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>描述:</span>
+				</td>
+
+				<td>
+					<textarea id="description" class="textA" cols="30" rows="5"></textarea>
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+
+			<button id="submitAdd" disabled>确定</button>
+
+			<button id="clear">取消</button>
+
+		</div>
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/config/config.js"></script>
+		<script src="../../js/common/common.js"></script>
+		<script src="../../js/userdata/modelData.js"></script>
+	</body>
+
+</html>

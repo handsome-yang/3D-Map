@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8" >
+    <title>导入楼块</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+</head>
+
+<body>
+    <table class="paramTable">
+        <tr>
+            <td>选择文件:</td>
+
+            <td>
+                <input id="selectPath" name="startHeight" type="text" value="" disabled/>
+
+                <button id="selectVect" class="afterInText">选择文件</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>投影文件:</td>
+
+            <td>
+                <input id="referenceInput" name="startHeight" type="text" value="" disabled/>
+
+                <button id="addSpatialReference" class="afterInText">选择文件</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>名称字段:</td>
+
+            <td>
+                <select name="filed" id="filed" class="selectM" disabled>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>楼层字段:</td>
+
+            <td>
+                <select name="floor" id="floor" class="selectM" disabled>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>楼层高度:</td>
+
+            <td>
+                <input id="floorHeight" name="floorHeight" type="text" value="2.8" onpropertychange="checkNum(this, true, 2, null, null)" disabled/>
+
+                <span class="afterInText">米</span>
+            </td>
+        </tr>
+    </table>
+
+    <div class="buttonTd">
+        <button id="btnAdd" disabled class="largeBtn">导入</button>
+        <button id="clear" class="largeBtn">退出</button>
+    </div>
+
+    <OBJECT id="dataProcess" ClASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+
+    <script type="text/javascript" src="../../js/config/config.js"></script>
+
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+
+    <script type="text/javascript" src="../../js/stamplib/importBuilding.js"></script>
+    
+    <script type="text/javascript" src="../../js/project/importAlbuginea.js"></script>
+</body>
+
+</html>

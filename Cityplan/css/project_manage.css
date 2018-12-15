@@ -1,0 +1,49 @@
+/**
+ * 作    者：StampGIS Team
+ * 创建日期：2017年08月23日
+ * 描    述：规划审批
+ */
+
+.s-mask {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1040;
+	background-color: #000000;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+
+.s-overmask {
+	z-index: 1050!important;
+}
+
+.s-progressBar-Container1 {
+	position: absolute;
+	left: 10px;
+	top: 240px;
+	margin-left: 0px;
+	padding: 5px;
+	background-color: #545658;
+	font-size: 12px;
+}
+
+.s-progressBar-Container2 {
+	background-color: #f5f7f8;
+	padding: 4px;
+	border: 1px solid #468847;
+}
+
+.s-progressBar-text {
+	margin: 0px 0px 3px 0px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.progressbar-value {
+	background-color: #66DE20;
+}

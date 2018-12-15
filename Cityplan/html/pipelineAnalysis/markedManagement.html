@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>标注</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/plugins//zTreeStyle/zTreeStyle.css" />
+    <link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+    <style type="text/css">
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        background-color: #eaedf2;
+    }
+
+    div.markedTreeDiv {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+    </style>
+</head>
+
+<body class="largeDialogBody" oncontextmenu="return false;" onclick="hiddenRightMenu()">
+    <div id="markedTreeDiv" class="markedTreeDiv">
+        <ul id="markedTree" class="ztree"></ul>
+    </div>
+
+    <div id="rigMouMenuDiv" style="position:absolute; display:none;">
+        <table cellspacing="0" cellpadding="0" style="cursor:hand;">
+            <tr align="center">
+                <td class="rightMouseImgBg">
+                	<img src="../../images/rightclick/attribute.gif" width="16px" height="16px" />
+                </td>
+
+                <td class="rightMouseTextBg" 
+                	onMouseOver="this.style.background='#6699CC'" onMouseOut="this.style.background='#d0d0ce'" 
+                	onclick="editMarkedClick()">属性
+                </td>
+            </tr>
+
+            <tr align="center">
+                <td class="rightMouseImgBg">
+                	<img src="../../images/rightclick/delete.gif" width="16px" height="16px" />
+                </td>
+
+                <td class="rightMouseTextBg" 
+                	onMouseOver="this.style.background='#6699CC'" onMouseOut="this.style.background='#d0d0ce'" 
+                	onclick="deleteMarkedClick()">删除
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/zTreeStyle/jquery.ztree.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+
+    <script type="text/javascript" src="../../js/pipelineAnalysis/markedManagement.js"></script>
+
+    <script type="text/javascript">
+    /*高度自适应*/
+    $(function() {
+        $("#markedTreeDiv").height($(this).height - 63);
+        $("#markedTreeDiv").mCustomScrollbar({});
+        initMarkedMgr();
+    });
+    </script>
+</body>
+
+</html>

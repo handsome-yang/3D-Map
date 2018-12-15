@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		<title>关键字查询</title>
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/icon.css">
+		<link rel="stylesheet" type="text/css" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common.css">
+	</head>
+
+	<body id="container" class="easyui-layout" oncontextmenu="return false;">
+		<div id="northDiv" class="north" region="north">
+			<div class="cardTitle">参数设置</div>
+			<div id="paramSetInner">
+				<table class="panelTable">
+					<tr>
+						<td>
+							<span>选择图层:</span>
+						</td>
+						<td>
+							<span id="layerSelected" style="margin-left: 10px;"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>关键字:</span>
+						</td>
+						<td>
+							<input type="text" id="searchkey" name="searchkey" style="width:160px;" />
+						</td>
+					</tr>
+				</table>
+				<div class="buttonDiv14">
+					<button id="searchBtn">查询</button>
+				</div>
+				<div id="layerTd" style="display: none;"></div>
+			</div>
+		</div>
+		<div id="tablediv" class="enter" region="center">
+			<div class="cardTitle">查询结果</div>
+			<div id="dgDiv">
+				<div id="srcollDiv">
+					<div id="searchData"></div>
+				</div>
+				<div id="pageDiv">
+					<div id="page"></div>
+				</div>
+			</div>
+		</div>
+		<div id="southDiv" region="south">
+			<label class="southClick">
+				<input id="search_info" type="checkbox" />
+				<span>详细信息</span>
+			</label>
+		</div>
+	</body>
+
+	<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+	<script src="../../js/plugins/jquery.easyui.min.js"></script>
+	<script src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="../../js/plugins/jquery.xml2json.js"></script>
+	<script src="../../js/stamplib/search.js"></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="../../js/search/keywordSerResult.js"></script>
+
+</html>

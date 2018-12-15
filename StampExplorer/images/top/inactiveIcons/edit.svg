@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>画板</title>
+    <desc>Created with Sketch.</desc>
+    <g id="画板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编辑(1)" fill="#FFFFFF">
+            <path d="M0,20 L0,18.7511084 L20,18.7511084 L20,20 L0,20 Z M15.1966224,0.0828306073 C15.1966224,0.0828306073 16.986731,-0.464463601 18.7044632,1.25457063 C20.4945718,3.04593449 19.8721351,4.76737971 19.8721351,4.76737971 L17.5367913,7.11327074 L12.8612786,2.42631065 L15.1966224,0.0828306073 Z" id="形状" fill-rule="nonzero"></path>
+            <polygon id="路径" points="12.1424993 3 17 7.57142857 4.85750074 19 0 19 0 14.4285714"></polygon>
+        </g>
+    </g>
+</svg>

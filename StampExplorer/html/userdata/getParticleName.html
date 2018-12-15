@@ -1,0 +1,39 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>名称</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+
+	</head>
+
+	<body onload="init()" onunload="unloadWindow()">
+		<table class="paramTable">
+			<tr>
+
+				<td>
+					<span>名称:</span>
+				</td>
+
+				<td>
+					<input type="text" name="trackName" id="trackName" onkeyup="checkStr(this)" class="inputText" />
+				</td>
+
+			</tr>
+		</table>
+		<div class="buttonTd">
+
+			<button onClick="setTrackName()">确定</button>
+
+			<button onClick="closeWindow()">取消</button>
+
+		</div>
+		<script src="../../js/common/common.js"></script>
+		<!-- 名称 -->
+		<script src="../../js/userdata/getParticleName.js"></script>
+
+	</body>
+
+</html>

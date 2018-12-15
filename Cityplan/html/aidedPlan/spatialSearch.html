@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <title>空间查询</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+    <script src="../../js/plugins/jquery.js"></script>
+    <script src="../../js/plugins/jquery.easyui.min.js"></script>
+    <script src="../../js/plugins/jquery.xml2json.js"></script>
+    <script src="../../js/common/common.js"></script>
+</head>
+
+<body id="container" class="easyui-layout" oncontextmenu="return false">
+    <!-- 左侧面板上半部分 Start -->
+    <div region="north" id="northDiv" border="false">
+        <div class="cardTitle">参数设置</div>
+        <div class="paramSetInner">
+            <table class="paramTable paramNoMagTop">
+                <tr>
+                    <td>
+                        <span>图层:</span>
+                    </td>
+                    <td>
+                        <select id="parcelLayer" class="twoBefSelect" type="text" value="" onFocus="focusindex = 1" onBlur="focusindex =0">
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="buttonTd">
+                <button id="btnCircleSelect">圆域</button>
+                <button id="btnPolygonSelect">多边形 </button>
+            </div>
+        </div>
+    </div>
+    <!-- 左侧面板上半部分 End -->
+
+    <div id="centerDiv" class="enter" region="center">
+        <div class="cardTitle">查询结果</div>
+        
+        <div id="dgDiv" style="visibility: hidden;">
+            <table id="dg">
+            </table>
+        </div>
+    </div>
+    <script src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../js/stamplib/searchAnalysis.js"></script>
+    <script src="../../js/stamplib/layerManager.js"></script>
+    <script type="text/javascript" src="../../js/aidedPlan/spatialSearch.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>坡度图</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+		<link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+	</head>
+
+	<body>
+		<table class="paramTable">
+			<tr>
+
+				<td>
+					<span>坡度分段:</span>
+				</td>
+
+				<td>
+					<input type="text" id="gradeSection" class="inputText" value="3" onpropertychange="checkNum(this, true, 0, 10);" maxlength="2" />
+					<button id="sectionBtn" disabled>分段</button>
+				</td>
+
+			</tr>
+		</table>
+
+		<table cellspacing="0" cellpadding="0" id="slopeTable0">
+			<thead>
+
+				<td class="tdGrade">坡度</td>
+
+				<td class="tdColor">颜色</td>
+
+			</thead>
+		</table>
+		<div id="tableLines" style="margin:0px auto 14px auto;padding:0px;height:106px;width:254px; overflow:auto;border:1px solid #b6b6b6;align:center;">
+			<table border="1" cellspacing="0" cellpadding="0" id="slopeTable" style="margin-top:0px;margin-bottom: 0px; height:100%;width:100%;">
+				<tbody>
+
+					<tr>
+
+						<td>0</td>
+
+						<td>
+
+							<input type="text" id="fillColor0" value="#00ff00" class="colorInput" width="57px" readonly/>
+
+							<input type="button" id="fillColorSel0" style="background-color:#00ff00" class="colorBtn" class="button" value="" onClick='fillColorDlg("fillColorSel0")' />
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<td>45</td>
+
+						<td>
+
+							<input type="text" id="fillColor45" value="#ff0000" class="colorInput" readonly/>
+
+							<input type="button" id="fillColorSel45" style="background-color:#ff0000" class="colorBtn" value="" onClick='fillColorDlg("fillColorSel45")' />
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<td>90</td>
+
+						<td>
+
+							<input type="text" id="fillColor90" value="#ffff00" class="colorInput" readonly/>
+
+							<input type="button" id="fillColorSel90" style="background-color:#ffff00" class="colorBtn" value="" onClick='fillColorDlg("fillColorSel90")' />
+
+						</td>
+
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+		<div class="buttonTd">
+
+			<button id="draw">绘制</button>
+
+			<button id="btnStart" disabled>分析</button>
+
+			<button id="cancel">退出</button>
+
+		</div>
+		<OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0" height="0"></OBJECT>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="../../js/stamplib/analysis.js"></script>
+		<!-- 坡度图 -->
+		<script src="../../js/analysis/slopePolygon.js"></script>
+		<script src="../../js/common/common.js"></script>
+	</body>
+
+</html>

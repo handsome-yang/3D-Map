@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>规划审批</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/icon.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/ztree_v3/zTreeStyle/zTreeStyle.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/project_manage.css" />
+</head>
+
+<body style="width:100%;height:100%;">
+    <div id="topSearchDiv" border="false" style="height:160px;border-bottom:1px solid #8db2e3;border-right:1px solid #eaedf2;background-color: #fff; padding-top:15px;">
+        <table class="panelTable">
+            <tr>
+                <td>项目状态:</td>
+
+                <td>
+                    <select id="selState" class="normalSelect">
+                        <option value="">全部</option>
+                        <option value="0">待审批</option>
+                        <option value="1">已审批</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>关键字:</td>
+
+                <td>
+                    <input type="text" id="txtKeyword" class="normalInput" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>用地性质:</td>
+
+                <td>
+                    <select id="selProperty" class="normalSelect"></select>
+                </td>
+            </tr>
+        </table>
+
+        <div class="buttonDiv14">
+            <button id="btnSearch">搜索</button>
+        </div>
+    </div>
+
+    <!--项目管理树-->
+    <div id="projTreeScrollDiv" border="false" style="border-bottom:1px solid #8db2e3;background-color: #fff">
+        <ul id="projTree" class="ztree"></ul>
+    </div>
+
+    <!--审批中的树-->
+    <div id="approveTreeDiv" border="false" style="height:220px;">
+        <ul id="appTree" class="ztree"></ul>
+    </div>
+
+    <!-- 方案编辑右键菜单 -->
+    <div id="contextMenuPlan" class="easyui-menu" style="width:110px;text-align:center;">
+        <div id="divEditPlan" style="width:110px;text-align:center;">编辑</div>
+
+        <div id="divShowParamModel" style="width:110px;text-align:center;">显示参数模型</div>
+    </div>
+
+
+    <!-- 进度条遮罩层 -->
+    <div id="layoutMask" class="s-mask" style="display:none;"></div>
+	<!--项目导入进度条-->
+    <div id="pbContainer1" class="s-overmask s-progressBar-Container1" style="display:none;">
+        <div id="pbContainer2" class="s-progressBar-Container2">
+            <div id="pbText" class="s-progressBar-text"></div>
+            <div id="progressBar"></div>
+        </div>
+    </div>
+
+    <!-- 项目管理树中未审批项目的右键菜单 -->
+    <div id="contextMenuProject" class="easyui-menu" style="width:100px;">
+        <div id="divApproveProject">审批</div>
+        <div id="divDeleteProject">删除</div>
+    </div>
+
+    <!-- 项目管理树审批中项目的右键菜单-->
+    <div id="contextMenuProject3" class="easyui-menu" style="width:100px;">
+        <div id="divApproveProject3">结束审批</div>
+        <div id="divDeleteProject3">删除</div>
+    </div>
+
+    <!-- 项目管理树已审批项目的右键菜单-->
+    <div id="contextMenuProject4" class="easyui-menu" style="width:100px;">
+        <div id="finishedTag">已审批纪要</div>
+        <div id="divDeleteProject4">删除</div>
+    </div>
+
+    <!-- 审批树中右键菜单-->
+    <div id="contextMenuProject2" class="easyui-menu" style="width:100px;">
+        <div id="divApproveProject2">结束审批</div>
+    </div>
+
+ 
+	<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+
+	<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+
+	<script type="text/javascript" src="../../js/plugins/locale/easyui-lang-zh_CN.js"></script>
+
+	<script type="text/javascript" src="../../js/plugins/zTreeStyle/jquery.ztree.js"></script>
+
+	<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+
+	<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<script type="text/javascript" src="../../js/common/common.js"></script>
+
+	<script type="text/javascript" src="../../js/config/config.js"></script>
+
+	<script type="text/javascript" src="../../js/project/project.js"></script>
+	
+	<script type="text/javascript" src="../../js/project/projectManage.js"></script>
+</body>
+
+</html>

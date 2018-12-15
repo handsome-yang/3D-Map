@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title> 建筑属性 </title>
+    <meta name="Generator" content="EditPlus">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    font: 12px "Microsoft Yahei";
+}
+
+td {
+    height: 26px;
+    line-height: 26px;
+    padding: 0px;
+    word-break: break-all;
+    ;
+}
+
+.td1 {
+    width: 80px;
+    font-weight: bold;
+}
+
+.td2 {
+    width: 100px;
+    font-weight: bold;
+}
+
+.td3 {
+    width: 65px;
+    font-weight: bold;
+}
+
+#buidTable td {
+    border: 1px solid #cecece;
+    background: #fff;
+}
+
+#buidTable {
+    border: 1px solid #fff;
+    border-top: 0px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+html,
+body,
+#scroll-table-div {
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<body>
+    <div id="scroll-table-div">
+        <table id="buidTable" cellpadding="0" cellspacing="0" border="1" width="100%" align="center">
+            <tr>
+                <td colspan="2" class="td1">指标</td>
+                <td class="td2">指标值</td>
+                <td class="td3">单位</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">建筑名称</td>
+                <td id="buildMc"></td>
+                <td>---</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">建筑性质</td>
+                <td id="buildXz"></td>
+                <td>---</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">建筑基底面积</td>
+                <td id="buildMj"></td>
+                <td>平方米</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">总建筑面积</td>
+                <td id="buildZmj"></td>
+                <td>平方米</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">地上建筑面积</td>
+                <td id="buildDsjzmj"></td>
+                <td>平方米</td>
+            </tr>
+
+            <tr>
+                <td rowspan="4">其中</td>
+                <td>住宅</td>
+                <td class="x" id="buildZz"></td>
+                <td class="x">平方米</td>
+            </tr>
+
+            <tr>
+                <td>商业</td>
+                <td class="x" id="buildSy"></td>
+                <td class="x">平方米</td>
+            </tr>
+
+            <tr>
+                <td>幼儿园</td>
+                <td class="x" id="buildYey"></td>
+                <td class="x">平方米</td>
+            </tr>
+
+            <tr>
+                <td>社区服务中心</td>
+                <td class="x" id="buildSqfwzx"></td>
+                <td class="x">平方米</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">地下建筑面积</td>
+                <td id="buildDxjzmj"></td>
+                <td>平方米</td>
+            </tr>
+
+            <tr>
+                <td rowspan="3">其中</td>
+                <td>地下商业面积</td>
+                <td class="x" id="buildDxsymj"></td>
+                <td class="x">平方米</td>
+            </tr>
+
+            <tr>
+                <td>地下停车场面积</td>
+                <td class="x" id="buildDxtccmj"></td>
+                <td class="x">平方米</td>
+            </tr>
+
+            <tr>
+                <td>其他面积</td>
+                <td class="x" id="buildQtmj"></td>
+                <td class="x">平方米</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">建筑高度</td>
+                <td id="buildJzgd"></td>
+                <td>米</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">建筑层数</td>
+                <td id="buildJzcs"></td>
+                <td>层</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2" valign="middle">其中</td>
+                <td>地上</td>
+                <td class="x" id="buildDscs"></td>
+                <td class="x">层</td>
+            </tr>
+
+            <tr>
+                <td>地下</td>
+                <td class="x" id="buildDxcs"></td>
+                <td class="x">层</td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="2">规划户数</td>
+                <td id="buildGhhs"></td>
+                <td>户</td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="2">户均人口</td>
+                <td id="buildHjrk"></td>
+                <td>人</td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="2">规划人数</td>
+                <td id="buildGhrs"></td>
+                <td>人</td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="2">总停车位</td>
+                <td id="buildZtcw"></td>
+                <td>个</td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td rowspan="2">其中</td>
+                <td>地上停车位</td>
+                <td class="x" id="buildDstcw"></td>
+                <td class="x">个</td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td>地下停车位</td>
+                <td class="x" id="buildDxtcw"></td>
+                <td class="x">个</td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="../../js/plugins/jquery.min.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+    
+    <script>
+    $(function() {
+        $("#scroll-table-div").mCustomScrollbar();
+    });
+
+    function postData(obj) {
+        if (obj) {
+            $("#buildMc").text(obj["CPBUILDING.NAME"] || "");
+            $("#buildXz").text(obj["CPBUILDING.JZXZ"] || "");
+            var jzjdmj = obj["CPBUILDING.JZJDMJ"] ? parseFloat(obj["CPBUILDING.JZJDMJ"]).toFixed(2) : "";
+            $("#buildMj").text(jzjdmj);
+            var zjzmj = obj["CPBUILDING.ZJZMJ"] ? parseFloat(obj["CPBUILDING.ZJZMJ"]).toFixed(2) : "";
+            $("#buildZmj").text(zjzmj);
+            var dsjzmj = obj["CPBUILDING.DSJZMJ"] ? parseFloat(obj["CPBUILDING.DSJZMJ"]).toFixed(2) : "";
+            $("#buildDsjzmj").text(dsjzmj);
+            var zzjzmj = obj["CPBUILDING.ZZJZMJ"] ? parseFloat(obj["CPBUILDING.ZZJZMJ"]).toFixed(2) : ""
+            $("#buildZz").text(zzjzmj);
+            var syjzmj = obj["CPBUILDING.SYJZMJ"] ? parseFloat(obj["CPBUILDING.SYJZMJ"]).toFixed(2) : "";
+            $("#buildSy").text(syjzmj);
+            var yeyjzmj = obj["CPBUILDING.YEYJZMJ"] ? parseFloat(obj["CPBUILDING.YEYJZMJ"]).toFixed(2) : "";
+            $("#buildYey").text(yeyjzmj);
+            var sqfwzxjzmj = obj["CPBUILDING.SQFWZXJZMJ"] ? parseFloat(obj["CPBUILDING.SQFWZXJZMJ"]).toFixed(2) : "";
+            $("#buildSqfwzx").text(sqfwzxjzmj);
+            var dxjzmj = obj["CPBUILDING.DXJZMJ"] ? parseFloat(obj["CPBUILDING.DXJZMJ"]).toFixed(2) : "";
+            $("#buildDxjzmj").text(dxjzmj);
+            var dxsymj = obj["CPBUILDING.DXSYMJ"] ? parseFloat(obj["CPBUILDING.DXSYMJ"]).toFixed(2) : "";
+            $("#buildDxsymj").text(dxsymj);
+            var dxtccmj = obj["CPBUILDING.DXTCCMJ"] ? parseFloat(obj["CPBUILDING.DXTCCMJ"]).toFixed(2) : "";
+            $("#buildDxtccmj").text(dxtccmj);
+            var dxqtmj = obj["CPBUILDING.DXQTMJ"] ? parseFloat(obj["CPBUILDING.DXQTMJ"]).toFixed(2) : "";
+            $("#buildQtmj").text(dxqtmj);
+            var jzgd = obj["CPBUILDING.JZGD"] ? parseFloat(obj["CPBUILDING.JZGD"]).toFixed(2) : "";
+            $("#buildJzgd").text(jzgd);
+            $("#buildJzcs").text(obj["CPBUILDING.JZCS"] || "");
+            $("#buildDscs").text(obj["CPBUILDING.DSCS"] || "");
+            $("#buildDxcs").text(obj["CPBUILDING.DXCS"] || "");
+            $("#buildGhhs").text(obj["CPBUILDING.GHHS"] || "");
+            $("#buildHjrk").text(obj["CPBUILDING.HJRK"] || "");
+            $("#buildGhrs").text(obj["CPBUILDING.GHRS"] || "");
+            $("#buildZtcw").text(obj["CPBUILDING.ZTCW"] || "");
+            $("#buildDstcw").text(obj["CPBUILDING.DSTCW"] || "");
+            $("#buildDxtcw").text(obj["CPBUILDING.DXTCW"] || "");
+        }
+    }
+    if (top.buildingData) {
+        postData(top.buildingData)
+    }
+    </script>
+</body>
+
+</html>

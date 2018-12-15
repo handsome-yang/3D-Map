@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8" >
+    <title>视域分析</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css"/>
+</head>
+
+<body>
+    <table class="paramTable">
+        <tr>
+            <td>
+                <span>视角:</span>
+            </td>
+
+            <td>
+                <input id="angle" name="angle" class="inputText" type="text" value="53"/>
+            </td>
+
+            <td>
+                <span class="afterInText">度</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span>高度:</span>
+            </td>
+
+            <td>
+                <input  id="height" name="height" class="inputText" type="text" value="2"/>
+            </td>
+
+            <td>
+                <span class="afterInText">米</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span>可见区域:</span>
+            </td>
+
+            <td>
+                <input id="noShadowColor" name="noShadowColor" class="inputText" onpropertychange="checkStr(this,null,true)" maxlength="7" type="text" value="#00ff00"/>
+            </td>
+
+            <td>
+                <input type ="button" id="noShadowColorsel" style="background-color:#00ff00" class="colorBtn afterInText" value="" onClick="noShadowColorDlg()"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span>遮挡区域:</span>
+            </td>
+
+            <td>
+                <input id="shadowColor" name="shadowColor" maxlength="7" class="inputText" onpropertychange="checkStr(this,null,true)" type="text" value="#ff0000"/>
+            </td>
+
+            <td>
+                <input type="button" id="shadowColorsel" style="background-color: #ff0000" class="colorBtn afterInText" value="" onClick="shadowColorDlg()"/>
+            </td>
+        </tr>
+    </table>
+    
+    <div class ="buttonTd">
+        <button id ="btnStart" >分析</button>
+        <button id ="clear"  >退出</button>
+    </div>
+    <OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"></OBJECT>
+    <script src="../../js/plugins/jquery1.9.0.min.js"></script>
+    <script src="../../js/analysis/viewshed.js"></script>
+    <script src="../../js/common/common.js"></script>
+    <script>
+    </script>
+</body>
+</html>

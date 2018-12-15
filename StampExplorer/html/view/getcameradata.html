@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>监控</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+		<style type="text/css">
+			.paramTable input {
+				width: 211px;
+				height: 26px;
+			}
+		</style>
+
+	</head>
+
+	<body onload="init()">
+		<table class="paramTable">
+			<tr>
+				<td>摄像机:</td>
+				<td><input type="text" id="trackName" onkeyup="checkStr(this)" value="摄像机" /></td>
+			</tr>
+			<tr>
+				<td>RTSP服务:</td>
+				<td><input type="text" id="rtsp" value="" /></td>
+			</tr>
+			<tr>
+				<td>摄像机模型:</td>
+				<td>
+					<input type="text" id="trackModel" />
+					<button onClick="select()">选择模型</button>
+				</td>
+			</tr>
+			<tr>
+				<td>摄像机经度:</td>
+				<td><input type="text" id="cx" onkeyup="checkNum(this, false, null, 180)" /></td>
+			</tr>
+			<tr>
+				<td>摄像机纬度:</td>
+				<td><input type="text" id="cy" onkeyup="checkNum(this, false, null, 90)" /></td>
+			</tr>
+			<tr>
+				<td>摄像机高程:</td>
+				<td><input type="text" id="cz" onkeyup="checkNum(this, true, 2, 10000)" /></td>
+			</tr>
+			<tr>
+				<td>目标经度:</td>
+				<td><input type="text" id="tx" onkeyup="checkNum(this, false, null, 180)" /></td>
+			</tr>
+			<tr>
+				<td>目标纬度:</td>
+				<td><input type="text" id="ty" onkeyup="checkNum(this, false, null, 90)" /></td>
+			</tr>
+			<tr>
+				<td>目标高程:</td>
+				<td><input type="text" id="tz" onkeyup="checkNum(this, true, 2, 10000)" /></td>
+			</tr>
+			<tr>
+				<td>蒙版图像:</td>
+				<td>
+					<input type="text" id="maskUrl" />
+					<button onClick="selectMask()">选择图片</button>
+				</td>
+			</tr>
+		</table>
+		<div class="buttonDiv14">
+			<button class="normalBtn" onClick="setTrackName()">确定</button>
+			<button class="normalBtn" onClick="window.close();">取消</button>
+		</div>
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/config/config.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript">
+			var serviceip = params.ip;
+			var rtsp;
+			rtsp = "rtsp:" + serviceip.substring(serviceip.indexOf(":") + 1, serviceip.length) + "/1.264";
+			//确认
+			function setTrackName() {
+				if(document.getElementById("trackName").value == "") {
+					document.getElementById("trackName").focus();
+					return;
+				}
+				param.name = document.getElementById("trackName").value;
+				param.rtsp = document.getElementById("rtsp").value;
+				param.model = document.getElementById("trackModel").value;
+
+				if(!checkpos()) {
+					alert('不合法的坐标值,请重新输入');
+					return;
+				}
+
+				param.cx = document.getElementById('cx').value;
+				param.cy = document.getElementById('cy').value;
+				param.cz = document.getElementById('cz').value;
+				param.tx = document.getElementById('tx').value;
+				param.ty = document.getElementById('ty').value;
+				param.tz = document.getElementById('tz').value;
+
+				param.maskUrl = document.getElementById('maskUrl').value;
+				var thisName = document.getElementById("trackName").value;
+				window.returnValue = param;
+				window.close();
+			}
+			var param;
+			var cameraName;
+			//初始化
+			function init() {
+				//接收页面参数
+				param = window.dialogArguments;
+				cameraName = param.cameraName;
+				if(param && param.name) {
+					document.getElementById("trackName").value = param.name;
+					document.getElementById("rtsp").value = param.rtsp;
+					document.getElementById("trackModel").value = param.model;
+				} else {
+					document.getElementById("trackModel").value = param.earth.RootPath + "res\\camera.x";
+					document.getElementById("rtsp").value = rtsp;
+					camera = null;
+				}
+				document.getElementById('cx').value = param.cx ? param.cx : '';
+				document.getElementById('cy').value = param.cy ? param.cy : '';
+				document.getElementById('cz').value = param.cz ? param.cz : '';
+				document.getElementById('tx').value = param.tx ? param.tx : '';
+				document.getElementById('ty').value = param.ty ? param.ty : '';
+				document.getElementById('tz').value = param.tz ? param.tz : '';
+				document.getElementById('maskUrl').value = param.maskUrl ? param.maskUrl : '';
+
+			}
+
+			/**
+			 * 选择按钮事件函数
+			 */
+			function select() {
+				var path = param.earth.UserDocument.OpenFileDialog("", "*.usx;*.x");
+				if(!path) {
+					return;
+				}
+				document.getElementById("trackModel").value = path;
+
+			};
+
+			/**
+			 * 选择图片按钮事件
+			 */
+			function selectMask() {
+				var path = param.earth.UserDocument.OpenFileDialog('', '*.png');
+				if(!path) {
+					return;
+				}
+				document.getElementById('maskUrl').value = path;
+			}
+
+			/**
+			 * 检查坐标输入
+			 */
+			function checkpos() {
+				var ids = ['cx', 'cy', 'cz', 'tx', 'ty', 'tz'];
+				for(var i = 0; i < ids.length; i++) {
+					var v = document.getElementById(ids[i]).value;
+					if(v != '' && isNaN(v)) {
+						return false;
+					}
+				}
+				return true;
+			}
+		</script>
+	</body>
+
+</html>

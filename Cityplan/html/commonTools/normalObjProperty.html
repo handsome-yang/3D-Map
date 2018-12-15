@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>属性查看</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" href="../../css/easyui/icon.css" />
+    <style>
+    html,body {
+        height: 100%;
+    }
+
+    body {
+        margin: 0px;
+        padding: 0px;
+        font-size: 12px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    .col {
+        text-align: center;
+        border-bottom: 1px solid #d3d3d3;
+        height: 32px;
+        word-break: break-all;
+    }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+</body>
+
+<script>
+// parent 父窗口对象 
+var thisHtml = parent.thisPropertyHtml;
+$("body").html(thisHtml);
+</script>
+
+</html>

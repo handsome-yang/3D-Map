@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <title>绿地分析</title>
+    <link rel="stylesheet" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/analysis.css">
+    <link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css">
+</head>
+
+<body id="container" class="easyui-layout" oncontextmenu="return false">
+    <!-- 左侧面板上半部分 Start -->
+    <div region="north" id="northDiv" border="false">
+        <div class="cardTitle">参数设置</div>
+
+        <!-- 左侧面板上半部分内容 Start -->
+        <div class="paramSetInner">
+            <table class="paramTable paramNoMagTop">
+                <tr>
+                    <td>
+                        图层:
+                    </td>
+
+                    <td>
+                        <select id="parcelLayer" class="twoBefSelect" type="text" value="" onFocus="focusindex = 1" onBlur="focusindex =0">
+                        </select>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="buttonTd">
+                <button id="importShp" style="">导入SHP</button>
+                <button id="writerCoord" style="">输入坐标</button>
+                <button id="btnPolygonSelect" style="">多边形</button>
+            </div>
+        </div>
+        <!-- 左侧面板上半部分内容 End -->
+        
+    </div>
+    <!-- 左侧面板上半部分 End -->
+    
+    <div region="center" class="enter" id="centerDiv">
+        <div class="cardTitle">查询结果</div>
+        <div id="dgDiv">
+            <table id="dg">
+            </table>
+        </div>
+    </div>
+    <script src="../../js/plugins/jquery.js"></script>
+    <script src="../../js/plugins/jquery.easyui.min.js"></script>
+    <script src="../../js/plugins/jquery.xml2json.js"></script>
+    <script src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../js/common/common.js"></script>
+    <script src="../../js/stamplib/searchAnalysis.js"></script>
+    <script src="../../js/stamplib/layerManager.js"></script>
+    <script src="../../js/aidedPlan/greenLandAnalysis.js"></script>
+</body>
+
+</html>

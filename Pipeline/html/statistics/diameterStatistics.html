@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>管径分段统计</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui/icon.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+</head>
+<body id="container" class="easyui-layout" oncontextmenu="return false;">
+<div id="northDiv" class="north" region="north">
+    <div class="cardTitle">参数设置</div>
+    <div id="paramSetInner">
+        <div id="selectObjDiv">
+            <span for="selLayers">图层:</span>
+            <select id="selLayers"></select>
+            <button class="afterInText" id="confirmBtn">获取管径</button>
+        </div>
+        <div class="twoTitle">
+            <div class="left">管径:</div>
+            <div class="right">分段:</div>
+        </div>
+        <div class="twoBody">
+            <div id="twoUlLeft">
+                <div id="diameterRangeDiv" class="twoUlLeft"></div>
+            </div>
+            <div class="twoUlRight">
+                <div id="statisticsRangeDiv" class="twoUlRightTable">
+                    <div class="boxTitle">
+                        <div class="left">下限</div>
+                        <div class="right">上限</div>
+                    </div>
+                    <div id="twoUlRight">
+                        <div id="statisticsListDiv">
+                            <table id="statisticsListTab" cellspacing="0" style="width:100%;">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttonDiv14">
+                    <button class="smallButton" id="upLimitBtn" disabled>上限</button>
+                    <button class="smallButton" id="downLimitBtn" disabled>下限</button>
+                </div>
+                <div class="buttonDiv7">
+                    <button class="smallButton" id="addRowBtn" disabled>添加行</button>
+                    <button class="smallButton" id="deleteRowBtn" disabled>删除行</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="buttonDiv14">
+            <button class="largeBtn" id="statisticsBtn" disabled>全部</button>
+            <button class="largeBtn" id="btnCircleSelect" disabled>圆域</button>
+            <button class="largeBtn" id="btnPolygonSelect" disabled>多边形</button>
+        </div>
+    </div>
+</div>
+<div id="tablediv" class="enter" region="center">
+    <div class="cardTitle statisticsTwoTitle">统计结果</div>
+    <div id="dgDiv">
+        <ul class="titleBlue4" id="tabhead">
+            <li>图层</li>
+            <li>管径</li>
+            <li>数量</li>
+            <li class="bigWidth">长度(km)</li>
+        </ul>
+        <div id="resultDivScroll">
+            <div id="resultDiv"></div>
+        </div>
+    </div>
+</div>
+<div region="south" id="southDiv" class="textCenter" border="false">
+    <button id="importExcelBtn" disabled>导出</button>
+    <button id="sBtn" disabled>统计</button>
+</div>
+</body>
+
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="../../js/stamplib/statistics.js"></script>
+<script type="text/javascript" src="../../js/common/common.js"></script>
+<script type="text/javascript" src="../../js/plugins/json.js"></script>
+<script type="text/javascript" src="../../js/common/exportExcel.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../js/statistics/diameterStatistics.js"></script>
+
+</html>

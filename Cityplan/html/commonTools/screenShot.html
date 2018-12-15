@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" >
+    <title>屏幕截图</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css">
+</head>
+
+<body>
+    <table class="paramTable">
+        <tr>
+            <td>
+                <span>视窗高度: </span>
+            </td>
+
+            <td>
+                <input id="height" type="text" disabled="disabled" class="inputText" />
+                <span class="afterInText">像素</span>
+
+                <button id="getHeightWidth" class="afterInText">获取宽高</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span>视窗宽度: </span>
+            </td>
+
+            <td>
+                <input id="width" type="text" disabled="disabled" class="inputText" />
+
+                <span class="afterInText">像素</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span>放大倍数:</span>
+            </td>
+
+            <td>
+                <input type="text" id="shotWay" value="1" onpropertychange="checkNum(this, true, 2, 10)" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <span>存储路径:</span>
+            </td>
+
+            <td>
+                <input id="path" type="text" type="text" class="inputText" disabled/>&emsp;&emsp;&nbsp;
+
+                <button id="select" class="afterInText">选择路径</button>
+            </td>
+        </tr>
+    </table>
+    
+    <div class="buttonTd">
+        <button id="btn_select_sector" disabled>确定</button>
+        <button id="clear">退出</button>
+    </div>
+    <script src="../../js/plugins/jquery1.9.0.min.js"></script>
+    <script src="../../js/common/common.js"></script>
+    <script src="../../js/commonTools/screenShot.js"></script>
+</body>
+
+</html>

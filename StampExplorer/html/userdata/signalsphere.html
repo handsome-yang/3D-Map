@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>雷达基站</title>
+
+		<link rel="stylesheet" href="../../css/common.css" type="text/css" />
+		<link rel="stylesheet" href="../../css/analysis.css" type="text/css" />
+
+	</head>
+
+	<body onload="attributeUserdata()" onunload="unload()" style="overflow-y: auto;">
+		<table class="paramTable">
+			<tr>
+				<td>
+					<span>名称:</span>
+				</td>
+
+				<td>
+					<INPUT type="text" id="sphereName" class="inputText" onkeyup="checkStr(this)" maxlength="20" value="polygon" />
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>半径:</span>
+				</td>
+
+				<td>
+					<INPUT type="text" id="radius" class="inputText" onkeyup="checkNum(this, true, 2, 10000)" maxlength="20" value="20" />
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>分割数:</span>
+				</td>
+
+				<td>
+					<INPUT type="text" id="segment" class="inputText" onkeyup="checkNum(this, true, 0, 10000)" maxlength="20" value="12" />
+				</td>
+
+			</tr>
+
+			<tr>
+				<td>颜色:</td>
+
+				<td>
+					<input type="text" id="color" class="inputText" onkeyup="checkStr(this, null, true)" maxlength="7" value="#0000ff" />
+
+					<input type="button" id="lineColorSel" class="afterInText colorBtn" style="background-color:#0000ff" value="" onClick="fillColorDlg('lineColorSel')" />
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>线透明度:</span>
+				</td>
+
+				<td>
+					<input type="text" id="lineTransparency" class="inputText" onkeyup="checkNum(this, true, 0, 255)" maxlength="3" value="204" />
+					<span class="afterInText">(0 ~ 255)</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>描述:</span>
+				</td>
+
+				<td>
+					<textarea id="description" class="textA" cols="30" rows="5"></textarea>
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+
+			<button onClick="submit()">确定</button>
+
+			<button onClick="closeWindow()">取消</button>
+
+		</div>
+		<OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"></OBJECT>
+
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<!-- 标绘 -->
+		<script src="../../js/userdata/signalsphere.js"></script>
+		<script src="../../js/common/common.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="8px" height="8px" viewBox="0 0 8 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>画板</title>
+    <desc>Created with Sketch.</desc>
+    <g id="画板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="三角形" fill="#393FBD" transform="translate(4.000000, 4.500000) scale(1, -1) translate(-4.000000, -4.500000) " points="4 2 8 7 0 7"></polygon>
+    </g>
+</svg>

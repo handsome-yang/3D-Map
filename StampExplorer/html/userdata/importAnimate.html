@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>导入动画</title>
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/icon.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<style>
+			button {
+				width: 72px !important;
+				margin: 5px 2px;
+			}
+			
+			#progressbar .ui-progressbar-value {
+				background-color: #ccc;
+			}
+		</style>
+	</head>
+
+	<body oncontextmenu="return false;">
+
+		<div style="text-align: center;  height: 90px;padding: 2px; ">
+
+			<div style="text-align: center;padding-top:8px">
+				<label style="font-size: 15px;">选择文件:</label>
+
+				<input id="filepath" name="startHeight" type="text" style="width:95px" value="" disabled/>&nbsp;
+
+				<img src="../../images/dialog/file.png" id="btnAdd" width="22" height="22" />
+
+			</div>
+
+			<div style="text-align: center;padding-top:8px">
+				<label id="lblX" style="font-size: 15px;">投影文件:</label>
+
+				<input id="referenceInput" name="startHeight" type="text" style="width:95px" value="" disabled/>&nbsp;
+
+				<img src="../../images/dialog/file.png" width="22" height="22" id="addSpatialReference" />
+
+			</div>
+
+			<div border="false" style="text-align: center;padding-top:8px">
+
+				<button id="btnImport" class="hugeButton" disabled>导入</button>
+
+				<button id="clear" class="hugeButton">退出</button>
+
+			</div>
+		</div>
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/plugins/jquery.easyui.min.js"></script>
+		<script src="../../js/stamplib/analysis.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script src="../../js/stamplib/userdata.js"></script>
+		<!-- 导入动画 -->
+		<script src="../../js/userdata/importAnimate.js"></script>
+	</body>
+
+</html>

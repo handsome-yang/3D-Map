@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>导入shp</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/easyui/gray/easyui.css"/>
+    <link rel="stylesheet" href="../../css/easyui/icon.css"/>
+</head>
+
+<body>
+<div style="margin-top: 15px;text-align: center;">
+    <span>选择文件:</span>
+    <input id="selectPath" name="startHeight" type="text" style="width:90px" value=""/>
+    <button onClick="selectVect()">选取文件</button>
+</div>
+<div style="margin-top: 5px;text-align: center;">
+    <span>投影文件:</span>
+    <input id="referenceInput" name="startHeight" type="text" style="width:90px" value=""/>
+    <img src="../../images/dialog/file.png" width="25" height="25" onClick="addSpatialReference()"/>
+</div>
+<div style="text-align: center;">
+    <span> </span>
+</div>
+<div style="text-align: center; top: 100px; margin-top: 10px;">
+    <input id="importBtn" name="importBtn" type="button" style="width:60px; height: 27px;" onClick="importVect()"
+           value="导入"/>
+    <input id="importBtn" name="importBtn" type="button" style="width:60px; height: 27px;" onClick="window.close()"
+           value="取消"/>
+</div>
+<object id="dataProcess" classid="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></object>
+<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+<script src="../../js/plugins/jquery.easyui.min.js"></script>
+<script src="../../js/stamplib/export.js"></script>
+<script src="../../js/analysis/importVector.js"></script>
+
+</body>
+</html>

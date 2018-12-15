@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>管理区安全检测</title>
+
+    <link rel="stylesheet" href="../../css/easyui/default/easyui.css"/>
+    <link rel="stylesheet" href="../../css/easyui/icon.css"/>
+    <link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/analysis.css"/>
+</head>
+<body id="container" class="easyui-layout">
+
+<div region="north" id="northDiv">
+    <div class="cardTitle">参数设置</div>
+    <div class="paramSetInner">
+        <table class="paramTable paramNoMagTop">
+            <tr>
+                <td>
+                    <span>图层:</span>
+                </td>
+                <td>
+                    <select class="twoBefBtnAfterSelect" id="divPipeLineLayersList"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>管段:</span>
+                </td>
+                <td>
+                    <input type="text" class="twoBefBtnAfterInput readonlyInput" id="pipes" disabled/>
+                    <button class="afterInText" id="cusAreaBtn">选取管段</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="secfont">类型:</span>
+                </td>
+                <td>
+                    <select class="twoBefBtnAfterSelect" id="typeList"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="secfont">半径:</span>
+
+                </td>
+                <td>
+                    <input type="text" name="bufferRadius" class="twoBefBtnAfterInput" id="bufferRadius" value="15">
+                    <span class="afterInText">米</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="colTdLeft">
+                    <span>分析图层:</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div id="scrollDiv" class="threeScrollDiv">
+                        <div id="otherLayersList">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="buttonTd">
+            <button id="areaShow">区域分析</button>
+            <button id="checkBtn" disabled>监测分析</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="tablediv" region="center">
+    <div class="cardTitle">分析结果</div>
+    <div id="dgDiv">
+        <table id="dg" border="0" data-options="
+                        rownumbers:false,
+                        singleSelect:true,
+                        pagination:true">
+        </table>
+    </div>
+</div>
+
+<div region="south" border="false" id="southDiv" class="oneChcOneBtn">
+    <input type="checkbox" id="detailData" name="detailData" disabled>详细信息
+    <button class="largeBtn" id="importExcelBtn" disabled>导出</button>
+</div>
+<div style="display: none;">
+    <table id="importResult">
+        <tbody></tbody>
+    </table>
+</div>
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="../../js/common/common.js"></script>
+<script type="text/javascript" src="../../js/stamplib/statistics.js"></script>
+<script type="text/javascript" src="../../js/stamplib/pageHelper.js"></script>
+<script type="text/javascript" src="../../js/stamplib/FileValueStringMap.js"></script>
+<script type="text/javascript" src="../../js/stamplib/query.js"></script>
+<script type="text/javascript" src="../../js/analysis/mangerRange.js">
+
+</script>
+</body>
+</html>

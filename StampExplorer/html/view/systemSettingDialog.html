@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>工程设置</title>
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/analysis.css" />
+	</head>
+
+	<body>
+		<table class="paramTable">
+			<tr>
+				<td>当前工程:</td>
+				<td>
+					<select class="selectM" id="projectList" name="projectList">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>气泡透明:</td>
+				<td>
+					<input id="chkBalnAlpha" type="checkbox" value="0xcc" />&nbsp;启用透明气泡
+				</td>
+			</tr>
+			<tr>
+				<td>初始视点:</td>
+				<td>
+					<input id="viewPoint" name="alt" type="text" readonly/>
+					<button id="setViewPoint" class="afterInText">获取视点</button>
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+			<div style="text-align: center;">
+				<button id="confirmBtn">确定</button>
+				<button onclick="window.close();">取消</button>
+			</div>
+		</div>
+		<OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"></OBJECT>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/view/systemSettingDialog.js"></script>
+	</body>
+
+</html>

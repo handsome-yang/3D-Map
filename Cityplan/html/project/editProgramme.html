@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>方位调整</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+</head>
+
+<body>
+    <table class="paramTable">
+        <tr>
+            <td colspan="2" class="colTd" id="OperFunction">
+                <label>
+                    <input type="radio" value="1" checked/>鼠标操作
+                </label>
+
+                <label>
+                    <input type="radio" value="2" />精准操作
+                </label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>旋转(Y轴)</td>
+
+            <td>
+                <input type="text" id="planRotate" value="0" onpropertychange="checkNum(this, false, 2, 360, null)" disabled/>
+
+                <span class="afterInText">度</span>
+            </td>
+        </tr>
+    </table>
+
+    <div class="buttonTd">
+        <button id="toUnderground">贴地</button>
+        <button id="btnAction" disabled>确定</button>
+        <button id="clear">关闭</button>
+    </div>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+
+    <script type="text/javascript" src="../../js/config/config.js"></script>
+
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+    
+    <script type="text/javascript" src="../../js/project/editProgramme.js"></script>
+</body>
+
+</html>

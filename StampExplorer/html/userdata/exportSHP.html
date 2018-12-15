@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>导出SHP</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css">
+	</head>
+
+	<body>
+		<table class="paramTable">
+
+			<tr>
+				<td colspan="2" class="colTd">
+
+					<input id="polygoy" name="type" type="checkbox" class="firstRadio" onclick="checkPolygoy()" />
+					<label for="polygoy">面数据</label>&nbsp;&nbsp;
+
+					<input id="line" name="type" type="checkbox" onclick="checkline()" />
+					<label for="line">线数据</label>
+
+					<input id="point" name="type" type="checkbox" onclick="checkpoint()" />
+					<label for="point">点数据</label>
+
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<span>面:</span>
+				</td>
+
+				<td>
+					<input id="savePolygonPath" name="startHeight" class="inputText" type="text" value="" disabled/>
+					<button id="selectPolygonPath" type="button" class="afterInText" disabled>文件路径</button>
+				</td>
+
+			</tr>
+
+			<tr>
+				<td>
+					<span>线:</span>
+				</td>
+
+				<td>
+					<input id="saveLinePath" name="startHeight" type="text" class="inputText" value="" disabled/>
+					<button id="selectLinePath" class="afterInText" disabled>文件路径</button>
+				</td>
+
+			</tr>
+
+			<tr>
+				<td>
+					<span>点:</span>
+				</td>
+
+				<td>
+					<input id="savePointPath" name="startHeight" type="text" class="inputText" value="" disabled/>
+					<button id="selectPointPath" class="afterInText" disabled>文件路径</button>
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td>
+					<span>投影:</span>
+				</td>
+
+				<td>
+					<input id="referenceInput" name="startHeight" type="text" class="inputText" value="" disabled/>
+					<button id="addSpatialReference" class="afterInText" disabled>文件路径</button>
+				</td>
+
+			</tr>
+		</table>
+		<div class="buttonTd">
+
+			<button id="selectbtn" onclick="earth.ToolManager.SphericalOBJECTEditTool.Select()">选择</button>
+
+			<button id="exportShape" disabled>导出</button>
+
+			<button id="clear">退出</button>
+
+		</div>
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="width: 0;height: 0;"></OBJECT>
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/stamplib/export.js"></script>
+		<script src="../../js/common/common.js"></script>
+		<!-- 导出shp数据 -->
+		<script type="text/javascript" src="../../js/userdata/exportSHP.js"></script>
+	</body>
+
+</html>

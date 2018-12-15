@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>显示设置</title>
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/icon.css" />
+		<link rel="stylesheet" type="text/css" href="../../js/plugins/zTreeStyle/zTreeStyle.css" />
+		<link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/linkSetting.css" />
+	</head>
+
+	<body>
+		<div id="topSetting">
+			<table>
+				<tr>
+					<td>
+						<span>视频链路数：</span>
+					</td>
+					<td>
+						<select name="linkNum" id="linkNum">
+							<option value="1">1</option>
+							<option value="4">4</option>
+							<option value="8">8</option>
+						</select>
+					</td>
+					<td><button class="normalBtn" id="btnSubmit">提交</button></td>
+				</tr>
+			</table>
+		</div>
+		<div id="bottomSetting">
+			<div id="text">
+				<div id="textArea1">
+					<span>设备列表：</span>
+				</div>
+				<div id="textArea">
+					<span>已选设备列表：</span>
+				</div>
+			</div>
+			<input type="text" name="keyWord" id="keyWord" value="" />
+			<button class="normalBtn" id="search" disabled="true">确定</button>
+			<table>
+				<tr>
+					<td>
+						<div id="leftSipTree">
+							<ul id="rootTree" class="ztree"></ul>
+						</div>
+					</td>
+					<td>
+						<div id="middleCmd">
+							<button class="normalBtn" id="selectItem">选择</button>
+							<button class="normalBtn" id="removeItem">移除</button>
+							<button class="normalBtn" id="moveUpItem">上移</button>
+							<button class="normalBtn" id="moveDownItem">下移</button>
+						</div>
+					</td>
+					<td>
+						<div id="rightArea">
+							<div id="list"></div>
+						</div>
+					</td>
+
+				</tr>
+			</table>
+		</div>
+		<div id="attrSettingDiv">
+			<span id="attrText">设备属性：</span>
+			<div id="attrDiv">
+				<div id="attrLeft">
+					<table>
+						<tr>
+							<td>设备名称：</td>
+							<td>
+								<span class="labelText" id="diviceName"></span>
+							</td>
+						</tr>
+						<tr>
+							<td>设备状态：</td>
+							<td>
+								<span class="labelText" id="diviceStatus"></span>
+							</td>
+						</tr>
+						<tr>
+							<td>设备类型：</td>
+							<td>
+								<span class="labelText" id="diviceType"></span>
+							</td>
+						</tr>
+						<tr>
+							<td>设备经度：</td>
+							<td>
+								<input type="text" class="labelText anglesText" id="diviceLong" />
+								<span>度</span>
+							</td>
+						</tr>
+						<tr>
+							<td>设备纬度：</td>
+							<td>
+								<input type="text" class="labelText anglesText" id="diviceLat" />
+								<span>度</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div id="attrRight">
+					<div id="downAngleDiv">
+						<span>俯仰角:</span>
+						<input type="text" class="anglesText" id="downAngle" disabled="true" value="0.0" />
+						<span>度</span>
+					</div>
+					<!-- <div id="upAngleDiv">
+						<span>仰角:</span>
+						<input type="text" class="anglesText" id="upAngle" disabled="true" value="0.0" />
+						<span>度</span>
+					</div> -->
+					<div id="rotateAngleDiv">
+						<span>旋转角:</span>
+						<input type="text" class="anglesText" id="rotateAngle" disabled="true" value="0.0" />
+						<span>度</span>
+					</div>
+					<button id="btnSave" disabled="true">保存</button>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/zTreeStyle/jquery.ztree.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="../../js/view/linkSetting.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/common/common.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

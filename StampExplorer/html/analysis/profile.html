@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>地形剖面</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+	</head>
+
+	<body>
+		<table class="paramTable">
+
+			<tr>
+				<td>
+					<span>采样间距:</span>
+				</td>
+
+				<td>
+					<input id="space" class="inputText" type="text" onpropertychange="checkNum(this, true, 2, 10000)" value="2" />
+
+					<span class="afterInText">米</span>
+				</td>
+			</tr>
+
+		</table>
+		<div class="buttonTd">
+
+			<button id="btnStart">分析</button>
+
+			<button id="clear">退出</button>
+
+		</div>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/plugins/jquery.xml2json.js"></script>
+		<script src="../../js/stamplib/analysis.js"></script>
+		<!-- 地形剖面 -->
+		<script src="../../js/analysis/profile.js"></script>
+		<script src="../../js/common/common.js"></script>
+
+	</body>
+
+</html>

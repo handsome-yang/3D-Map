@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="336px" height="55px" viewBox="0 0 336 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>画板</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="254.588809%" gradientTransform="translate(0.500000,0.500000),scale(0.163690,1.000000),translate(-0.500000,-0.500000)" id="radialGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#383D99" offset="0%"></stop>
+            <stop stop-color="#2E33A8" offset="0.0607192901%"></stop>
+            <stop stop-color="#061448" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="205.039892%" gradientTransform="translate(0.500000,0.500000),scale(0.163690,1.000000),rotate(54.747347),translate(-0.500000,-0.500000)" id="radialGradient-2">
+            <stop stop-color="#727CFF" offset="0%"></stop>
+            <stop stop-color="#061448" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="画板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="矩形" stroke="url(#radialGradient-2)" fill="url(#radialGradient-1)" x="0.5" y="0.5" width="335" height="54"></rect>
+    </g>
+</svg>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>属性查看</title>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/easyui/default/easyui.css"/>
+    <link rel="stylesheet" href="../../css/easyui/icon.css"/>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-size: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .col {
+            text-align: center;
+            border-bottom: 1px solid #d3d3d3;
+            height: 32px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="divPointResult" style="overflow: auto;height:auto;">
+    <div title="管点属性" style="height:100%;width:100%;">
+        <div style="width:100%;overflow: auto;word-break: break-all;word-wrap: break-word;height: 100%;">
+            <table id="tblPointResult" border="0"></table>
+        </div>
+    </div>
+</div>
+<div id="divLineResult" style="height:auto;overflow: auto;">
+    <div id="lineDiv" title="管线属性" style="height:100%;width:100%;">
+        <div style="width:100%;overflow: auto;word-break: break-all;word-wrap: break-word;height: 100%;">
+            <table id="tblLineResult" border="0"></table>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../../js/stamplib/statistics.js"></script>
+<script type="text/javascript" src="../../js/stamplib/FileValueStringMap.js"></script>
+<script type="text/javascript" src="../../js/common/common.js"></script>
+<script type="text/javascript" src="../../js/query/propertyQuery.js"></script>
+</body>
+
+</html>

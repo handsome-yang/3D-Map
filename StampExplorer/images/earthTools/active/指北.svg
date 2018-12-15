@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>指北</title>
+    <desc>Created with Sketch.</desc>
+    <g id="指北" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="zhibei" transform="translate(3.000000, 2.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M12.9230769,0 L12.9230769,2.13333333 L10.7692308,0 L9.69230769,0 L9.69230769,4.26666667 L10.7692308,4.26666667 L10.7692308,2.13333333 L12.9230769,4.26666667 L14,4.26666667 L14,0 L12.9230769,0 Z M0,16 L6.46153846,13.5104 L12.9230769,16 L7.10769231,1.06666667 L0,16 Z" id="形状"></path>
+        </g>
+    </g>
+</svg>

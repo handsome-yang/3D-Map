@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>纵断面</title>
+    <link rel="stylesheet" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/analysis.css" />
+    <link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css" />
+</head>
+
+<body id="container" class="easyui-layout">
+
+    <div region="north" id="northDiv">
+        <div class="cardTitle">参数设置</div>
+
+        <div id="paramSetInner">
+            <div class="buttonTd">
+                <button id="addPipeline">添加管道</button>
+                <button id="delPipeline" disabled>删除</button>
+                <button id="startAnalysis" disabled>分析</button>
+            </div>
+        </div>
+    </div>
+
+    <div region="center" id="tablediv" border="false">
+        <div class="cardTitle">选取结果</div>
+
+        <div id="dgDiv">
+            <table id="tabhead" class="firstLong">
+                <thead>
+                    <tr>
+                        <td class="col1">编号</td>
+                        <td class="col2">类型</td>
+                        <td class="col3">图层</td>
+                    </tr>
+                </thead>
+            </table>
+
+            <div id="resultDiv">
+                <table id="tblResult" class="firstLong">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div region="south" id="southDiv"></div>
+
+    <script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+
+    <script type="text/javascript" src="../../js/common/myBlockUI.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript" src="../../js/stamplib/PipelineStandard.js"></script>
+
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+
+    <script type="text/javascript" src="../../js/stamplib/statistics.js"></script>
+
+    <script type="text/javascript" src="../../js/pipelineAnalysis/pipelineAnalysis.js"></script>
+    
+    <script type="text/javascript" src="../../js/pipelineAnalysis/PipeVerSectionAnalysis.js"></script>
+</body>
+
+</html>

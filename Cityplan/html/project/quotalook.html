@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>地块指标</title>
+</head>
+<style>
+td {
+    height: 20px;
+    padding: 0px;
+    width: 100px;
+    text-align: center;
+}
+</style>
+
+<body style="height:650px;overflow:auto;">
+    <div>
+        <table id="parcelTab" border="0" cellpadding="3" cellspacing="1" align="center" style="background-color: #b9d8f3;width:95%;">
+            <caption>
+                <b>技术经济指标</b>
+            </caption>
+
+            <tr style="text-align: center; COLOR: #0076C8; BACKGROUND-COLOR: #F4FAFF; font-weight: bold">
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="7">项目名称</td>
+                <td id="XMMC"></td>
+                <td colspan="7">案卷编号</td>
+                <td id="AJBH"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="7">规划用地面积</td>
+                <td id="GHYDMJ"></td>
+                <td colspan="7">规划净用地面积</td>
+                <td id="GHJYDMJ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="7">代征道路面积</td>
+                <td id="DZDLMJ"></td>
+                <td colspan="7">代征绿地面积</td>
+                <td id="DZLDMJ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="7">建筑基底面积</td>
+                <td id="JZJDMJ"></td>
+                <td colspan="7">绿地面积</td>
+                <td id="LDMJ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="7">幼儿园用地面积</td>
+                <td id="YEYYDMJ"></td>
+                <td colspan="7">幼儿园活动场地面积</td>
+                <td id="YEYHDCDMJ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="7">体育健身设施用地面积</td>
+                <td id="TYJSSSYDMJ"></td>
+                <td colspan="7">养老设施用地面积</td>
+                <td id="YLSSYDMJ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="7">总建筑面积</td>
+                <td id="ZJZMJ" colspan="9"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="16"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="16">计容建筑部分</td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="7">建筑类别</td>
+                <td>建筑面积</td>
+                <td colspan="8">备注</td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td rowspan="18" colspan="1">其中</td>
+                <td rowspan="14" colspan="1">地上</td>
+                <td colspan="5">住宅</td>
+                <td id="ZZ"></td>
+                <td colspan="8" id="ZZBZ"></td>
+            </tr>
+
+            <tr bgcolor="#F4FAFF">
+                <td colspan="5">商业</td>
+                <td id="SY"></td>
+                <td colspan="4" id="SYMM">商业门面</td>
+                <td colspan="4" id="JZSY">集中商业</td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">办公</td>
+                <td id="BG"></td>
+                <td colspan="8" id="BGBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">学校</td>
+                <td id="XX"></td>
+                <td colspan="8" id="XXBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">医院</td>
+                <td id="YY"></td>
+                <td colspan="8" id="YYBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">幼儿园</td>
+                <td id="YEY"></td>
+                <td colspan="8" id="YEYBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">社会公共服务设施</td>
+                <td id="SHGGFWSS"></td>
+                <td colspan="8" id="SHGGFWSSBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">体育健身设施</td>
+                <td id="TYJSSS"></td>
+                <td colspan="8" id="TYJSSSBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">养老设施</td>
+                <td id="YLSS"></td>
+                <td colspan="8" id="YLSSBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">厂房</td>
+                <td id="CF"></td>
+                <td colspan="8" id="CFBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">仓储</td>
+                <td id="CC"></td>
+                <td colspan="8" id="CCBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">设备用房</td>
+                <td id="SBYF"></td>
+                <td colspan="8" id="SBYFBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">车库</td>
+                <td id="CK"></td>
+                <td colspan="8" id="CKBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">其他</td>
+                <td id="JRDSQT"></td>
+                <td colspan="8" id="JRDSQTBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="6">地上面积合计</td>
+                <td id="DSMJHJ"></td>
+                <td colspan="8" id="DSMJHJBZ"></td>
+            </tr>
+
+            <tr bgcolor="#F4FAFF">
+                <td colspan="1" rowspan="2">地下</td>
+                <td colspan="5">商业</td>
+                <td id="DXSY"></td>
+                <td colspan="8" id="DXSYBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">其他经营性用房</td>
+                <td id="QTJYXYF"></td>
+                <td colspan="8" id="QTJYXYFBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="6">地下面积合计</td>
+                <td id="DXMJHJ"></td>
+                <td colspan="8" id="DXMJHJBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="7">计容建筑面积总合计</td>
+                <td colspan="9" id="JRJZMJZHJ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="16"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="16">不计容建筑部分</td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="7">建筑类别</td>
+                <td>建筑面积</td>
+                <td colspan="8">备注</td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td rowspan="8" colspan="1">其中</td>
+                <td rowspan="4" colspan="1">地上</td>
+                <td colspan="5">架空公共活动</td>
+                <td id="JKGGHD"></td>
+                <td colspan="8" id="JKGGHDBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">架空公共停车</td>
+                <td id="JKGGTC"></td>
+                <td colspan="8" id="JKGGTCBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">架空绿化</td>
+                <td id="JKLH"></td>
+                <td colspan="8" id="JKLHBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">其他</td>
+                <td id="BJRDSQT"></td>
+                <td colspan="8" id="BJRDSQTBZ"></td>
+            </tr>
+
+            <tr bgcolor="#F4FAFF">
+                <td colspan="1" rowspan="4">地下</td>
+                <td colspan="5">地下停车</td>
+                <td id="DXTC"></td>
+                <td colspan="8" id="DXTCBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">设备用房</td>
+                <td id="BJRSBYF"></td>
+                <td colspan="8" id="BJRSBYFBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">公共服务设施</td>
+                <td id="GGFWSS"></td>
+                <td colspan="8" id="GGFWSSBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">其他</td>
+                <td id="BJRDXQT"></td>
+                <td colspan="8" id="BJRDXQTBZ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="7">不计容建筑面积总合计</td>
+                <td colspan="9" id="BJRJZMJZHJ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="6">复核指标</td>
+                <td colspan="2">建筑密度(%)</td>
+                <td id="JZMD"></td>
+                <td colspan="2">容积率(%)</td>
+                <td id="RJL"></td>
+                <td colspan="3">绿地率(%)</td>
+                <td id="LDL"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td rowspan="3" colspan="7">机动车停车位</td>
+                <td rowspan="2" colspan="1">地上</td>
+                <td colspan="5">地面机动车停车位</td>
+                <td colspan="8" id="DMJDCTCW"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="5">地上立体机械停车位</td>
+                <td colspan="8" id="DSLTJXTCW"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="1">地下</td>
+                <td colspan="13" id="DXJDCTCW"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="8">合计</td>
+                <td colspan="8" id="JDCTCWHJ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td rowspan="2" colspan="7">非机动车停车位</td>
+                <td colspan="1">地上</td>
+                <td colspan="13" id="DSFJDCTCW"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="1">地下</td>
+                <td colspan="13" id="DXFJDCTCW"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="8">合计</td>
+                <td colspan="8" id="FJDCTCWHJ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="7">居住总人数</td>
+                <td colspan="9" id="JZZRS"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td rowspan="4" colspan="7">户数</td>
+                <td colspan="6">大于144m²</td>
+                <td colspan="6" id="MORETHAN"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="6">大于90m²,不大于144m²</td>
+                <td colspan="6" id="BETWEEN"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="6">不大于90m²</td>
+                <td colspan="6" id="LESSTHAN"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="6">合计</td>
+                <td colspan="6" id="HSHJ"></td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="16" align="left">备注:</td>
+            </tr>
+
+            <tr bgcolor='#F4FAFF'>
+                <td colspan="16" align="left">注:表中面积单位为平方米</td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/javascript" src="../../js/plugins/jquery.js"></script>
+    
+    <script type="text/javascript" src="../../js/project/quotalook.js"></script>
+</body>
+
+</html>

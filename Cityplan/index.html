@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>三维城市规划系统</title>
+    <!--加载中样式-->    
+    <link rel="stylesheet" type="text/css" href="css/loading.css" />
+
+    <!--用到easyui的dialog对话框-->
+    <link rel="stylesheet" type="text/css" href="css/easyui/default/easyui.css" />
+
+    <!--ztree图层管理树样式-->
+    <link rel="stylesheet" type="text/css" href="js/plugins/zTreeStyle/zTreeStyle.css" type="text/css" />
+
+    <!--主界面基本样式-->
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+</head>
+<body onunload="unloadEarth()">
+        <!-- 加载中提示 START -->
+    <div id="loading-mask"></div>
+    <div id="loading">
+        <div class="loading-indicator">
+            <img src="images/login/hc.gif" width="32" height="32" style="margin-right:8px;float:left;vertical-align:top;width:32px;height:32px;" />三维城市规划系统
+            <br /><span id="loading-msg">Loading styles and images...</span>
+        </div>
+    </div>
+    <!-- 加载中提示 END -->
+
+    <!-- 标题栏 START -->
+    <div id="headerDiv">
+        <div class="header">
+
+            <!-- logo -->
+            <img class="logoImg" src="" alt="logo">
+
+            <!-- 标题图片 -->
+            <img class="titleImg" src="" alt="标题">
+
+            <!-- 标题文字：没有设置标题图片时会起作用 -->
+            <span class="titleText"></span>
+
+            <!-- 右侧一级菜单 START -->
+            <div class="main-nav" id="DB_navi">
+                <ul class="DB_main" id="DB_ul">
+                </ul>
+            </div>
+            <!-- 右侧一级菜单 END -->
+
+        </div>
+    </div>
+    <!-- 标题栏 END -->
+
+    <!-- 主框架（包括左侧leftpanel、右侧上菜单栏tools、右侧中earth、右侧下视点页面） START -->
+    <div id="mainDiv">
+        <!--菜单栏下一页按钮 START-->
+        <div style="position:absolute;right:0px;top:0px;z-index:1000;background:white;width:40px;height:39px;">
+            <div id="nextMenu" class="toolIcon nextDbIcon " title="下一页"></div>
+            <div id="preMenu" class="toolIcon preDbIcon " title="上一页"></div>
+        </div>
+        <!--菜单栏下一页按钮 END-->
+
+        <!-- 左侧面板（常驻面板-规划审批  和  切换面板-功能面板）START -->
+        <div id="leftPanel" style="width:254px;height:100%;float:left;">
+            <!-- 功能面板-->
+            <div id="id_left_operator" style="height:99%;display:none;overflow:hidden;background-color:#eaedf2;">
+                <iframe id="operator" name="operator" style="width:100%;height: 100%;" frameborder="0"></iframe>
+            </div>
+
+            <!-- 常驻面板-规划审批 START -->
+            <div id="id_left_operator_1" style="height: 100%;width:100%;">
+                <!-- 规划审批-header START -->
+                <div class="layerHeader" id="layerHeader">
+                    <div class="layerHeaderInnerDiv">
+                        <img class="layerHeaderInnerImg" src="images/tools/方案管理.png">
+                        <span class="layerHeaderInnerText">规划审批</span>
+                    </div>
+                    <img class="closeLayerImg" id="closeLayer" src="images/toolsIcon/closeBtn.png" />
+                </div>
+                <!-- 规划审批-header END -->
+
+                <iframe name="projectManager" id="projectManager" style="width:100%;height: 100%;" frameborder="0" scrolling="no" src=""></iframe>
+            </div>
+        </div>
+        <!-- 左侧面板（常驻面板-图层管理  和  切换面板-功能面板）END -->
+
+        <!-- 右下侧面板（二级菜单栏、三维球、视点功能页面）：START -->
+        <div id="mainEarth" style="height:100%;margin-left:255px;">
+
+            <!-- 上（二级菜单栏）：START -->
+            <div id="toolDiv">
+                <div class="right_cont" id="div_toolBar">
+                    <div id="toolBar_ios">
+                    </div>
+                </div>
+            </div>
+            <!-- 上（二级菜单栏）：END -->
+
+            <!-- 中（三维球）：START -->
+            <div id="MapTwo" style="height:100%;">
+                <div id="earthDiv" class="whole"></div>
+                <div id="earthDiv1" class="hide"></div>
+                <div id="earthDiv2" class="hide"></div>
+            </div>
+            <!-- 中（三维球）：END -->
+
+            <!-- 下（视点页面）：START -->
+            <div id="viewpointMain" style="display:none;height:135px;width:100%;">
+                <iframe src="html/view/viewpointManagement.html" id="ResultMain" name="ResultMain" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto" style="width:100%;height:100%;"></iframe>
+            </div>
+            <!-- 下（视点页面）：END -->
+
+        </div>
+        <!-- 右下侧面板（二级菜单栏、三维球、视点功能页面）：END -->
+    </div>
+    <object id="dataProcess" classid="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></object>
+    <div id="generateEditDiv"></div>
+
+    <!-- jquery1.9.0 -->
+    <script type="text/javascript" src="js/plugins/jquery1.9.0.min.js"></script>
+
+    <!-- easyui -->
+    <script type="text/javascript" src="js/plugins/jquery.easyui.min.js"></script>
+
+    <!-- 树TREE -->
+    <script type="text/javascript" src="js/plugins/zTreeStyle/jquery.ztree.js"></script>
+
+    <!-- xml转json -->
+    <script type="text/javascript" src="js/plugins/jquery.xml2json.js"></script>
+    
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="js/config/config.js" ></script>
+
+    <!-- 菜单配置 -->
+    <script type="text/javascript" src="js/config/menuconfig.js"></script>
+
+    <!-- 公共方法 -->
+    <script type="text/javascript" src="js/common/common.js"></script>
+
+    <!-- 菜单相关功能方法 -->
+    <script type="text/javascript" src="js/menu.js"></script>
+
+    <!-- 二级菜单响应方法 -->
+    <script type="text/javascript" src="js/nav-tools.js"></script>
+
+    <!-- 二级菜单栏相关方法 -->
+    <script type="text/javascript" src="js/tools.js"></script>
+
+    <!-- 左侧面板方法 -->
+    <script type="text/javascript" src="js/leftPanel.js"></script>
+
+    <!-- 规划字段映射相关 -->
+    <script type="text/javascript" src="js/stamplib/mapMgr.js"></script>
+
+    <!-- 主页面脚本 -->
+    <script type="text/javascript" src="js/index.js"></script>
+
+    <!-- 重要*地图加载 -->
+    <script type="text/javascript" src="js/stamplib/StampBasemap.js"></script>
+
+
+    <!-- 功能相关脚本 START -->
+
+    <!-- 图层管理脚本 -->
+    <script type="text/javascript" src="js/stamplib/StampLayers.js"></script>
+
+    <script type="text/javascript" src="js/stamplib/layerManager.js"></script>
+
+    <!-- StampTools工具方法 -->
+    <script type="text/javascript" src="js/stamplib/StampTools.js"></script>
+
+    <!-- 属性查询 -->
+    <script type="text/javascript" src="js/stamplib/StampQuery.js"></script>
+
+    <!-- 管线标准 -->
+    <script type="text/javascript" src="js/stamplib/PipelineStandard.js"></script>
+
+    <!-- 量算 -->
+    <script type="text/javascript" src="js/stamplib/measure.js"></script>
+
+    <!-- 流向分析 -->
+    <script type="text/javascript" src="js/stamplib/flowDirection.js"></script>
+
+    <!-- 标注 -->
+    <script type="text/javascript" src="js/pipelineAnalysis/marked.js"></script>
+
+    <!-- 拉杆条：地下透明、雨、雪、雾 -->
+    <script type="text/javascript" src="js/stamplib/sliderMgr.js"></script>
+
+    <!-- 编辑工具 -->
+    <script type="text/javascript" src="js/stamplib/editor.js"></script>
+
+    <!-- 方案导入 -->
+    <script type="text/javascript" src="js/project/projectImport.js"></script>
+
+    <!-- 三维分析：分析功能用 -->
+    <script type="text/javascript" src="js/stamplib/analysis.js"></script>
+    
+    <!-- 统计功能模块 -->
+    <script type="text/javascript" src="js/stamplib/statistics.js"></script>
+
+    <!-- 管线分析：横断面分析、碰撞分析、埋深分析等 -->
+    <script type="text/javascript" src="js/pipelineAnalysis/pipelineAnalysis.js"></script>
+
+    <!-- 用户数据 -->
+    <script type="text/javascript" src="js/stamplib/userdata.js"></script>
+
+    <!-- 用户数据 -->
+    <script type="text/javascript" src="js/stamplib/searchAnalysis.js"></script>
+
+    <!-- 功能相关脚本 END -->
+
+</body>
+</html>

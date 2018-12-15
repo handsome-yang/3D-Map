@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>运动物体</title>
+		<link rel="stylesheet" href="../../css/easyui/gray/easyui.css" />
+		<link rel="stylesheet" href="../../css/easyui/icon.css" />
+		<link rel="stylesheet" type="text/css" href="../../js/plugins/zTreeStyle/zTreeStyle.css" type="text/css">
+		<link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css">
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<style type="text/css">
+			.panelTable select{
+				width: 90px;
+			}
+		</style>
+	</head>
+
+	<body id="container" class="easyui-layout" data-options="fit:true" style="height: 100%;">
+		<div region="north" id="northDiv">
+			<div class="cardTitle">参数设置</div>
+			<div id="paramSetInner">
+				<table class="panelTable">
+					<tr>
+						<td colspan="2" style="text-align: center;height:28px;">
+							<input type="radio" id="lbItem" name="lbItem" checked="checked" value="1">
+							<label for="lbItem">实时跟踪</label>
+							<input type="radio" id="xyItem" name="xyItem" value="2">
+							<label for="xyItem">历史轨迹</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>对象名称:</span>
+						</td>
+						<td>
+							<input type="text" id="dynamicName" value="" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>运动对象:</span>
+						</td>
+						<td>
+							<select id="selDynamicObj"></select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>数据协议:</span>
+						</td>
+						<td>
+							<select id="nema" value="NMEA">
+								<option selected>NEMA</option>
+							</select>
+						</td>
+						</tr>
+					
+					<tr>
+						<td>
+							<span>com端口:</span>
+						</td>
+						<td>
+							<select id="selComPort"></select>
+							<button id="btnGetComPort" class="afterInText">获取端口</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>轮询间隔:</span>
+						</td>
+						<td>
+							<input type="text" id="time" value="0.5" onkeyup="checkNum(this, true, 2, 1)">
+							<span class="afterInText">秒</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>存储路径:</span>
+						</td>
+						<td>
+							<input type="text" id="path" value="" disabled>
+							<button id="pathSel" class="afterInText" onClick="addLink()">选择路径</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>选择文件:</span>
+						</td>
+						<td>
+							<input type="text" id="hisPath" value="" disabled>
+							<button id="hisPathSel" class="afterInText" onClick="openLink()" disabled>选择路径</button>
+						</td>
+					</tr>
+				</table>
+				<div class="buttonDiv14">
+					<button id="btnEnter" tag="enter" disabled>开始</button>
+					<button id="btnStop" tag="enter" disabled>停止</button>
+				</div>
+			</div>
+			<!--paramSetInner-->
+		</div>
+		<div id="tablediv" region="center" border="false">
+			<div class="cardTitle">实时提示</div>
+			<div id="dgDiv">
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/zTreeStyle/jquery.ztree.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script type="text/javascript" src="../../js/config/config.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../js/view/track.js"></script>
+		<script type="text/javascript" src="../../js/view/GPS.js"></script>
+	</body>
+
+</html>

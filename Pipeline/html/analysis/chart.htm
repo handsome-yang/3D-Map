@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title id='Description'>开挖统计</title>
+    <link rel="stylesheet" href="../../html/statistics/jqwidgets/styles/jqx.base.css" type="text/css"/>
+    <script type="text/javascript" src="../../html/statistics/scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../html/statistics/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../../html/statistics/jqwidgets/jqxchart.js"></script>
+    <script type="text/javascript" src="../../html/statistics/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="../../html/statistics/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="../../js/plugins/json.js"></script>
+    <script type="text/javascript">
+        var statisAryData;
+        var displayF;
+        var chartTitle;
+        var dataT = "dataType";
+        function getAnalysisData(data) {
+            var chartData = [];
+            var fields = [];
+            var obj = JSON.parse(data);
+            var layersLen = obj[0].layer.length;
+            //可以优化一个循环......
+            for (var p = 0; p < layersLen; p++) {
+                for (var k = 0; k < layersLen; k++) {
+                    if (obj[k].dataList[0].layerName === obj[0].layer[p]) {
+                        var layerName = obj[0].layer[p];
+                        var objVal = obj[k].dataList[1];
+                        chartData.push({"dataType": layerName, "dataNum": objVal.dataNum, "pointNum": objVal.length});
+                    }
+                }
+            }
+            fields.push({dataField: "dataNum", displayText: "数量"}, {dataField: "pointNum", displayText: "总长度"});
+            var settings = {
+                title: "开挖统计图",
+                description: "",
+                enableAnimations: true,
+                showLegend: true,
+                padding: {left: 5, top: 5, right: 5, bottom: 5},
+                titlePadding: {left: 90, top: 0, right: 0, bottom: 10},
+                source: chartData,
+                categoryAxis: {
+                    text: 'Category Axis',
+                    textRotationAngle: 0,
+                    dataField: "dataType",//重要属性 dataT
+                    showTickMarks: true,
+                    tickMarksInterval: 1,
+                    tickMarksColor: '#888888',
+                    unitInterval: 1,
+                    showGridLines: true,
+                    showGridLines: true,
+                    gridLinesColor: '#888888',
+                    axisSize: 'auto'
+                },
+                colorScheme: 'scheme05',
+                seriesGroups: [
+                    {
+                        type: 'column',
+                        valueAxis: {
+                            displayValueAxis: true,
+                            description: '数值',
+                            tickMarksColor: '#888888',
+                            description: 'Value',
+                            logarithmicScale: true,
+                            logarithmicScaleBase: 2,
+                            unitInterval: 1,
+                            tickMarksInterval: 1,
+                            gridLinesInterval: 1,
+                            formatSettings: {decimalPlaces: 2}
+                        },
+                        series: fields //重要属性
+                    }
+                ]
+            };
+            $('#chartContainer').jqxChart(settings);
+        }
+    </script>
+</head>
+<body style="background:white;">
+<div id='chartContainer' style="width:680px; height: 380px;"/>
+</body>
+</html>

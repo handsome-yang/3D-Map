@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>系统设置</title>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+	</head>
+
+	<body class="easyui-layout">
+		<div id="northDiv">
+			<div class="cardTitle">界面设置</div>
+			<div id="paramSetInner" style="text-align: center;">
+				<div class="buttonDiv">
+					<input type="radio" value="1" name="selectword" />
+					<span>中文</span>
+					<input type="radio" value="0" name="selectword" />
+					<span>英文</span><br>
+				</div>
+				<div class="buttonDiv14">
+					<input type="checkbox" id="isshownavigation" style="margin-left: 0px;" />显示导航
+					<input type="checkbox" id="isshowlogo" />显示Logo
+				</div>
+				<div class="buttonDiv14">
+					<input type="checkbox" id="isshowinformation" style="margin-left: 0px;" />显示信息栏
+					<input type="checkbox" id="isshowprovider" />显示供应商
+				</div>
+				<div class="buttonDiv14">
+					<input type="checkbox" id="iscenter" style="margin-left: 0px;" />显示中心点
+					<input type="checkbox" id="istransitcircle" />显示经纬圈
+				</div>
+			</div>
+		</div>
+		<div class="settingDiv">
+			<div class="cardTitle">光源设置</div>
+			<div class="settingMainDiv">
+				<table class="panelTable" style="margin-left: 0px;">
+					<tr>
+						<td><span>主光源强度:</span></td>
+						<td><input type="text" id="mainlightintensity" onkeyup="checkNum(this, true, 2, 1)" /></td>
+					</tr>
+					<tr>
+						<td><span>辅助光源1强度:</span></td>
+						<td><input type="text" id="auxiliarylightintensityone" onkeyup="checkNum(this, true, 2, 1)" /></td>
+					</tr>
+					<tr>
+						<td><span>辅助光源2强度:</span></td>
+						<td><input type="text" id="auxiliarylightintensitytwo" onkeyup="checkNum(this, true, 2, 1)" /></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="settingDiv">
+			<div class="cardTitle">渲染设置</div>
+			<div class="settingMainDiv">
+				<table class="panelTable" style="margin-left: 0px;">
+					<tr>
+						<td><span>各项异性过滤:</span></td>
+						<td>
+							<select id="anisotropicfiltering">
+								<option value="8">8x</option>
+								<option value="16">16x</option>
+								<option value="18">18x</option>
+								<option value="24">24x</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>水面波纹比例:</span>
+						</td>
+						<td>
+							<input type="text" value="1" id="watertype" onkeyup="checkNum(this, true, 2, 10000)" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>水面颜色:</span>
+						</td>
+						<td>
+							<input type="text" id="watercolor" value="#00ff00" />
+							<input type="button" id="watercolorsel" style=";background-color:#00ff00" class="afterInText colorBtn" value="" onClick="fillColorDlg('watercolorsel')" />
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!--采用保存的方式去进行设置-->
+		<div class="buttonDiv">
+			<button class="normalBtn" id="confirmBtn">确定</button>
+		</div>
+		<OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"></OBJECT>
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<script type="text/javascript" src="../../js/view/systemSettingNow.js"></script>
+
+	</body>
+
+</html>

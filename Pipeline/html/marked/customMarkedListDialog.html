@@ -1,0 +1,145 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>自定义标注</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <style type="text/css">
+        table.innerTable {
+            width: 323px;
+            border: 1px double #ACA899;
+        }
+        td {
+            text-align: center;
+            padding: 2px;
+        }
+
+        td.tableHeader {
+            background-color: #8db2e3;
+            border-bottom: 1px double #ACA899;
+        }
+    </style>
+</head>
+<body class="dialogBG">
+<br/>
+<table>
+    <tr>
+        <td>
+            <table class="innerTable" cellspacing="0">
+                <tr>
+                    <td class="tableHeader">选择</td>
+                    <td class="tableHeader">属性字段</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="usKey" name="markedAttrs" value="US_KEY"/></td>
+                    <td><label for="usKey">唯一编号</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="usSptKey" name="markedAttrs" value="US_SPT_KEY"/></td>
+                    <td><label for="usSptKey">起点编号</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="usEptKey" name="markedAttrs" value="US_EPT_KEY"/></td>
+                    <td><label for="usEptKey">终点编号</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="usSdeep" name="markedAttrs" value="US_SDEEP"/></td>
+                    <td><label for="usSdeep">起点埋深</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="usEdeep" name="markedAttrs" value="US_EDEEP"/></td>
+                    <td><label for="usEdeep">终点埋深</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="usSalt" name="markedAttrs" value="US_SALT"/></td>
+                    <td><label for="usSalt">起点地面高程</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="usEalt" name="markedAttrs" value="US_EALT"/></td>
+                    <td><label for="usEalt">终点地面高程</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="usFlowdIr" name="markedAttrs" value="US_FLOWDIR"/></td>
+                    <td><label for="usFlowdIr">管内流向</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="usPmater" name="markedAttrs" value="US_PMATER"/></td>
+                    <td><label for="usPmater">材质类型</label></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="usPdiam" name="markedAttrs" value="US_PDIAM"/></td>
+                    <td><label for="usPdiam">管径</label></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="40px">
+            <button id="selectAllBtn">全选</button>&nbsp;&nbsp;
+            <button id="InvSelectBtn">反选</button>&nbsp;&nbsp;
+            <button id="confirmBtn">确定</button>&nbsp;&nbsp;
+            <button id="cancelBtn">取消</button>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+
+
+<script type="text/javascript">
+    $(function () {
+        var param2 = window.dialogArguments;
+        $("#usKey").val(param2.us_key);
+        $("#usSptKey").val(param2.us_spt);
+        $("#usEptKey").val(param2.us_ept);
+        $("#usSdeep").val(param2.us_sdeep);
+        $("#usEdeep").val(param2.us_edeep);
+        $("#usSalt").val(param2.us_salt);
+        $("#usEalt").val(param2.us_ealt);
+        $("#usFlowdIr").val(param2.us_flowdir);
+        $("#usPmater").val(param2.us_pmater);
+        $("#usPdiam").val(param2.us_size);
+
+        /**
+         * 功能：【全选】按钮事件
+         */
+        $("button#selectAllBtn").click(function () {
+            $(":checkbox").attr("checked", true);
+        });
+
+        /**
+         * 功能：【反选】按钮事件
+         */
+        $("button#InvSelectBtn").click(function () {
+            $(":checkbox").each(function () {
+                $(this).attr("checked", !$(this).attr("checked"));
+            });
+        });
+
+        /**
+         * 功能：【确定】按钮事件
+         */
+        $("button#confirmBtn").click(function () {
+            var markedList = [];
+            $(":checkbox:checked").each(function () {
+                var id = $(this).attr("id");
+                var attrName = $(this).val();
+                var attrText = $("label:[for=" + id + "]").html();
+                markedList.push({attrName: attrName, attrText: attrText});
+            });
+            if (markedList.length == 0) {
+                alert("请选择属性字段");
+                return;
+            }
+            window.returnValue = markedList;
+            window.close();
+        });
+
+        /**
+         * 功能：【取消】按钮事件
+         */
+        $("button#cancelBtn").click(function () {
+            window.close();
+        });
+    });
+</script>
+</body>
+</html>

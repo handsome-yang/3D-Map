@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>2.5D出图</title>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/analysis.css"/>
+</head>
+
+<body>
+<table class="paramTable">
+    <tr>
+        <td>
+            <span>路径文件:</span>
+        </td>
+        <td>
+            <input id="path" type="text" style="width:200px;" disabled/>
+            <span class="afterInText">&nbsp;&nbsp;&nbsp;</span>
+            <button class="afterInText" id="select">选择路径</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>相机朝向:</span>
+        </td>
+        <td>
+            <input id="heading" type="text" style="width:200px;"
+                   onpropertychange="checkNum(this, true, 2, 360, isStartEnable)"/>
+            <span class="afterInText">度</span>
+            <button id="cameraPose" class="afterInText">获取姿态</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>相机俯仰:</span>
+        </td>
+        <td>
+            <input id="tilt" type="text" style="width:200px;"
+                   onpropertychange="checkNum(this, false, 2, 89, isStartEnable)"/>
+            <span class="afterInText">度</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>相机距离:</span>
+        </td>
+        <td>
+            <input id="range" type="text" style="width:200px;"
+                   onpropertychange="checkNum(this, true, 2, 10000, isStartEnable)"/><span class="afterInText">米</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>经度范围:</span>
+        </td>
+        <td>
+            <input id="longitude1" type="text" style="width:80px;"
+                   onpropertychange="checkNum(this, true, null, null, isStartEnable)"/>
+            <span class="afterInText">至</span>
+            <input id="longitude2" type="text" style="width:80px;"
+                   onpropertychange="checkNum(this, true, null, null, isStartEnable)"/>
+            <span class="afterInText">度</span>
+            <button id="btn_select_sector" class="afterInText">选取范围</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>纬度范围:</span>
+        </td>
+        <td>
+            <input id="latitude1" type="text" style="width:80px;"
+                   onpropertychange="checkNum(this, true, null, null, isStartEnable)"/>
+            <span class="afterInText">至</span>
+            <input id="latitude2" type="text" style="width:80px;"
+                   onpropertychange="checkNum(this, true, null, null, isStartEnable)"/>
+            <span class="afterInText">度</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>出图进度:</span>
+        </td>
+        <td>
+            <span id="currentNum" style="margin-left: 8px;">0</span>
+            <span>/</span>
+            <span id="totalNum">0</span>
+        </td>
+    </tr>
+</table>
+
+<div class="buttonTd">
+    <button id="btnClear">重置</button>
+    <button id="btnStart" disabled>开始</button>
+    <button id="btnMiddle">断点出图</button>
+</div>
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../../js/common/common.js"></script>
+<script type="text/javascript" src="../../js/view/pictures.js"></script>
+</body>
+
+</html>

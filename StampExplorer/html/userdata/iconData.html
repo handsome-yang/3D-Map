@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>符号标注</title>
+		<link rel="stylesheet" href="../../css/common.css" type="text/css" />
+		<link rel="stylesheet" href="../../css/analysis.css" type="text/css" />
+
+		<style>
+			.inputText {
+				width: 163px;
+			}
+
+			.selectM {
+				width: 167px;
+			}
+
+			.textA {
+				width: 167px;
+			}
+		</style>
+	</head>
+
+	<body onLoad="attribute()" onunload="unloadWindow()">
+		<table class="paramTable">
+			<!--名称-->
+			<tr>
+				<td>名称:</td>
+
+				<td>
+					<input type="text" id="pointName" class="inputText" maxlength="20" value="point" onpropertychange="valChange(this)" />
+				</td>
+			</tr>
+
+			<!--图标-->
+			<tr>
+				<td>
+
+					<span>图标:</span>
+				</td>
+
+				<td>
+					<input id="iconNormalValue" class="inputText" type="text" />
+					<button class="afterInText" id="Normal" onClick="addIcon(this)">选取文件</button>
+				</td>
+
+			</tr>
+
+			<!--高亮图标-->
+			<tr>
+				<td>
+					<span>高亮图标:</span>
+				</td>
+
+				<td>
+					<input id="iconSelectedValue" class="inputText" type="text" />
+
+					<button class="afterInText" id="Selected" onClick="addIcon(this)">选取文件</button>
+				</td>
+			</tr>
+
+			<!--文字颜色-->
+			<tr>
+				<td>
+					<span>文字颜色:</span>
+				</td>
+
+				<td>
+					<input id="textColor" type="text" class="inputText" value="#ffffff" />
+
+					<input id="SelectedColor" type="button" class="afterInText colorBtn" style="background-color:#ffffff" value="" onClick="fillColorDlg('SelectedColor')" />
+				</td>
+			</tr>
+
+			<!--文字横向比例-->
+			<tr>
+				<td align="right">
+					<span>文字比例:</span>
+				</td>
+
+				<td>
+					<input id="textHorizontalScale" class="inputText" type="text" value="1" />
+				</td>
+			</tr>
+
+			<!--显示指示线-->
+			<tr>
+				<td align="right">
+					<span>显示指示线:</span>
+				</td>
+
+				<td>
+					<select name="showHandle" id="showHandle" onchange="slectChangeAboutShowLine(event)" class="selectM">
+
+						<option value="false">否</option>
+
+						<option value="true">是</option>
+
+					</select>
+				</td>
+			</tr>
+
+			<!--指示线长度-->
+			<tr>
+				<td>
+					<span>指示线长度:</span>
+				</td>
+
+				<td>
+					<input id="handleHeight" class="inputText" type="text" value="2" disabled/>&nbsp;&nbsp;米
+				</td>
+			</tr>
+
+			<!--指示线颜色-->
+			<tr>
+				<td>
+					<span>指示线颜色:</span>
+				</td>
+
+				<td>
+					<input id="handleColor" class="inputText" type="text" value="#ffffff" readonly/>
+
+					<input id="SelectedLinecolor" type="button" class="afterInText colorBtn" style="background-color:#ffffff" disabled value="" onClick="fillColorDlg('SelectedLinecolor')" />
+				</td>
+			</tr>
+
+			<!--可视范围-->
+			<tr>
+				<td>
+					<span>可视范围:</span>
+				</td>
+
+				<td>
+					<input type="text" id="MinVisibleRange" style="width:60px;" value="0" />
+					<span class="afterInText">至</span>
+
+					<input type="text" id="MaxVisibleRange" style="width:60px;" value="100" />
+					<span class="afterInText">千米</span>
+				</td>
+			</tr>
+
+			<!--可选择性-->
+			<tr id="selectableRow">
+				<td>
+					<span>可选择性</span>
+				</td>
+
+				<td>
+					<select name="selectable" id="selectable" class="selectM" value="false" onChange="editablesel()">
+
+						<option value="true">是</option>
+
+						<option value="false">否</option>
+
+					</select>
+				</td>
+			</tr>
+
+			<!--可编辑-->
+			<tr id="editableRow">
+				<td>
+					<span>可编辑:</span>
+				</td>
+
+				<td>
+					<select name="editable" id="editable" class="selectM" value="false">
+
+						<option value="true">是</option>
+
+						<option value="false">否</option>
+
+					</select>
+				</td>
+			</tr>
+
+			<!--描述-->
+			<tr>
+				<td>
+					<span>描述:</span>
+				</td>
+
+				<td>
+					<textarea id="description" class="textA" cols="30" rows="5"></textarea>
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+
+			<button class="largeBtn" onClick="point_submit()">确定</button>
+
+			<button class="largeBtn" onClick="closeWindow()">取消</button>
+
+		</div>
+		<OBJECT id="dlgHelper" CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"></OBJECT>
+
+		<OBJECT id="dataProcess" CLASSID="clsid:DDA7E893-8EEE-4A1E-A506-867932BD0FB9" style="display:none;"></OBJECT>
+
+		<script type="text/javascript" src="../../js/config/config.js"></script>
+		<script type="text/javascript" src="../../js/common/common.js"></script>
+		<!-- 符号标注 -->
+		<script type="text/javascript" src="../../js/userdata/iconData.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8"/>
+    <title>附属物查询</title>
+    <link rel="stylesheet" href="../../css/easyui/default/easyui.css"/>
+    <link rel="stylesheet" href="../../css/easyui/icon.css"/>
+    <link rel="stylesheet" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/analysis.css"/>
+    <link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css"/>
+</head>
+<body id="container" class="easyui-layout">
+<div region="north" id="northDiv" border="false">
+    <div class="cardTitle">参数设置</div>
+    <div class="paramSetInner">
+        <table class="paramTable paramNoMagTop">
+            <tr>
+                <td>
+                    图层:
+                </td>
+                <td>
+                    <select id="selLayers" class="twoBefBtnAfterSelect"></select>
+                    <button class="afterInText" id="btnQueryVal">获取附属物</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="colTdLeft">
+                    <span>附属物:</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div id="scrollParamDiv" class="spaticialScroll">
+                        <div id="divPipeLineTypeList"></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="buttonTd">
+            <button id="btnQuery" disabled>全部</button>&nbsp;&nbsp;
+            <button id="btnCircleSelect" disabled>圆域</button>&nbsp;&nbsp;
+            <button id="btnPolygonSelect" disabled>多边形</button>
+        </div>
+    </div>
+</div>
+<div class="enter" id="tablediv" region="center" border="true">
+    <div class="cardTitle">查询结果</div>
+    <div id="dgDiv">
+        <table id="dg" border="0" data-options="
+                rownumbers:false,
+                singleSelect:true,
+                autoRowHeight:false,
+                pagination:true">
+        </table>
+    </div>
+
+</div>
+
+<div region="south" id="southDiv" border="false">
+    <input type="checkbox" id="detailData" name="detailData" style="margin-left: 10px;" disabled>详细信息
+    <button class="largeBtn" id="importExcelBtn" style="margin-left: 75px;" disabled>导出</button>
+</div>
+<div style="display: none;">
+    <table id="importResult">
+        <tbody></tbody>
+    </table>
+</div>
+<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="../../js/stamplib/statistics.js"></script>
+<script type="text/javascript" src="../../js/stamplib/FileValueStringMap.js"></script>
+<script type="text/javascript" src="../../js/common/common.js"></script>
+<script type="text/javascript" src="../../js/stamplib/pageHelper.js"></script>
+<script type="text/javascript" src="../../js/stamplib/query.js"></script>
+<script type="text/javascript" src="../../js/query/attachmentQuery.js"></script>
+
+
+</body>
+</html>

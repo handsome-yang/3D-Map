@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>右屏设置</title>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+	</head>
+
+	<body onunload="unloadWindow()">
+		<table class="paramTable">
+			<tr>
+				<td><span>数据文件:</span></td>
+				<td>
+					<select id="file" class="selectM">
+						<option selected> 0</option>
+						<option> 1</option>
+						<option> 2</option>
+						<option> 3</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<div class="buttonTd">
+			<button id="btn_select_sector">确定</button>
+			<button id="btnStop">取消</button>
+		</div>
+		<script type="text/javascript" src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script>
+			//接收界面参数
+			var obj = window.dialogArguments;
+			var isSubmit = false;
+			$(function() {
+				if(obj.selectSet != undefined) {
+					$("#file").val(obj.selectSet);
+				}
+				$("#btn_select_sector").click(function() {
+					clickOK();
+					window.close();
+				});
+				var clickOK = function() {
+					obj.selectSet = $("#file ").val();
+					obj.tag = true;
+					isSubmit = true;
+					return obj;
+				}
+				$("#btnStop").click(function() {
+					window.close();
+				});
+			});
+
+			function unloadWindow() {
+				if(isSubmit) {
+					obj.tag = true;
+				}
+			}
+		</script>
+	</body>
+
+</html>

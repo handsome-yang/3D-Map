@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>添加模型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</title>
+	<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/analysis.css" />
+</head>
+
+<body onLoad="attribute()" onunload="unloadWindow()" >
+	<table class="paramTable">
+		<tr>
+			<td>模型文件:</td>
+
+			<td>
+				<input id="link" type="text"/>
+
+				<button class="afterInText" onClick="addLink()" >选择文件</button>
+			</td>
+		</tr>
+
+		<tr>
+			<td>建筑基底:</td>
+
+			<td>
+				<input id="shplink" type="text"/>
+				<button class="afterInText" onClick="addShpLink()" >选择文件</button>
+			</td>
+		</tr>
+	</table>
+
+	<div class="buttonTd">
+		<button id="submitAdd" onClick="model_submit()" disabled>确定</button>
+
+	    <button id="clear" onClick="model_close()">取消</button>
+	</div>
+
+	<script type="text/javascript" src="../../js/config/config.js"></script>
+	
+	<script type="text/javascript" src="../../js/project/addModel.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8" >
+    <title>红线分析</title>
+    <link rel="stylesheet" href="../../css/easyui/default/easyui.css" />
+    <link rel="stylesheet" href="../../css/common.css" />
+</head>
+
+<body id="container" class="easyui-layout" oncontextmenu="return false;">
+    <div id="northDiv" region="north" border="false" split="false">
+        <div class="cardTitle">参数设置</div>
+
+        <div id="paramSetInner">
+            <table class="panelTable">
+                <tr>
+                    <td>退线距离: </td>
+
+                    <td>
+                        <input type="text" id="txtDist" value="0" onpropertychange="checkNum(this, true, 2, null, null)" />
+
+                        <span class="afterInText">米</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="colTd" colspan="2">
+                        <label>
+                            <input type="radio" name="road" id="rdoSelectRoad" value="0" checked />选择红线
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="road" id="rdoAllRoad" value="1" />全部红线
+                        </label>
+                    </td>
+                </tr>
+            </table>
+            <div class="buttonDiv14">
+                <button id="btnSelectRoad">选择红线</button>
+                <button id="btnAnalysis" disabled>开始分析</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="centerDiv" region="center" border="false" split="true">
+        <div class="cardTitle">查询结果</div>
+
+        <div id="dgDiv">
+            <table id="dg" fit="true" border="true" data-options="
+                        singleSelect:true,
+                        pagination:false">
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../js/plugins/jquery.js"></script>
+    <script type="text/javascript" src="../../js/plugins/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+    <script type="text/javascript" src="../../js/analysis/roaddistance.js"></script>
+</body>
+
+</html>

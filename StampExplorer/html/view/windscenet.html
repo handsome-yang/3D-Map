@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>风场分析</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/easyui/icon.css" />
+		<link rel="stylesheet" type="text/css" href="../../js/plugins/zTreeStyle/zTreeStyle.css" type="text/css">
+		<link rel="stylesheet" href="../../css/mCustomScrollbar/jquery.mCustomScrollbar.css">
+		<link rel="stylesheet" href="../../css/common.css" />
+	</head>
+
+	<body id="container" class="easyui-layout">
+		<div region="north" id="northDiv">
+			<div class="cardTitle">参数设置</div>
+			<div id="paramSetInner">
+				<table class="panelTable">
+					<tr>
+						<td>风场数据:</td>
+						<td>
+							<input id="path" type="text" value="" disabled/>
+							<button id="select" class="afterInText">选择路径</button>
+						</td>
+					</tr>
+					<tr>
+						<td>经度偏移:</td>
+						<td>
+							<input id="lonOffset" type="text" value="0" onpropertychange="checkNum(this,false,20,180);" />
+						</td>
+					</tr>
+					<tr>
+						<td>纬度偏移:</td>
+						<td>
+							<input id="latOffset" type="text" value="0" onpropertychange="checkNum(this,false,20,90);" />
+						</td>
+					</tr>
+					<tr>
+						<td>风速倍率:</td>
+						<td>
+							<input id="windSpeed" type="text" value="10" onpropertychange="checkNum(this, true, 2, 10000);" />
+						</td>
+					</tr>
+					<tr>
+						<td>粒子密度:</td>
+						<td>
+							<input id="LZMD" type="text" value="5" onpropertychange="checkNum(this, true, 0, 10000);" />
+						</td>
+					</tr>
+					<tr>
+						<td>粒子大小:</td>
+						<td>
+							<input id="LZDX" type="text" value="1" onpropertychange="checkNum(this, true, 0, 10);" />
+						</td>
+					</tr>
+				</table>
+				<div class="buttonDiv14">
+					<button id="btnStartAnalysis" disabled>调整</button>
+					<button id="btnSelect" disabled>查询</button>
+				</div>
+			</div>
+		</div>
+		<div region="center" id="tablediv">
+			<div class="cardTitle">风场层</div>
+			<div style="font-size: 12px;padding: 3px;margin-top: 10px;text-align: left;">
+				<span>当前风层:</span>
+				<input id="CurrentLayer" type="text" value="0" style="width:50px" onpropertychange="checkNum(this,true,0);" />
+				<span><button id="btnSetCurrentLayer" >设置</button></span>
+			</div>
+		</div>
+		<script src="../../js/plugins/jquery1.9.0.min.js"></script>
+		<script src="../../js/plugins/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../../js/plugins/zTreeStyle/jquery.ztree.js"></script>
+		<script src="../../js/plugins/jquery.xml2json.js"></script>
+		<script src="../../js/plugins/locale/easyui-lang-zh_CN.js"></script>
+		<script src="../../js/plugins/My97DatePicker/WdatePicker.js"></script>
+		<script src="../../js/stamplib/StampQuery.js"></script>
+		<script type="text/javascript" src="../../js/plugins/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="../../js/stamplib/analysis.js"></script>
+		<script src="../../js/common/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/view/windscenet.js"></script>
+	</body>
+
+</html>
