@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>画板</title>
+    <desc>Created with Sketch.</desc>
+    <g id="画板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="dingdianfaxian-2" transform="translate(3.000000, 3.000000)" fill="#FFFFFF">
+            <g id="dingdianfaxian">
+                <polygon id="路径" points="2.08125 9.75625 0.36875 7.7625 4.8 4.23125"></polygon>
+                <polygon id="路径" points="4.95 4.225 5.04375 4.225 7.79375 9.80625 2.16875 9.80625"></polygon>
+                <polygon id="路径" points="5.19375 4.23125 9.63125 7.7625 7.9125 9.75625"></polygon>
+                <polygon id="路径" points="4.375 0.625 5.625 0.625 5.625 4.8375 4.375 4.8375"></polygon>
+                <polyline id="路径" points="2.5 2.5 5 0 7.5 2.5"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -353,7 +353,7 @@ STAMP.menuConfig = {
 					"id": "historyNoSlider",
 					"name": "历史查看",
 					"title": "历史查看",
-					"src": "images/tools/查看历史.svg"
+					"src": "images/tools/历史查看.svg"
 				}, {
 					"tag": "108",
 					"id": "historyData",
@@ -413,7 +413,7 @@ STAMP.menuConfig = {
 					"id": "clipScene",
 					"name": "剖切分析",
 					"title": "剖切分析",
-					"src": "images/tools/剖面分析.svg"
+					"src": "images/tools/剖切分析.svg"
 				}, {
 					"tag": "306",
 					"id": "mExcavationAndFill",
@@ -425,7 +425,7 @@ STAMP.menuConfig = {
 					"id": "submerge",
 					"name": "淹没分析",
 					"title": "淹没分析",
-					"src": "images/tools/流域分析.svg"
+					"src": "images/tools/淹没分析.svg"
 				}
 				, {
 					"tag": "309",
@@ -498,8 +498,8 @@ STAMP.menuConfig = {
 		},
 		{
 			"id": "userdata",
-			"name": "对象",
-			"title": "对象",
+			"name": "标绘",
+			"title": "标绘",
 			"tag": "5",
 			"src": "images/top/inactiveIcons/userdata.svg",
 			"item": [{
@@ -507,7 +507,7 @@ STAMP.menuConfig = {
 					"id": "dynamicObject",
 					"name": "动态特效",
 					"title": "动态特效",
-					"src": "images/tools/动态对象.svg",
+					"src": "images/tools/动态特效.svg",
 					"item": [{
 						"tag": "50801",
 						"id": "fire",

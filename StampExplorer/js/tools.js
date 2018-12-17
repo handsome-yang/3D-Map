@@ -12,7 +12,7 @@ var zoomInit = getZoom();//初始化时可以直接使用当前浏览器的缩�
 var disabledButtonArr = []; //需禁用按钮数组
 var toolBarHtmlArr = []; //二级菜单栏html数组
 var lastClickMenu = null; //上一次点击的一级菜单的id
-var earthToolWidth = Math.ceil(100 * zoomInit + 32); //宽
+var earthToolWidth = Math.ceil(103 * zoomInit + 32); //宽
 var earthToolHeight = Math.ceil(603 * zoomInit + 32); //高
 var toolsNormalColor = "#fff"; //默认颜色
 
@@ -134,8 +134,8 @@ function updateEarthToolsDiv(toolsDiv) {
 //弹出工具栏菜单
 function showEarthTools() {
 	earthToolsBalloon = LayerManagement.earth.Factory.CreateHtmlBalloon(LayerManagement.earth.Factory.CreateGuid(), '功能菜单');
-	earthToolsBalloon.SetScreenLocation('120', '30');
-	earthToolsBalloon.SetRectSize(earthToolWidth, earthToolHeight);
+	earthToolsBalloon.SetScreenLocation('150', '40');
+	earthToolsBalloon.SetRectSize(earthToolWidth, earthToolHeight);//这个是修改工具栏的宽高的
 	earthToolsBalloon.SetIsAddCloseButton(false);
 	earthToolsBalloon.SetIsAddMargin(true);
 	earthToolsBalloon.SetIsAddBackgroundImage(true);

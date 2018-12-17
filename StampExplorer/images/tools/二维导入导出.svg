@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>画板</title>
+    <desc>Created with Sketch.</desc>
+    <g id="画板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="daorudaochu" transform="translate(2.000000, 3.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M10.5,7.03703704 L10.5,8.51443321 L1.5,8.51443321 L1.5,7.03703704 L0,7.03703704 L0,10 L12,10 L12,7.03703704 L10.5,7.03703704 Z M2.32258065,4.19834405 L3.87913968,4.19834405 L3.87913968,0 L5.41935484,0 L5.41935484,7.03703704 L2.32258065,4.19834405 Z M6.58064516,0 L6.58064516,7.03703704 L8.11260167,7.03703704 L8.11260167,2.79374584 L9.67741935,2.79374584 L6.58064516,0 Z" id="形状"></path>
+        </g>
+    </g>
+</svg>

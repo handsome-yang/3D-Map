@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>画板</title>
+    <desc>Created with Sketch.</desc>
+    <g id="画板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="分组-15" transform="translate(1.000000, 4.000000)">
+            <g id="分组-14">
+                <path d="M2.11128974,3.60434167 L8.69375,3.60434167" id="直线-2" stroke="#FFFFFF" stroke-linecap="square" stroke-dasharray="2"></path>
+                <ellipse id="椭圆形" fill="#FFFFFF" cx="1.21875" cy="3.6" rx="1.21875" ry="1.2"></ellipse>
+                <g id="pinghangsibianxing" transform="translate(5.687500, 0.000000)" fill="#FFFFFF">
+                    <polygon id="路径" points="1.63434783 0 7.31086957 0 5.68304348 7.99810651 0.00652173913 7.99810651"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -9,7 +9,7 @@
 				margin: 0px;
 				padding: 0px;
 				overflow: hidden;
-				background: #2a80c9;
+				/* background: #2a80c9; */
 				width: 100%;
 				height: 100%;
 				font-size: 12px;
@@ -37,7 +37,7 @@
 			}
 
 			.toolItem:hover {
-				background: url('images/earthTools/earthTool-bg.png');
+				/* background: url('images/earthTools/earthTool-bg.png'); */
 			}
 
 			#prevBtn,
@@ -47,14 +47,14 @@
 				display: none;
 				width: 100%;
 				height: 22px;
-				background: #2a80c9;
+				/* background: #2a80c9; */
 				z-index: 100;
 				cursor: pointer;
 			}
 
 			#prevBtn:hover,
 			#nextBtn:hover {
-				background: url('images/earthTools/earthTool-bg.png');
+				/* background: url('images/earthTools/earthTool-bg.png'); */
 			}
 
 			#prevBtn img,
@@ -67,19 +67,46 @@
 				width: 100px;
 				margin: 0px;
 				padding: 0px;
-			box-shadow: 0 1px 4px 0 #090755;
-				background-color: rgba(19, 18, 128, 0.7);
+				border: 1px solid #393fdb;
+				box-shadow: 0 1px 4px 0 #090755;
+				background-color:rgba(19, 18, 128, 0.7);
 				position: relative;
 			}
-
+			.top-left{
+				position: absolute;
+				left: -1px;
+				top: -1px;
+			}
+			.top-right{
+				transform: rotate(90deg);
+				position: absolute;
+				right: -1px;
+				top: -1px;
+			}
+			.bottom-left{
+				transform: rotate(-90deg);
+				position: absolute;
+				left: -1px;
+				bottom: 1px;
+			}
+			.bottom-right{
+				transform: rotate(180deg);
+				position: absolute;
+				right: -1px;
+				bottom: 1px;
+			}
 		</style>
 	</head>
 
 	<body>
 		<div id="earthTools">
+			<img src="./images/earthTools/框边角.svg" class="top-left"  alt="">
+			<img src="./images/earthTools/框边角.svg" class="top-right" alt="">
+			<img src="./images/earthTools/框边角.svg" class="bottom-left"  alt="">
+			<img src="./images/earthTools/框边角.svg" class="bottom-right" alt="">
 			<div id="LayerManager" class="toolItem" title="图层管理">
 				<img src="images/earthTools/active/图层.svg" isChecked="true" />
-				<span style="color:#08f6fc;">图层</span>
+				<span>图层</span>
 			</div>
 			<div id="ViewTranSetting" title="地形透明" class="toolItem">
 				<img src="images/earthTools/normal/透明.svg" />
